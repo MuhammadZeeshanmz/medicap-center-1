@@ -68,31 +68,65 @@ $configData = Helper::appClasses();
 
 @section('content')
 <div data-bs-spy="scroll" class="scrollspy-example">
-  <!-- Hero: Start -->
-  <section id="hero-animation">
-    <div id="landingHero" class="section-py landing-hero position-relative">
-      <div class="container">
-        <div class="hero-text-box text-center">
-          <h1 class="text-primary hero-title display-6 fw-bold">
-            {{ !empty($sectionContent->hero_section_title) ? $sectionContent->hero_section_title : 'Compassionate Care for Your Health Journey' }}
+ <!-- Hero: Start -->
+<section id="hero-animation" class="pt-100 pb-60">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Text + Form -->
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="hero-text-box">
+          <h1 class="hero-title display-5 fw-bold">
+            {{ !empty($sectionContent->hero_section_title) ? $sectionContent->hero_section_title : 'Find Anything From Nearest Location To Make A Booking' }}
           </h1>
-          <h2 class="hero-sub-title h6 mb-4 pb-1">
-            {{ !empty($sectionContent->hero_section_subtitle) ? $sectionContent->hero_section_subtitle : 'State-of-the-art medical services with a personal touch. Because your health matters to us.' }}
-          </h2>
-          <div class="landing-hero-btn d-inline-block position-relative">
-            <a href="#landingContact" class="btn btn-primary btn-lg">Book an Appointment</a>
-          </div>
-        </div>
-        <div id="heroDashboardAnimation" class="hero-animation-img">
-          <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
-            <img src="{{ !empty($sectionContent->hero_section_background_img) ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img) : asset('assets/img/front-pages/medical/hero-doctor.png') }}" alt="doctor and patient" class="animation-img" />
+          <p class="hero-sub-title fs-5 mt-3 mb-4">
+            {{ !empty($sectionContent->hero_section_subtitle) ? $sectionContent->hero_section_subtitle : 'Link Build is an advanced and modern-looking directory script with rich SEO features where you can create your.' }}
+          </p>
+
+          <!-- Search Form -->
+          <div class="form-wrapper shadow-md bg-white p-4 rounded-4 mt-4">
+            <form id="homepage_search" action="{{ route('frontend.services') }}" method="get">
+              <div class="row g-3 align-items-center">
+                <div class="col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0">
+                      <i class="fal fa-map-marker-alt text-danger"></i>
+                    </span>
+                    <input type="text" name="location" id="service_location" class="form-control border-start-0"
+                      placeholder="{{ __('Search By Location') }}">
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0">
+                      <i class="fal fa-clipboard-list text-danger"></i>
+                    </span>
+                    <input type="text" name="service_title" id="service_name" class="form-control border-start-0"
+                      placeholder="{{ __('Search Service') }}">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <button type="submit" class="btn btn-primary w-100 py-2">
+                    <i class="fal fa-search me-1"></i> {{ __('Find Now') }}
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+
+      <!-- Right Image -->
+      <div class="col-lg-6 text-center">
+        <img src="{{ !empty($sectionContent->hero_section_background_img) 
+                    ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img) 
+                    : asset('assets/img/front-pages/medical/hero-doctor.png') }}"
+             alt="Booking Illustration" class="img-fluid hero-illustration" style="max-width: 90%; height: auto;">
+      </div>
     </div>
-    <div class="landing-hero-blank"></div>
-  </section>
-  <!-- Hero: End -->
+  </div>
+</section>
+<!-- Hero: End -->
+
 
   <!-- Services: Start -->
   <section id="landingFeatures" class="section-py landing-features">

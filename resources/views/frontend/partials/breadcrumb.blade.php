@@ -1,7 +1,9 @@
 <!-- Page Header Section Start -->
 <section class="page-header {{ $basicInfo->theme_version == 2 || $basicInfo->theme_version == 3 ? 'theme-v2' : '' }}"
          @if(!empty($breadcrumb)) 
-           style="background-image: url('{{ asset('assets/img/' . $breadcrumb) }}')"
+           style="background-image: url('{{ asset('assets/img/' . $breadcrumb) }}'); padding: 100px 0;"  {{-- Added padding here --}}
+         @else
+           style="padding: 100px 0;" {{-- Fallback padding even if no background --}}
          @endif>
     <div class="container">
         <div class="content">
@@ -16,6 +18,7 @@
     </div>
 </section>
 <!-- Page Header Section End -->
+
 
 @push('scripts')
 <script>

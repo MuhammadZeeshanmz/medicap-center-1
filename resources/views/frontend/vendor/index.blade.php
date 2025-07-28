@@ -26,6 +26,35 @@
   ])
 
   <!-- Vendor-area start -->
+
+@php
+  $version = $basicInfo->theme_version;
+@endphp
+@extends('frontend.layout')
+
+@section('pageHeading')
+  {{ !empty($pageHeading) ? $pageHeading->vendor_page_title : __('Vendors') }}
+@endsection
+
+@section('metaKeywords')
+  @if (!empty($seoInfo))
+    {{ $seoInfo->meta_keywords_vendor_page }}
+  @endif
+@endsection
+
+@section('metaDescription')
+  @if (!empty($seoInfo))
+    {{ $seoInfo->meta_description_vendor_page }}
+  @endif
+@endsection
+
+@section('content')
+  @includeIf('frontend.partials.breadcrumb', [
+      'breadcrumb' => $bgImg->breadcrumb,
+      'title' => !empty($pageHeading) ? $pageHeading->vendor_page_title : __('Vendors'),
+  ])
+
+  <!-- Vendor-area start -->
   <div class="vendor-area pt-100 pb-60">
     <div class="container">
       <div class="sort-area" data-aos="fade-up">
@@ -86,14 +115,20 @@
               <figure class="card-img mx-auto mb-15">
                 <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}" title="Image"
                   target="_self" class="lazy-container rounded-circle ratio ratio-1-1">
-                  @if ($admin->image)
-                    <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                      data-src="{{ asset('assets/img/admins/' . $admin->image) }}" alt="Vendor">
+                  @if ($admin->image && file_exists(public_path('assets/img/admins/' . $admin->image)))
+                    <img class="lazyload" 
+                         src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                         data-src="{{ asset('assets/img/admins/' . $admin->image) }}" 
+                         alt="{{ $admin->username }}"
+                         loading="lazy"
+                         onerror="this.onerror=null;this.src='{{ asset('assets/img/user.png') }}'">
                   @else
-                    <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                      data-src="{{ asset('assets/img/user.png') }}" alt="Vendor">
+                    <img class="lazyload" 
+                         src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                         data-src="{{ asset('assets/img/user.png') }}" 
+                         alt="{{ $admin->username }}"
+                         loading="lazy">
                   @endif
-
                 </a>
               </figure>
               <div class="card-details">
@@ -166,14 +201,20 @@
               <figure class="card-img mx-auto mb-15">
                 <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}" title="Image"
                   target="_self" class="lazy-container rounded-circle ratio ratio-1-1">
-                  @if ($vendor->photo)
-                    <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                      data-src="{{ asset('assets/admin/img/vendor-photo/' . $vendor->photo) }}" alt="Vendor">
+                  @if ($vendor->photo && file_exists(public_path('assets/admin/img/vendor-photo/' . $vendor->photo)))
+                    <img class="lazyload" 
+                         src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                         data-src="{{ asset('assets/admin/img/vendor-photo/' . $vendor->photo) }}" 
+                         alt="{{ $vendor->username }}"
+                         loading="lazy"
+                         onerror="this.onerror=null;this.src='{{ asset('assets/img/user.png') }}'">
                   @else
-                    <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                      data-src="{{ asset('assets/img/user.png') }}" alt="Vendor">
+                    <img class="lazyload" 
+                         src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                         data-src="{{ asset('assets/img/user.png') }}" 
+                         alt="{{ $vendor->username }}"
+                         loading="lazy">
                   @endif
-
                 </a>
               </figure>
               <div class="card-details">
@@ -186,7 +227,7 @@
                 <h6 class="card-title mb-1">
                   <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}" target="_self"
                     title="{{ $vendor->username }}">
-                    @if ($vendorInfo->name != null)
+                    @if ($vendorInfo && $vendorInfo->name != null)
                       {{ $vendorInfo->name }}
                     @else
                       {{ $vendor->username }}
@@ -265,5 +306,223 @@
       @endif
     </div>
   </div>
+  <!-- Vendor-area end -->
+@endsection
+
+@push('css')
+<style>
+  /* Image Loading Styles */
+  .lazy-container {
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* 1:1 Aspect Ratio */
+    position: relative;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+  }
+  
+  .lazy-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .lazy-container img.lazyloaded {
+    opacity: 1;
+  }
+  
+  /* Card consistent height */
+  .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-details {
+    flex-grow: 1;
+  }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize lazy loading with fallback
+  const lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazyload",
+    callback_loaded: function(el) {
+      el.classList.add('lazyloaded');
+    },
+    callback_error: function(el) {
+      if (!el.src.includes('user.png')) {
+        el.src = '{{ asset("assets/img/user.png") }}';
+      }
+    }
+  });
+  
+  // Manual fallback for browsers that don't support IntersectionObserver
+  if (typeof IntersectionObserver === 'undefined') {
+    document.querySelectorAll('.lazyload').forEach(img => {
+      img.src = img.dataset.src;
+    });
+  }
+});
+</script>
+@endpush
+<!-- Vendor-area end -->
+
+@push('css')
+<style>
+  /* Image Loading Fixes */
+  .lazy-container {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .lazyload {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .lazyloaded {
+    opacity: 1;
+  }
+  
+  /* Hover Effects */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover-text-primary:hover {
+    color: var(--primary) !important;
+  }
+  
+  .hover-text-accent:hover {
+    color: var(--accent) !important;
+  }
+  
+  .hover-text-info:hover {
+    color: var(--info) !important;
+  }
+  
+  .hover-shadow {
+    transition: box-shadow 0.3s ease;
+  }
+  .hover-shadow:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .hover-shadow-sm {
+    transition: box-shadow 0.3s ease;
+  }
+  .hover-shadow-sm:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .hover-shadow-lg {
+    transition: box-shadow 0.3s ease;
+  }
+  .hover-shadow-lg:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+  
+  .hover-border-primary {
+    transition: border-color 0.3s ease;
+  }
+  .hover-border-primary:hover {
+    border-color: var(--primary) !important;
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .hover-lift-sm {
+    transition: transform 0.3s ease;
+  }
+  .hover-lift-sm:hover {
+    transform: translateY(-3px);
+  }
+  
+  .hover-grow {
+    transition: transform 0.3s ease;
+  }
+  .hover-grow:hover {
+    transform: scale(1.05);
+  }
+  
+  .hover-bounce {
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .hover-pop {
+    transition: transform 0.2s ease;
+  }
+  .hover-pop:hover {
+    transform: scale(1.2);
+  }
+  
+  .hover-underline {
+    position: relative;
+  }
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+  }
+  .hover-underline:hover::after {
+    width: 100%;
+  }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize lazy loading
+  if (typeof LazyLoad !== 'undefined') {
+    new LazyLoad({
+      elements_selector: ".lazyload",
+      callback_loaded: function(el) {
+        el.classList.add('lazyloaded');
+      }
+    });
+  }
+  
+  // Fallback for images
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      if (!this.src.includes('user.png')) {
+        this.src = '{{ asset("assets/img/user.png") }}';
+      }
+    });
+  });
+});
+</script>
+@endpush
   <!-- Vendor-area end -->
 @endsection
