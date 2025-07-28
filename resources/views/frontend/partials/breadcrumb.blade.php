@@ -1,6 +1,8 @@
-<!-- Page title start-->
-<div class="page-title-area bg-img bg-cover header-next {{ $basicInfo->theme_version == 2 || $basicInfo->theme_version == 3 ? 'has_header_2' : '' }}"
-    @if (!empty($breadcrumb)) data-bg-image="{{ asset('assets/img/' . $breadcrumb) }}" @endif>
+<!-- Page Header Section Start -->
+<section class="page-header {{ $basicInfo->theme_version == 2 || $basicInfo->theme_version == 3 ? 'theme-v2' : '' }}"
+         @if(!empty($breadcrumb)) 
+           style="background-image: url('{{ asset('assets/img/' . $breadcrumb) }}')"
+         @endif>
     <div class="container">
         <div class="content">
             <h2>{{ !empty($title) ? $title : '' }}</h2>
@@ -12,5 +14,20 @@
             </nav>
         </div>
     </div>
-</div>
-<!-- Page title end-->
+</section>
+<!-- Page Header Section End -->
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Preload background image if exists
+        @if(!empty($breadcrumb))
+            const bgImage = new Image();
+            bgImage.src = "{{ asset('assets/img/' . $breadcrumb) }}";
+            bgImage.onload = function() {
+                document.querySelector('.page-header').style.backgroundImage = `url('${this.src}')`;
+            };
+        @endif
+    });
+</script>
+@endpush
