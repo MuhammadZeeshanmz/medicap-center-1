@@ -1,8 +1,8 @@
 @php
     $version = $basicInfo->theme_version;
 @endphp
-<x-app-config />
 @extends('frontend.layout')
+
 @section('pageHeading')
     {{ __('Home') }}
 @endsection
@@ -1115,22 +1115,4 @@
         @endforeach
     @endif
     <!-- Testimonial-area end -->
-@endsection
-@section('script')
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ $authorizeUrl }}"></script>
-    <script>
-        let stripe_key = "{{ $stripe_key }}";
-        let authorize_login_key = "{{ $authorize_login_id }}";
-        let authorize_public_key = "{{ $authorize_public_key }}";
-        var complete = "{{ Session::get('complete') }}";
-        var bookingInfo = {!! json_encode(Session::get('paymentInfo')) !!};
-    </script>
-
-
-    <script>
-        @if (old('gateway') == 'stripe')
-            $('#stripe-element').removeClass('d-none');
-        @endif
-    </script>
 @endsection
