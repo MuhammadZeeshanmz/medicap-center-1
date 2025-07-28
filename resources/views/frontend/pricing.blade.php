@@ -30,6 +30,9 @@
         <div class="col-12">
           @if (!empty($terms) && count($terms) > 0)
             <div class="section-title title-center mb-50" data-aos="fade-up">
+              <div class="section-img">
+                <img src="{{ asset('assets/img/' . $version . '/section-shape.png') }}" alt="shape" class="shape">
+              </div>
               <h2 class="title mb-30">{{ __('Most Affordable Package') }}</h2>
               <div class="tabs-navigation">
                 <ul class="nav nav-tabs p-3 radius-md bg-light" data-hover="fancyHover">
@@ -56,9 +59,16 @@
                   @foreach ($packages as $package)
                     <div class="col-md-6 col-lg-4 item">
                       <div class="card p-30 mb-30 radius-lg border {{ $package->recommended == 1 ? 'active' : '' }}">
+                        @if($package->recommended == 1)
+                          <div class="ribbon"><span>{{ __('Popular') }}</span></div>
+                        @endif
                         <div class="card_top">
                           <div class="card_icon">
-                            <i class="{{ $package->icon }}"></i>
+                            @if(!empty($package->image))
+                              <img src="{{ asset('assets/img/packages/' . $package->image) }}" alt="{{ $package->title }}" class="img-fluid">
+                            @else
+                              <i class="{{ $package->icon }}"></i>
+                            @endif
                           </div>
                           <div class="label">
                             <h3 class="card_title mb-1">{{ $package->title }}</h3>
@@ -87,24 +97,20 @@
                               <span>({{ $package->number_of_service_add === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_service_add }})
                               </span>
                             </span>
-
                           </li>
                           <li>
                             <span><i class="fal fa-check"></i>{{ __('Images/Service') }} <span>
                                 ({{ $package->number_of_service_image === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_service_image }})
                               </span></span>
-
                           </li>
                           <li>
                             <span><i class="fal fa-check"></i>{{ __('Appointments') }} <span>
                                 ({{ $package->number_of_appointment === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_appointment }})</span></span>
-
                           </li>
                           <li>
                             <span><i class="fal fa-check"></i>{{ __('Staffs') }}
                               <span>
                                 ({{ $package->staff_limit === 999999 ? '(' . __('Unlimited') . ')' : $package->staff_limit }})</span></span>
-
                           </li>
                           @if ($package->support_ticket_status == 1)
                             <li>
@@ -149,8 +155,7 @@
                             @endif
                           @endif
                         </ul>
-                        <div class="card_action
-                                  mt-25">
+                        <div class="card_action mt-25">
                           @if (Auth::guard('vendor')->check())
                             <a href="{{ route('vendor.plan.extend.checkout', ['package_id' => $package->id]) }}"
                               class="btn btn-lg btn-primary radius-sm w-100 no-animation" target="_self">
