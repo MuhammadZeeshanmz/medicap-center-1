@@ -1,110 +1,121 @@
-@php
-    $customizerHidden = 'customizer-hide';
-    $configData = Helper::appClasses();
-@endphp
+@extends('frontend.layout')
 
-@extends('layouts/layoutMaster')
-
-@section('title', 'Login Cover - Pages')
-
-@section('vendor-style')
-    @vite(['resources/assets/vendor/libs/@form-validation/form-validation.scss'])
+@section('pageHeading')
+    {{ !empty($pageHeading) ? $pageHeading->login_page_title : __('Login') }}
 @endsection
 
-@section('page-style')
-    @vite(['resources/assets/vendor/scss/pages/page-auth.scss'])
+@section('metaKeywords')
+    @if (!empty($seoInfo))
+        {{ $seoInfo->meta_keyword_login }}
+    @endif
 @endsection
 
-@section('vendor-script')
-    @vite(['resources/assets/vendor/libs/@form-validation/popular.js', 'resources/assets/vendor/libs/@form-validation/bootstrap5.js', 'resources/assets/vendor/libs/@form-validation/auto-focus.js'])
-@endsection
-
-@section('page-script')
-    @vite(['resources/assets/js/pages-auth.js'])
+@section('metaDescription')
+    @if (!empty($seoInfo))
+        {{ $seoInfo->meta_description_login }}
+    @endif
 @endsection
 
 @section('content')
     @includeIf('frontend.partials.breadcrumb', [
         'breadcrumb' => $bgImg->breadcrumb,
-        'title' => !empty($pageHeading) ? $pageHeading->vendor_login_page_title : __('Login'),
+        'title' => !empty($pageHeading) ? $pageHeading->login_page_title : __('Login'),
     ])
-    <!-- Authentication-area start -->
-    <div class="authentication-area bg-light ptb-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="main-form">
-                        <div class="main-form-wrapper">
-                            <h3 class="title mb-30 text-center">
-                                {{ !empty($pageHeading) ? $pageHeading->vendor_login_page_title : __('Login') }}
-                            </h3>
-                            @if (Session::has('success'))
-                                <div class="alert alert-success">{{ __(Session::get('success')) }}</div>
-                            @endif
-                            @if (Session::has('error'))
-                                <div class="alert alert-danger">{{ __(Session::get('error')) }}</div>
-                            @endif
-                            <form action="{{ route('vendor.login_submit') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="package_id" value="{{ request()->buy_package }}">
-                                <input type="hidden" name="redirect_path" value="{{ request()->redirectPath }}">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group mb-20">
-                                            <label for="userName" class="form-label color-dark">{{ __('Username') }}<span
-                                                    class="color-red">*</span></label>
-                                            <input type="text" name="username" id="userName" class="form-control"
-                                                placeholder="{{ __('Username') }}" value="{{ old('username') }}">
-                                            @error('username')
-                                                <p class="text-danger mt-2">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group mb-20">
-                                            <label for="password" class="form-label color-dark">{{ __('Password') }}<span
-                                                    class="color-red">*</span></label>
-                                            <div class="position-relative">
-                                                <input type="password" name="password" id="password" class="form-control"
-                                                    placeholder="{{ __('Password') }}" required>
-                                                <span class="show-password-field">
-                                                    <i class="show-icon"></i>
-                                                </span>
-                                            </div>
-                                            @error('password')
-                                                <p class="text-danger mt-2">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    @if ($bs->google_recaptcha_status == 1)
-                                        <div class="form-group mb-20">
-                                            {!! NoCaptcha::renderJs() !!}
-                                            {!! NoCaptcha::display() !!}
 
-                                            @error('g-recaptcha-response')
-                                                <p class="mt-1 text-danger">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                    @endif
-                                </div>
-                                <div class="text-center pt-10">
-                                    <button class="btn btn-lg btn-primary btn-gradient w-100" type="submit"
-                                        aria-label="Login">
-                                        {{ __('Login') }}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="d-flex justify-content-between flex-wrap gap-2 mt-20">
-                            <div class="link font-sm">
-                                <a href="{{ route('vendor.forget.password') }}">{{ __('Forgot password') . '?' }}</a>
+    <!-- Authentication-area start -->
+    <div class="container-xxl min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="row justify-content-center" style="width:70%;">
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-body">
+
+
+
+                        <p class="mb-4 text-center">Please sign-in to your account and start the adventure</p>
+
+                        @if (Session::has('success'))
+                            <div class="alert alert-success">{{ __(Session::get('success')) }}</div>
+                        @endif
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger">{{ __(Session::get('error')) }}</div>
+                        @endif
+
+                        <form id="authForm" action="{{ route('user.login_submit') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email or Username</label>
+                                <input type="text" class="form-control" id="email" name="username"
+                                    value="{{ old('username') }}" placeholder="Enter your email or username" autofocus
+                                    required>
+                                @error('username')
+                                    <p class="text-danger mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
-                            <div class="link font-sm">
-                                {{ __("Don't have an account") . '?' }} <a href="{{ route('vendor.signup') }}"
-                                    title="Go Signup" target="_self">{{ __('Click Here') }}</a>
-                                {{ __('to Signup') }}
+
+                            <div class="mb-3 form-password-toggle">
+                                <div class="d-flex justify-content-between">
+                                    <label class="form-label" for="password">Password</label>
+                                    <a href="{{ route('user.forget_password') }}">
+                                        <small>Forgot Password?</small>
+                                    </a>
+                                </div>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" id="password" class="form-control" name="password"
+                                        placeholder="••••••••••••" aria-describedby="password" required>
+                                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                                </div>
+                                @error('password')
+                                    <p class="text-danger mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
+
+                            @if ($bs->google_recaptcha_status == 1)
+                                <div class="form-group mb-3">
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
+                                    @error('g-recaptcha-response')
+                                        <p class="mt-1 text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            @endif
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="remember-me">
+                                    <label class="form-check-label" for="remember-me">Remember Me</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                            </div>
+                        </form>
+
+                        <p class="text-center">
+                            <span>New on our platform?</span>
+                            <a href="{{ route('user.signup') }}">
+                                <span>Create an account</span>
+                            </a>
+                        </p>
+
+                        <div class="divider my-4">
+                            <div class="divider-text">or</div>
                         </div>
+
+                        <div class="d-flex justify-content-center">
+                            @if ($bs->facebook_login_status == 1)
+                                <a class="btn btn-icon btn-label-facebook me-3" href="{{ route('user.login.facebook') }}">
+                                    <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
+                                </a>
+                            @endif
+                            @if ($bs->google_login_status == 1)
+                                <a class="btn btn-icon btn-label-google-plus me-3" href="{{ route('user.login.google') }}">
+                                    <i class="tf-icons fa-brands fa-google fs-5"></i>
+                                </a>
+                            @endif
+                        </div>
+
                     </div>
                 </div>
             </div>

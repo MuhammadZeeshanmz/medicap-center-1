@@ -21,22 +21,24 @@
 @endsection
 
 @section('content')
-
     @includeIf('frontend.partials.breadcrumb', [
         'breadcrumb' => $bgImg->breadcrumb,
         'title' => !empty($pageHeading) ? $pageHeading->forget_password_page_title : __('Forget Password'),
     ])
 
-    <!-- Authentication Area Start -->
-    <section class="authentication-area ptb-100 bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8">
-                    <div class="main-form-wrapper shadow-sm bg-white p-4 rounded">
+    <!-- Authentication-area start -->
+    <div class="container-xxl min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="row justify-content-center" style="width:70%;">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+
                         <div class="text-center mb-4">
                             <h3 class="title">
                                 {{ !empty($pageHeading) ? $pageHeading->forget_password_page_title : __('Forget Password') }}
                             </h3>
+                            <p class="mb-0 mt-2">
+                                {{ __('Enter your email address and we’ll send you a link to reset your password.') }}</p>
                         </div>
 
                         @if (Session::has('success'))
@@ -48,9 +50,10 @@
 
                         <form action="{{ route('user.send_forget_password_mail') }}" method="POST">
                             @csrf
-                            <div class="form-group mb-3">
-                                <label for="email" class="form-label color-dark">{{ __('Email Address') }}<span class="color-red">*</span></label>
-                                <input type="email" id="email" name="email" class="form-control" placeholder="{{ __('Enter your email') }}" required>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">{{ __('Email Address') }}</label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="{{ __('Enter your email') }}" required>
                                 @error('email')
                                     <p class="text-danger mt-2">{{ $message }}</p>
                                 @enderror
@@ -61,13 +64,13 @@
                                     {!! NoCaptcha::renderJs() !!}
                                     {!! NoCaptcha::display() !!}
                                     @error('g-recaptcha-response')
-                                        <p class="text-danger mt-2">{{ $message }}</p>
+                                        <p class="mt-1 text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
                             @endif
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-lg btn-primary btn-gradient w-100">
+                            <div class="mb-3">
+                                <button class="btn btn-primary d-grid w-100" type="submit">
                                     {{ __('Send Me a Recovery Link') }}
                                 </button>
                             </div>
@@ -84,7 +87,6 @@
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Authentication Area End -->
-
+    </div>
+    <!-- Authentication-area end -->
 @endsection
