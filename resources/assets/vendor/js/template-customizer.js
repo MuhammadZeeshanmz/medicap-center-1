@@ -683,7 +683,7 @@ class TemplateCustomizer {
           .setAttribute('checked', 'checked')
 
         const rtlCb = e => {
-          this._loadingState(true);
+          this._loadingState(true)
           this.setRtl(e.target.value === 'rtl', true, () => {
             this._loadingState(false)
           })
@@ -700,7 +700,8 @@ class TemplateCustomizer {
 
       // Header Layout Type
       const headerTypeW = this.container.querySelector('.template-customizer-headerOptions')
-      const templateName = document.documentElement.getAttribute('data-template').split('-')
+      const templateAttr = document.documentElement.getAttribute('data-template')
+      const templateName = templateAttr ? templateAttr.split('-') : []
       if (!this._hasControls('headerType')) {
         headerTypeW.parentNode.removeChild(headerTypeW)
       } else {

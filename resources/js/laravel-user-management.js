@@ -9,7 +9,7 @@ $(function () {
   // Variable declaration for table
   var dt_user_table = $('.datatables-users'),
     select2 = $('.select2'),
-    userView = baseUrl + 'app/user/view/account',
+    userView = baseURL + 'app/user/view/account',
     offCanvasForm = $('#offcanvasAddUser');
 
   if (select2.length) {

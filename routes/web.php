@@ -1,359 +1,284 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\laravel_example\UserManagement;
-use App\Http\Controllers\dashboard\Analytics;
-use App\Http\Controllers\dashboard\Crm;
-use App\Http\Controllers\language\LanguageController;
-use App\Http\Controllers\layouts\CollapsedMenu;
-use App\Http\Controllers\layouts\ContentNavbar;
-use App\Http\Controllers\layouts\ContentNavSidebar;
-use App\Http\Controllers\layouts\NavbarFull;
-use App\Http\Controllers\layouts\NavbarFullSidebar;
-use App\Http\Controllers\layouts\Horizontal;
-use App\Http\Controllers\layouts\Vertical;
-use App\Http\Controllers\layouts\WithoutMenu;
-use App\Http\Controllers\layouts\WithoutNavbar;
-use App\Http\Controllers\layouts\Fluid;
-use App\Http\Controllers\layouts\Container;
-use App\Http\Controllers\layouts\Blank;
-use App\Http\Controllers\front_pages\Landing;
-use App\Http\Controllers\front_pages\Pricing;
-use App\Http\Controllers\front_pages\Payment;
-use App\Http\Controllers\front_pages\Checkout;
-use App\Http\Controllers\front_pages\HelpCenter;
-use App\Http\Controllers\front_pages\HelpCenterArticle;
-use App\Http\Controllers\apps\Email;
-use App\Http\Controllers\apps\Chat;
-use App\Http\Controllers\apps\Calendar;
-use App\Http\Controllers\apps\Kanban;
-use App\Http\Controllers\apps\EcommerceDashboard;
-use App\Http\Controllers\apps\EcommerceProductList;
-use App\Http\Controllers\apps\EcommerceProductAdd;
-use App\Http\Controllers\apps\EcommerceProductCategory;
-use App\Http\Controllers\apps\EcommerceOrderList;
-use App\Http\Controllers\apps\EcommerceOrderDetails;
-use App\Http\Controllers\apps\EcommerceCustomerAll;
-use App\Http\Controllers\apps\EcommerceCustomerDetailsOverview;
-use App\Http\Controllers\apps\EcommerceCustomerDetailsSecurity;
-use App\Http\Controllers\apps\EcommerceCustomerDetailsBilling;
-use App\Http\Controllers\apps\EcommerceCustomerDetailsNotifications;
-use App\Http\Controllers\apps\EcommerceManageReviews;
-use App\Http\Controllers\apps\EcommerceReferrals;
-use App\Http\Controllers\apps\EcommerceSettingsDetails;
-use App\Http\Controllers\apps\EcommerceSettingsPayments;
-use App\Http\Controllers\apps\EcommerceSettingsCheckout;
-use App\Http\Controllers\apps\EcommerceSettingsShipping;
-use App\Http\Controllers\apps\EcommerceSettingsLocations;
-use App\Http\Controllers\apps\EcommerceSettingsNotifications;
-use App\Http\Controllers\apps\AcademyDashboard;
-use App\Http\Controllers\apps\AcademyCourse;
-use App\Http\Controllers\apps\AcademyCourseDetails;
-use App\Http\Controllers\apps\LogisticsDashboard;
-use App\Http\Controllers\apps\LogisticsFleet;
-use App\Http\Controllers\apps\InvoiceList;
-use App\Http\Controllers\apps\InvoicePreview;
-use App\Http\Controllers\apps\InvoicePrint;
-use App\Http\Controllers\apps\InvoiceEdit;
-use App\Http\Controllers\apps\InvoiceAdd;
-use App\Http\Controllers\apps\UserList;
-use App\Http\Controllers\apps\UserViewAccount;
-use App\Http\Controllers\apps\UserViewSecurity;
-use App\Http\Controllers\apps\UserViewBilling;
-use App\Http\Controllers\apps\UserViewNotifications;
-use App\Http\Controllers\apps\UserViewConnections;
-use App\Http\Controllers\apps\AccessRoles;
-use App\Http\Controllers\apps\AccessPermission;
-use App\Http\Controllers\pages\UserProfile;
-use App\Http\Controllers\pages\UserTeams;
-use App\Http\Controllers\pages\UserProjects;
-use App\Http\Controllers\pages\UserConnections;
-use App\Http\Controllers\pages\AccountSettingsAccount;
-use App\Http\Controllers\pages\AccountSettingsSecurity;
-use App\Http\Controllers\pages\AccountSettingsBilling;
-use App\Http\Controllers\pages\AccountSettingsNotifications;
-use App\Http\Controllers\pages\AccountSettingsConnections;
-use App\Http\Controllers\pages\Faq;
-use App\Http\Controllers\pages\Pricing as PagesPricing;
-use App\Http\Controllers\pages\MiscError;
-use App\Http\Controllers\pages\MiscUnderMaintenance;
-use App\Http\Controllers\pages\MiscComingSoon;
-use App\Http\Controllers\pages\MiscNotAuthorized;
-use App\Http\Controllers\authentications\LoginBasic;
-use App\Http\Controllers\authentications\LoginCover;
-use App\Http\Controllers\authentications\RegisterBasic;
-use App\Http\Controllers\authentications\RegisterCover;
-use App\Http\Controllers\authentications\RegisterMultiSteps;
-use App\Http\Controllers\authentications\VerifyEmailBasic;
-use App\Http\Controllers\authentications\VerifyEmailCover;
-use App\Http\Controllers\authentications\ResetPasswordBasic;
-use App\Http\Controllers\authentications\ResetPasswordCover;
-use App\Http\Controllers\authentications\ForgotPasswordBasic;
-use App\Http\Controllers\authentications\ForgotPasswordCover;
-use App\Http\Controllers\authentications\TwoStepsBasic;
-use App\Http\Controllers\authentications\TwoStepsCover;
-use App\Http\Controllers\wizard_example\Checkout as WizardCheckout;
-use App\Http\Controllers\wizard_example\PropertyListing;
-use App\Http\Controllers\wizard_example\CreateDeal;
-use App\Http\Controllers\modal\ModalExample;
-use App\Http\Controllers\cards\CardBasic;
-use App\Http\Controllers\cards\CardAdvance;
-use App\Http\Controllers\cards\CardStatistics;
-use App\Http\Controllers\cards\CardAnalytics;
-use App\Http\Controllers\cards\CardGamifications;
-use App\Http\Controllers\cards\CardActions;
-use App\Http\Controllers\user_interface\Accordion;
-use App\Http\Controllers\user_interface\Alerts;
-use App\Http\Controllers\user_interface\Badges;
-use App\Http\Controllers\user_interface\Buttons;
-use App\Http\Controllers\user_interface\Carousel;
-use App\Http\Controllers\user_interface\Collapse;
-use App\Http\Controllers\user_interface\Dropdowns;
-use App\Http\Controllers\user_interface\Footer;
-use App\Http\Controllers\user_interface\ListGroups;
-use App\Http\Controllers\user_interface\Modals;
-use App\Http\Controllers\user_interface\Navbar;
-use App\Http\Controllers\user_interface\Offcanvas;
-use App\Http\Controllers\user_interface\PaginationBreadcrumbs;
-use App\Http\Controllers\user_interface\Progress;
-use App\Http\Controllers\user_interface\Spinners;
-use App\Http\Controllers\user_interface\TabsPills;
-use App\Http\Controllers\user_interface\Toasts;
-use App\Http\Controllers\user_interface\TooltipsPopovers;
-use App\Http\Controllers\user_interface\Typography;
-use App\Http\Controllers\extended_ui\Avatar;
-use App\Http\Controllers\extended_ui\BlockUI;
-use App\Http\Controllers\extended_ui\DragAndDrop;
-use App\Http\Controllers\extended_ui\MediaPlayer;
-use App\Http\Controllers\extended_ui\PerfectScrollbar;
-use App\Http\Controllers\extended_ui\StarRatings;
-use App\Http\Controllers\extended_ui\SweetAlert;
-use App\Http\Controllers\extended_ui\TextDivider;
-use App\Http\Controllers\extended_ui\TimelineBasic;
-use App\Http\Controllers\extended_ui\TimelineFullscreen;
-use App\Http\Controllers\extended_ui\Tour;
-use App\Http\Controllers\extended_ui\Treeview;
-use App\Http\Controllers\extended_ui\Misc;
-use App\Http\Controllers\icons\Tabler;
-use App\Http\Controllers\icons\FontAwesome;
-use App\Http\Controllers\form_elements\BasicInput;
-use App\Http\Controllers\form_elements\InputGroups;
-use App\Http\Controllers\form_elements\CustomOptions;
-use App\Http\Controllers\form_elements\Editors;
-use App\Http\Controllers\form_elements\FileUpload;
-use App\Http\Controllers\form_elements\Picker;
-use App\Http\Controllers\form_elements\Selects;
-use App\Http\Controllers\form_elements\Sliders;
-use App\Http\Controllers\form_elements\Switches;
-use App\Http\Controllers\form_elements\Extras;
-use App\Http\Controllers\form_layouts\VerticalForm;
-use App\Http\Controllers\form_layouts\HorizontalForm;
-use App\Http\Controllers\form_layouts\StickyActions;
-use App\Http\Controllers\form_wizard\Numbered as FormWizardNumbered;
-use App\Http\Controllers\form_wizard\Icons as FormWizardIcons;
-use App\Http\Controllers\form_validation\Validation;
-use App\Http\Controllers\tables\Basic as TablesBasic;
-use App\Http\Controllers\tables\DatatableBasic;
-use App\Http\Controllers\tables\DatatableAdvanced;
-use App\Http\Controllers\tables\DatatableExtensions;
-use App\Http\Controllers\charts\ApexCharts;
-use App\Http\Controllers\charts\ChartJs;
-use App\Http\Controllers\maps\Leaflet;
+use App\Http\Controllers\FrontEnd\HomeController;
 
-// Main Page Route
-Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
-Route::get('/dashboard/analytics', [Analytics::class, 'index'])->name('dashboard-analytics');
-Route::get('/dashboard/crm', [Crm::class, 'index'])->name('dashboard-crm');
-// locale
-Route::get('lang/{locale}', [LanguageController::class, 'swap']);
+/*
+|--------------------------------------------------------------------------
+| User Interface Routes
+|--------------------------------------------------------------------------
+*/
 
-// layout
-Route::get('/layouts/collapsed-menu', [CollapsedMenu::class, 'index'])->name('layouts-collapsed-menu');
-Route::get('/layouts/content-navbar', [ContentNavbar::class, 'index'])->name('layouts-content-navbar');
-Route::get('/layouts/content-nav-sidebar', [ContentNavSidebar::class, 'index'])->name('layouts-content-nav-sidebar');
-Route::get('/layouts/navbar-full', [NavbarFull::class, 'index'])->name('layouts-navbar-full');
-Route::get('/layouts/navbar-full-sidebar', [NavbarFullSidebar::class, 'index'])->name('layouts-navbar-full-sidebar');
-Route::get('/layouts/horizontal', [Horizontal::class, 'index'])->name('dashboard-analytics');
-Route::get('/layouts/vertical', [Vertical::class, 'index'])->name('dashboard-analytics');
-Route::get('/layouts/without-menu', [WithoutMenu::class, 'index'])->name('layouts-without-menu');
-Route::get('/layouts/without-navbar', [WithoutNavbar::class, 'index'])->name('layouts-without-navbar');
-Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
-Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-container');
-Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
+// cron job for sending expiry mail
+Route::get('/subcheck', 'CronJobController@expired')->name('cron.expired');
 
-// Front Pages
-Route::get('/front-pages/landing', [Landing::class, 'index'])->name('front-pages-landing');
-Route::get('/front-pages/pricing', [Pricing::class, 'index'])->name('front-pages-pricing');
-Route::get('/front-pages/payment', [Payment::class, 'index'])->name('front-pages-payment');
-Route::get('/front-pages/checkout', [Checkout::class, 'index'])->name('front-pages-checkout');
-Route::get('/front-pages/help-center', [HelpCenter::class, 'index'])->name('front-pages-help-center');
-Route::get('/front-pages/help-center-article', [HelpCenterArticle::class, 'index'])->name('front-pages-help-center-article');
+Route::get('/change-language', 'FrontEnd\MiscellaneousController@changeLanguage')->name('change_language');
 
-// apps
-Route::get('/app/email', [Email::class, 'index'])->name('app-email');
-Route::get('/app/chat', [Chat::class, 'index'])->name('app-chat');
-Route::get('/app/calendar', [Calendar::class, 'index'])->name('app-calendar');
-Route::get('/app/kanban', [Kanban::class, 'index'])->name('app-kanban');
-Route::get('/app/ecommerce/dashboard', [EcommerceDashboard::class, 'index'])->name('app-ecommerce-dashboard');
-Route::get('/app/ecommerce/product/list', [EcommerceProductList::class, 'index'])->name('app-ecommerce-product-list');
-Route::get('/app/ecommerce/product/add', [EcommerceProductAdd::class, 'index'])->name('app-ecommerce-product-add');
-Route::get('/app/ecommerce/product/category', [EcommerceProductCategory::class, 'index'])->name('app-ecommerce-product-category');
-Route::get('/app/ecommerce/order/list', [EcommerceOrderList::class, 'index'])->name('app-ecommerce-order-list');
-Route::get('app/ecommerce/order/details', [EcommerceOrderDetails::class, 'index'])->name('app-ecommerce-order-details');
-Route::get('/app/ecommerce/customer/all', [EcommerceCustomerAll::class, 'index'])->name('app-ecommerce-customer-all');
-Route::get('app/ecommerce/customer/details/overview', [EcommerceCustomerDetailsOverview::class, 'index'])->name('app-ecommerce-customer-details-overview');
-Route::get('app/ecommerce/customer/details/security', [EcommerceCustomerDetailsSecurity::class, 'index'])->name('app-ecommerce-customer-details-security');
-Route::get('app/ecommerce/customer/details/billing', [EcommerceCustomerDetailsBilling::class, 'index'])->name('app-ecommerce-customer-details-billing');
-Route::get('app/ecommerce/customer/details/notifications', [EcommerceCustomerDetailsNotifications::class, 'index'])->name('app-ecommerce-customer-details-notifications');
-Route::get('/app/ecommerce/manage/reviews', [EcommerceManageReviews::class, 'index'])->name('app-ecommerce-manage-reviews');
-Route::get('/app/ecommerce/referrals', [EcommerceReferrals::class, 'index'])->name('app-ecommerce-referrals');
-Route::get('/app/ecommerce/settings/details', [EcommerceSettingsDetails::class, 'index'])->name('app-ecommerce-settings-details');
-Route::get('/app/ecommerce/settings/payments', [EcommerceSettingsPayments::class, 'index'])->name('app-ecommerce-settings-payments');
-Route::get('/app/ecommerce/settings/checkout', [EcommerceSettingsCheckout::class, 'index'])->name('app-ecommerce-settings-checkout');
-Route::get('/app/ecommerce/settings/shipping', [EcommerceSettingsShipping::class, 'index'])->name('app-ecommerce-settings-shipping');
-Route::get('/app/ecommerce/settings/locations', [EcommerceSettingsLocations::class, 'index'])->name('app-ecommerce-settings-locations');
-Route::get('/app/ecommerce/settings/notifications', [EcommerceSettingsNotifications::class, 'index'])->name('app-ecommerce-settings-notifications');
-Route::get('/app/academy/dashboard', [AcademyDashboard::class, 'index'])->name('app-academy-dashboard');
-Route::get('/app/academy/course', [AcademyCourse::class, 'index'])->name('app-academy-course');
-Route::get('/app/academy/course-details', [AcademyCourseDetails::class, 'index'])->name('app-academy-course-details');
-Route::get('/app/logistics/dashboard', [LogisticsDashboard::class, 'index'])->name('app-logistics-dashboard');
-Route::get('/app/logistics/fleet', [LogisticsFleet::class, 'index'])->name('app-logistics-fleet');
-Route::get('/app/invoice/list', [InvoiceList::class, 'index'])->name('app-invoice-list');
-Route::get('/app/invoice/preview', [InvoicePreview::class, 'index'])->name('app-invoice-preview');
-Route::get('/app/invoice/print', [InvoicePrint::class, 'index'])->name('app-invoice-print');
-Route::get('/app/invoice/edit', [InvoiceEdit::class, 'index'])->name('app-invoice-edit');
-Route::get('/app/invoice/add', [InvoiceAdd::class, 'index'])->name('app-invoice-add');
-Route::get('/app/user/list', [UserList::class, 'index'])->name('app-user-list');
-Route::get('/app/user/view/account', [UserViewAccount::class, 'index'])->name('app-user-view-account');
-Route::get('/app/user/view/security', [UserViewSecurity::class, 'index'])->name('app-user-view-security');
-Route::get('/app/user/view/billing', [UserViewBilling::class, 'index'])->name('app-user-view-billing');
-Route::get('/app/user/view/notifications', [UserViewNotifications::class, 'index'])->name('app-user-view-notifications');
-Route::get('/app/user/view/connections', [UserViewConnections::class, 'index'])->name('app-user-view-connections');
-Route::get('/app/access-roles', [AccessRoles::class, 'index'])->name('app-access-roles');
-Route::get('/app/access-permission', [AccessPermission::class, 'index'])->name('app-access-permission');
+Route::post('/store-subscriber', 'FrontEnd\MiscellaneousController@storeSubscriber')->name('store_subscriber');
 
-// pages
-Route::get('/pages/profile-user', [UserProfile::class, 'index'])->name('pages-profile-user');
-Route::get('/pages/profile-teams', [UserTeams::class, 'index'])->name('pages-profile-teams');
-Route::get('/pages/profile-projects', [UserProjects::class, 'index'])->name('pages-profile-projects');
-Route::get('/pages/profile-connections', [UserConnections::class, 'index'])->name('pages-profile-connections');
-Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
-Route::get('/pages/account-settings-security', [AccountSettingsSecurity::class, 'index'])->name('pages-account-settings-security');
-Route::get('/pages/account-settings-billing', [AccountSettingsBilling::class, 'index'])->name('pages-account-settings-billing');
-Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name('pages-account-settings-notifications');
-Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
-Route::get('/pages/faq', [Faq::class, 'index'])->name('pages-faq');
-Route::get('/pages/pricing', [PagesPricing::class, 'index'])->name('pages-pricing');
-Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
-Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
-Route::get('/pages/misc-comingsoon', [MiscComingSoon::class, 'index'])->name('pages-misc-comingsoon');
-Route::get('/pages/misc-not-authorized', [MiscNotAuthorized::class, 'index'])->name('pages-misc-not-authorized');
+Route::get('/offline', 'FrontEnd\HomeController@offline')->middleware('change.lang');
 
-// authentication
-Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
-Route::get('/auth/login-cover', [LoginCover::class, 'index'])->name('auth-login-cover');
-Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
-Route::get('/auth/register-cover', [RegisterCover::class, 'index'])->name('auth-register-cover');
-Route::get('/auth/register-multisteps', [RegisterMultiSteps::class, 'index'])->name('auth-register-multisteps');
-Route::get('/auth/verify-email-basic', [VerifyEmailBasic::class, 'index'])->name('auth-verify-email-basic');
-Route::get('/auth/verify-email-cover', [VerifyEmailCover::class, 'index'])->name('auth-verify-email-cover');
-Route::get('/auth/reset-password-basic', [ResetPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
-Route::get('/auth/reset-password-cover', [ResetPasswordCover::class, 'index'])->name('auth-reset-password-cover');
-Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
-Route::get('/auth/forgot-password-cover', [ForgotPasswordCover::class, 'index'])->name('auth-forgot-password-cover');
-Route::get('/auth/two-steps-basic', [TwoStepsBasic::class, 'index'])->name('auth-two-steps-basic');
-Route::get('/auth/two-steps-cover', [TwoStepsCover::class, 'index'])->name('auth-two-steps-cover');
+Route::middleware('change.lang')->group(function () {
+  Route::get('/', [HomeController::class, 'index'])->name('index');
 
-// wizard example
-Route::get('/wizard/ex-checkout', [WizardCheckout::class, 'index'])->name('wizard-ex-checkout');
-Route::get('/wizard/ex-property-listing', [PropertyListing::class, 'index'])->name('wizard-ex-property-listing');
-Route::get('/wizard/ex-create-deal', [CreateDeal::class, 'index'])->name('wizard-ex-create-deal');
+  //services route
+  Route::prefix('services')->group(function () {
+    Route::get('/', 'FrontEnd\Services\ServiceController@index')->name('frontend.services');
 
-// modal
-Route::get('/modal-examples', [ModalExample::class, 'index'])->name('modal-examples');
+    Route::get('addto/wishlist/{id}', 'FrontEnd\UserController@add_to_wishlist')->name('addto.wishlist');
+    Route::get('remove/wishlist/{id}', 'FrontEnd\UserController@remove_wishlist')->name('remove.wishlist');
+    //service search
+    Route::get('service/search', 'FrontEnd\Services\ServiceController@searchService')->name('frontend.services.category.search');
 
-// cards
-Route::get('/cards/basic', [CardBasic::class, 'index'])->name('cards-basic');
-Route::get('/cards/advance', [CardAdvance::class, 'index'])->name('cards-advance');
-Route::get('/cards/statistics', [CardStatistics::class, 'index'])->name('cards-statistics');
-Route::get('/cards/analytics', [CardAnalytics::class, 'index'])->name('cards-analytics');
-Route::get('/cards/gamifications', [CardGamifications::class, 'index'])->name('cards-gamifications');
-Route::get('/cards/actions', [CardActions::class, 'index'])->name('cards-actions');
+    //service rating
+    Route::post('service/store-review/{id}', 'FrontEnd\Services\ServiceController@storeReview')->name('frontend.service.rating.store');
 
-// User Interface
-Route::get('/ui/accordion', [Accordion::class, 'index'])->name('ui-accordion');
-Route::get('/ui/alerts', [Alerts::class, 'index'])->name('ui-alerts');
-Route::get('/ui/badges', [Badges::class, 'index'])->name('ui-badges');
-Route::get('/ui/buttons', [Buttons::class, 'index'])->name('ui-buttons');
-Route::get('/ui/carousel', [Carousel::class, 'index'])->name('ui-carousel');
-Route::get('/ui/collapse', [Collapse::class, 'index'])->name('ui-collapse');
-Route::get('/ui/dropdowns', [Dropdowns::class, 'index'])->name('ui-dropdowns');
-Route::get('/ui/footer', [Footer::class, 'index'])->name('ui-footer');
-Route::get('/ui/list-groups', [ListGroups::class, 'index'])->name('ui-list-groups');
-Route::get('/ui/modals', [Modals::class, 'index'])->name('ui-modals');
-Route::get('/ui/navbar', [Navbar::class, 'index'])->name('ui-navbar');
-Route::get('/ui/offcanvas', [Offcanvas::class, 'index'])->name('ui-offcanvas');
-Route::get('/ui/pagination-breadcrumbs', [PaginationBreadcrumbs::class, 'index'])->name('ui-pagination-breadcrumbs');
-Route::get('/ui/progress', [Progress::class, 'index'])->name('ui-progress');
-Route::get('/ui/spinners', [Spinners::class, 'index'])->name('ui-spinners');
-Route::get('/ui/tabs-pills', [TabsPills::class, 'index'])->name('ui-tabs-pills');
-Route::get('/ui/toasts', [Toasts::class, 'index'])->name('ui-toasts');
-Route::get('/ui/tooltips-popovers', [TooltipsPopovers::class, 'index'])->name('ui-tooltips-popovers');
-Route::get('/ui/typography', [Typography::class, 'index'])->name('ui-typography');
+    Route::post('contact/message', 'FrontEnd\Services\ServiceController@message')->name('frontend.services.contact.message');
 
-// extended ui
-Route::get('/extended/ui-avatar', [Avatar::class, 'index'])->name('extended-ui-avatar');
-Route::get('/extended/ui-blockui', [BlockUI::class, 'index'])->name('extended-ui-blockui');
-Route::get('/extended/ui-drag-and-drop', [DragAndDrop::class, 'index'])->name('extended-ui-drag-and-drop');
-Route::get('/extended/ui-media-player', [MediaPlayer::class, 'index'])->name('extended-ui-media-player');
-Route::get('/extended/ui-perfect-scrollbar', [PerfectScrollbar::class, 'index'])->name('extended-ui-perfect-scrollbar');
-Route::get('/extended/ui-star-ratings', [StarRatings::class, 'index'])->name('extended-ui-star-ratings');
-Route::get('/extended/ui-sweetalert2', [SweetAlert::class, 'index'])->name('extended-ui-sweetalert2');
-Route::get('/extended/ui-text-divider', [TextDivider::class, 'index'])->name('extended-ui-text-divider');
-Route::get('/extended/ui-timeline-basic', [TimelineBasic::class, 'index'])->name('extended-ui-timeline-basic');
-Route::get('/extended/ui-timeline-fullscreen', [TimelineFullscreen::class, 'index'])->name('extended-ui-timeline-fullscreen');
-Route::get('/extended/ui-tour', [Tour::class, 'index'])->name('extended-ui-tour');
-Route::get('/extended/ui-treeview', [Treeview::class, 'index'])->name('extended-ui-treeview');
-Route::get('/extended/ui-misc', [Misc::class, 'index'])->name('extended-ui-misc');
+    Route::get('/details/{slug}/{id}', 'FrontEnd\Services\ServiceController@details')->name('frontend.service.details');
 
-// icons
-Route::get('/icons/tabler', [Tabler::class, 'index'])->name('icons-tabler');
-Route::get('/icons/font-awesome', [FontAwesome::class, 'index'])->name('icons-font-awesome');
+    Route::get('services-staff-content/{id}', 'FrontEnd\Services\ServiceController@staffcontent')->name('frontend.service.content');
 
-// form elements
-Route::get('/forms/basic-inputs', [BasicInput::class, 'index'])->name('forms-basic-inputs');
-Route::get('/forms/input-groups', [InputGroups::class, 'index'])->name('forms-input-groups');
-Route::get('/forms/custom-options', [CustomOptions::class, 'index'])->name('forms-custom-options');
-Route::get('/forms/editors', [Editors::class, 'index'])->name('forms-editors');
-Route::get('/forms/file-upload', [FileUpload::class, 'index'])->name('forms-file-upload');
-Route::get('/forms/pickers', [Picker::class, 'index'])->name('forms-pickers');
-Route::get('/forms/selects', [Selects::class, 'index'])->name('forms-selects');
-Route::get('/forms/sliders', [Sliders::class, 'index'])->name('forms-sliders');
-Route::get('/forms/switches', [Switches::class, 'index'])->name('forms-switches');
-Route::get('/forms/extras', [Extras::class, 'index'])->name('forms-extras');
+    Route::get('billing-form', 'FrontEnd\Services\ServiceController@billing')->name('frontend.services.billing');
 
-// form layouts
-Route::get('/form/layouts-vertical', [VerticalForm::class, 'index'])->name('form-layouts-vertical');
-Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('form-layouts-horizontal');
-Route::get('/form/layouts-sticky', [StickyActions::class, 'index'])->name('form-layouts-sticky');
+    Route::get('payment-success/{id}', 'FrontEnd\Services\ServiceController@paymentSuccess')->name('frontend.service.payment.success');
 
-// form wizards
-Route::get('/form/wizard-numbered', [FormWizardNumbered::class, 'index'])->name('form-wizard-numbered');
-Route::get('/form/wizard-icons', [FormWizardIcons::class, 'index'])->name('form-wizard-icons');
-Route::get('/form/validation', [Validation::class, 'index'])->name('form-validation');
+    //show time slot on modal
+    Route::get('show-staff-hour/{id}', 'FrontEnd\Services\ServiceController@staffHour')->name('frontend.staff.hour');
 
-// tables
-Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
-Route::get('/tables/datatables-basic', [DatatableBasic::class, 'index'])->name('tables-datatables-basic');
-Route::get('/tables/datatables-advanced', [DatatableAdvanced::class, 'index'])->name('tables-datatables-advanced');
-Route::get('/tables/datatables-extensions', [DatatableExtensions::class, 'index'])->name('tables-datatables-extensions');
+    Route::get('staff-date-time/{id}', 'FrontEnd\Services\ServiceController@staffHoliday')->name('frontend.staff.holiday');
 
-// charts
-Route::get('/charts/apex', [ApexCharts::class, 'index'])->name('charts-apex');
-Route::get('/charts/chartjs', [ChartJs::class, 'index'])->name('charts-chartjs');
+    Route::post('login', 'FrontEnd\Services\ServiceController@login')->name('frontend.user.login');
 
-// maps
-Route::get('/maps/leaflet', [Leaflet::class, 'index'])->name('maps-leaflet');
+    Route::get('staff/search/{id}', 'FrontEnd\Services\ServiceController@staffSearch')->name('frontend.staff.search');
 
-// laravel example
-Route::get('/laravel/user-management', [UserManagement::class, 'UserManagement'])->name('laravel-example-user-management');
-Route::resource('/user-list', UserManagement::class);
+    Route::post('session/forget', 'FrontEnd\Services\ServiceController@sessionForget')->name('service.session.forget');
+
+    Route::post('payment/process/', 'FrontEnd\Booking\ServicePaymentController@index')->name('frontend.service.payment');
+
+    //service booking payment notify route
+    Route::get('/paypal/payment/notify', 'FrontEnd\Booking\Payment\PayPalController@notify')->name('frontend.service_booking.paypal.notify');
+
+    Route::post('/razorpay/payment/notify', 'FrontEnd\Booking\Payment\RazorpayController@notify')->name('frontend.service_booking.razorpay.notify');
+
+    Route::get('/flutterwave/payment/notify', 'FrontEnd\Booking\Payment\FlutterwaveController@notify')
+      ->name('frontend.service_booking.flutterwave.notify');
+
+    Route::get('/instamojo/payment/notify', 'FrontEnd\Booking\Payment\InstamojoController@notify')->name('frontend.service_booking.instamojo.notify');
+
+    Route::get(
+      '/mollie/payment/notify',
+      'FrontEnd\Booking\Payment\MollieController@notify'
+    )->name('frontend.service_booking.mollie.notify');
+
+    Route::get('/paystack/payment/notify', 'FrontEnd\Booking\Payment\PaystackController@notify')->name('frontend.service_booking.paystack.notify');
+
+    Route::get('/mercadopago/payment/notify', 'FrontEnd\Booking\Payment\MercadoPagoController@notify')->name('frontend.service_booking.mercadopago.notify');
+
+    Route::post('/paytm/payment/notify', 'FrontEnd\Booking\Payment\PaytmController@notify')->name('frontend.service_booking.paytm.notify');
+
+    Route::get('/booking/complete/popup', 'FrontEnd\Booking\ServicePaymentController@complete')->name('frontend.service.booking.complete');
+
+    Route::get('/cancel', 'FrontEnd\Booking\ServicePaymentController@cancel')->name('frontend.service_booking.cancel');
+  });
+
+  //products routes are goes here
+  Route::get('/products', 'FrontEnd\Shop\ProductController@index')->name('shop.products')->middleware('shop.status');
+
+  Route::prefix('/product')->middleware(['shop.status'])->group(function () {
+    Route::get('/{slug}', 'FrontEnd\Shop\ProductController@show')->name('shop.product_details');
+
+    Route::get('/{id}/add-to-cart/{quantity}', 'FrontEnd\Shop\ProductController@addToCart')->name('shop.product.add_to_cart');
+  });
+
+  Route::prefix('/shop')->middleware(['shop.status'])->group(function () {
+    Route::get('/cart', 'FrontEnd\Shop\ProductController@cart')->name('shop.cart');
+
+    Route::post('/update-cart', 'FrontEnd\Shop\ProductController@updateCart')->name('shop.update_cart');
+
+    Route::get('/cart/remove-product/{id}', 'FrontEnd\Shop\ProductController@removeProduct')->name('shop.cart.remove_product');
+
+    Route::get('put-shipping-method-id/{id}', 'FrontEnd\Shop\ProductController@put_shipping_method')->name('put-shipping-method-id');
+
+    Route::prefix('/checkout')->group(function () {
+      Route::get('', 'FrontEnd\Shop\ProductController@checkout')->name('shop.checkout');
+
+      Route::post('/apply-coupon', 'FrontEnd\Shop\ProductController@applyCoupon');
+
+      Route::get('/offline-gateway/{id}/check-attachment', 'FrontEnd\Shop\ProductController@checkAttachment');
+    });
+
+    Route::prefix('/purchase-product')->group(function () {
+      Route::post('', 'FrontEnd\Shop\PurchaseProcessController@index')->name('shop.purchase_product');
+
+      Route::get('/paypal/notify', 'FrontEnd\PaymentGateway\PayPalController@notify')->name('shop.purchase_product.paypal.notify');
+
+      Route::get('/instamojo/notify', 'FrontEnd\PaymentGateway\InstamojoController@notify')->name('shop.purchase_product.instamojo.notify');
+
+      Route::get('/paystack/notify', 'FrontEnd\PaymentGateway\PaystackController@notify')->name('shop.purchase_product.paystack.notify');
+
+      Route::get('/flutterwave/notify', 'FrontEnd\PaymentGateway\FlutterwaveController@notify')->name('shop.purchase_product.flutterwave.notify');
+
+      Route::post('/razorpay/notify', 'FrontEnd\PaymentGateway\RazorpayController@notify')->name('shop.purchase_product.razorpay.notify');
+
+      Route::get('/mercadopago/notify', 'FrontEnd\PaymentGateway\MercadoPagoController@notify')->name('shop.purchase_product.mercadopago.notify');
+
+      Route::get('/mollie/notify', 'FrontEnd\PaymentGateway\MollieController@notify')->name('shop.purchase_product.mollie.notify');
+
+      Route::post('/paytm/notify', 'FrontEnd\PaymentGateway\PaytmController@notify')->name('shop.purchase_product.paytm.notify');
+
+      Route::get('/complete/{type?}', 'FrontEnd\Shop\PurchaseProcessController@complete')->name('shop.purchase_product.complete')->middleware('change.lang');
+
+      Route::get('/cancel', 'FrontEnd\Shop\PurchaseProcessController@cancel')->name('shop.purchase_product.cancel');
+    });
+
+    Route::post('/product/{id}/store-review', 'FrontEnd\Shop\ProductController@storeReview')->name('shop.product_details.store_review');
+  });
+
+  Route::prefix('pricing')->group(function () {
+    Route::get('/', 'FrontEnd\PricingController@index')->name('frontend.pricing');
+  });
+
+  Route::prefix('vendors')->group(function () {
+    Route::get('/', 'FrontEnd\VendorController@index')->name('frontend.vendors');
+    Route::post('contact/message', 'FrontEnd\VendorController@contact')->name('vendor.contact.message');
+  });
+  Route::get('vendor/{username}', 'FrontEnd\VendorController@details')->name('frontend.vendor.details');
+
+  Route::prefix('/blog')->group(function () {
+    Route::get('', 'FrontEnd\BlogController@index')->name('blog');
+
+    Route::get('/{slug}', 'FrontEnd\BlogController@show')->name('blog_details');
+  });
+
+  Route::get('/faq', 'FrontEnd\FaqController@faq')->name('faq');
+  Route::get('/about-us', 'FrontEnd\HomeController@about')->name('about_us');
+
+  Route::prefix('/contact')->group(function () {
+    Route::get('', 'FrontEnd\ContactController@contact')->name('contact');
+
+    Route::post('/send-mail', 'FrontEnd\ContactController@sendMail')->name('contact.send_mail')->withoutMiddleware('change.lang');
+  });
+});
+
+Route::post('/advertisement/{id}/count-view', 'FrontEnd\MiscellaneousController@countAdView');
+
+Route::prefix('login')->middleware(['guest:web', 'change.lang'])->group(function () {
+  // user login via facebook route
+  Route::prefix('/user/facebook')->group(function () {
+    Route::get('', 'FrontEnd\UserController@redirectToFacebook')->name('user.login.facebook');
+
+    Route::get('/callback', 'FrontEnd\UserController@handleFacebookCallback');
+  });
+
+  // user login via google route
+  Route::prefix('/google')->group(function () {
+    Route::get('', 'FrontEnd\UserController@redirectToGoogle')->name('user.login.google');
+
+    Route::get('/callback', 'FrontEnd\UserController@handleGoogleCallback');
+  });
+});
+
+Route::prefix('/user')->middleware(['guest:web', 'change.lang'])->group(function () {
+  Route::prefix('/login')->group(function () {
+    // user redirect to login page route
+    Route::get('', 'FrontEnd\UserController@login')->name('user.login');
+  });
+  // user login submit route
+  Route::post('/login-submit', 'FrontEnd\UserController@loginSubmit')->name('user.login_submit')->withoutMiddleware('change.lang');
+
+  // user forget password route
+  Route::get('/forget-password', 'FrontEnd\UserController@forgetPassword')->name('user.forget_password');
+
+  // send mail to user for forget password route
+  Route::post('/send-forget-password-mail', 'FrontEnd\UserController@forgetPasswordMail')->name('user.send_forget_password_mail')->withoutMiddleware('change.lang');
+
+  // reset password route
+  Route::get('/reset-password', 'FrontEnd\UserController@resetPassword');
+
+  // user reset password submit route
+  Route::post('/reset-password-submit', 'FrontEnd\UserController@resetPasswordSubmit')->name('user.reset_password_submit')->withoutMiddleware('change.lang');
+
+  // user redirect to signup page route
+  Route::get('/signup', 'FrontEnd\UserController@signup')->name('user.signup');
+
+  // user signup submit route
+  Route::post('/signup-submit', 'FrontEnd\UserController@signupSubmit')->name('user.signup_submit')->withoutMiddleware('change.lang');
+
+  // signup verify route
+  Route::get('/signup-verify/{token}', 'FrontEnd\UserController@signupVerify')->withoutMiddleware('change.lang');
+});
+
+
+// Customer routes
+
+
+// Customer Routes to check with the middleware
+Route::prefix('/user')->middleware(['auth:web', 'account.status', 'change.lang', 'vendorCheck'])->group(function () {
+  // user redirect to dashboard route
+  Route::get('/dashboard', 'FrontEnd\UserController@redirectToDashboard')->name('user.dashboard');
+
+  Route::get('/edit-profile', 'FrontEnd\UserController@editProfile')->name('user.edit_profile');
+
+  // update profile route
+  Route::post('/update-profile', 'FrontEnd\UserController@updateProfile')->name('user.update_profile')->withoutMiddleware('change.lang');
+
+  // change password route
+  Route::get('/change-password', 'FrontEnd\UserController@changePassword')->name('user.change_password');
+
+  // update password route
+  Route::post('/update-password', 'FrontEnd\UserController@updatePassword')->name('user.update_password')->withoutMiddleware('change.lang');
+
+  // user logout attempt route
+  Route::get('/logout', 'FrontEnd\UserController@logoutSubmit')->name('user.logout')->withoutMiddleware('change.lang');
+  Route::get('/wishlist', 'FrontEnd\UserController@wishlist')->name('user.wishlist');
+
+  Route::get('appointment', 'FrontEnd\AppointmentController@appointment')->name('user.appointment.index');
+  Route::get('appointment/details/{id}', 'FrontEnd\AppointmentController@details')->name('user.appointment.details');
+
+  Route::get('order', 'FrontEnd\OrderController@index')->name('user.order.index')->middleware('shop.status');
+  Route::get('/order/details/{id}', 'FrontEnd\OrderController@details')->name('user.order.details')->middleware('shop.status');
+
+  Route::post('download/{product_id}', 'FrontEnd\OrderController@download')->name('user.product_order.product.download')->middleware('shop.status');
+
+  // edit profile route
+
+});
+// End of Customer Routes
+
+
+// service unavailable route
+Route::get('/service-unavailable', 'FrontEnd\MiscellaneousController@serviceUnavailable')->name('service_unavailable')->middleware('exists.down');
+
+/*
+|--------------------------------------------------------------------------
+| admin frontend route
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('/admin')->middleware('guest:admin')->group(function () {
+  // admin redirect to login page route
+  Route::get('/', 'Admin\AdminController@login')->name('admin.login');
+
+  // admin login attempt route
+  Route::post('/auth', 'Admin\AdminController@authentication')->name('admin.auth');
+
+  // admin forget password route
+  Route::get('/forget-password', 'Admin\AdminController@forgetPassword')->name('admin.forget_password');
+
+  // send mail to admin for forget password route
+  Route::post('/mail-for-forget-password', 'Admin\AdminController@forgetPasswordMail')->name('admin.mail_for_forget_password');
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Custom Page Route For UI
+|--------------------------------------------------------------------------
+*/
+Route::get('/{slug}', 'FrontEnd\PageController@page')->name('dynamic_page')->middleware('change.lang');
+
+// fallback route
+Route::fallback(function () {
+  return view('errors.404');
+})->middleware('change.lang');
