@@ -1,7 +1,6 @@
 {{-- This loads compiled styles handled by vite.config.mjs --}}
 <!-- Fonts -->
 {{--  --}}
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -9,6 +8,8 @@
     rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
 
 <!-- Icon Fonts -->
 @vite([

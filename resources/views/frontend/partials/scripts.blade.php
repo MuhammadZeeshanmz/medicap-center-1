@@ -10,7 +10,9 @@
     var vapid_public_key = "{!! env('VAPID_PUBLIC_KEY') !!}";
     let bookingUnableText =
         "{{ __('We regret to inform you that the service you are trying to book is currently unavailable. Please contact our support team for further assistance') }}";
+    
 </script>
+
 {{-- Helpers & Config --}}
 @vite(['resources/assets/vendor/js/helpers.js'])
 

@@ -2096,6 +2096,7 @@ Lazyload CSS
 .tabs-navigation .nav .nav-link:is(.active) {
   color: var(--text-white);
   background-color: var(--color-primary);
+  
   border-radius: 0;
 }
 
