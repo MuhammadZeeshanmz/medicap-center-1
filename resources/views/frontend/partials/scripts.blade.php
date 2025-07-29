@@ -10,8 +10,11 @@
     var vapid_public_key = "{!! env('VAPID_PUBLIC_KEY') !!}";
     let bookingUnableText =
         "{{ __('We regret to inform you that the service you are trying to book is currently unavailable. Please contact our support team for further assistance') }}";
-    
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
 
 {{-- Helpers & Config --}}
 @vite(['resources/assets/vendor/js/helpers.js'])
