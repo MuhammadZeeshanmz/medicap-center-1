@@ -171,7 +171,7 @@
                         </div>
 
                         <!-- Swiper Pagination and Arrows -->
-                        <div class="swiper-pagination" style="margin-top: 100px !important;"></div>
+                        <!-- <div class="swiper-pagination" style="margin-top: 100px !important;"></div> -->
                         {{-- <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div> --}}
                     </div>
@@ -240,7 +240,11 @@
                                 </div>
 
                                 <!-- Pagination -->
+<<<<<<< HEAD
                                 {{-- <div class="swiper-pagination position-static mt-30" id="works-slider-1-pagination"></div> --}}
+=======
+                                <!-- <div class="swiper-pagination position-static mt-30" id="works-slider-1-pagination"></div> -->
+>>>>>>> 3fd110bc4c329549290c9ff8e6b7f897513cf1a5
 
 
                             </div>
@@ -408,7 +412,7 @@
                                         @endforeach
                                     </div>
                                     <!-- If we need pagination -->
-                                    <div class="swiper-pagination position-static" id="product-slider-1-pagination">
+                                    <!-- <div class="swiper-pagination position-static" id="product-slider-1-pagination"> -->
                                     </div>
                                 </div>
                             @endif
