@@ -187,7 +187,8 @@
         <!-- Works-area start -->
         @if ($secInfo->work_process_section_status == 1)
             <section class="works-area works-1 pt-100 pb-60 bg-img bg-cover mb-5"
-                data-bg-image="{{ !empty($sectionContent->work_process_background_img) ? asset('assets/img/' . $sectionContent->work_process_background_img) : asset('assets/frontend/images/work-process.png') }}">
+                style="background-image: url('{{ !empty($sectionContent->work_process_background_img) ? asset('assets/img/' . $sectionContent->work_process_background_img) : asset('assets/frontend/images/work-process.png') }}'); padding: 100px 0;">
+
 
                 <div class="container">
                     <div class="row align-items-center gx-xl-5">
@@ -239,7 +240,7 @@
                                 </div>
 
                                 <!-- Pagination -->
-                                <div class="swiper-pagination position-static mt-30" id="works-slider-1-pagination"></div>
+                                {{-- <div class="swiper-pagination position-static mt-30" id="works-slider-1-pagination"></div> --}}
 
 
                             </div>
