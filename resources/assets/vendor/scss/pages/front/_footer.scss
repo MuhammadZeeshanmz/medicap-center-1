@@ -5,16 +5,16 @@
       opacity: 0.8;
     }
   }
-  .footer-top {
-    padding: 3.5rem 0;
-    @include light.border-top-radius($section-radius);
-    @include light.media-breakpoint-down(md) {
-      padding: 3rem 0;
-    }
-    .footer-bg {
-      object-position: center;
-    }
-  }
+  // .footer-top {
+  //   padding: 3.5rem 0;
+  //   @include light.border-top-radius($section-radius);
+  //   @include light.media-breakpoint-down(md) {
+  //     padding: 3rem 0;
+  //   }
+  //   .footer-bg {
+  //     object-position: center;
+  //   }
+  // }
   @include light.media-breakpoint-up(lg) {
     .footer-logo-description {
       max-width: 322px;

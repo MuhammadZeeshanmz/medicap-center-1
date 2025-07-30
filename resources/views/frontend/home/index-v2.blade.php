@@ -1,22 +1,22 @@
 @php
-  $version = $basicInfo->theme_version;
+    $version = $basicInfo->theme_version;
 @endphp
 @extends('frontend.layout')
 
 @section('pageHeading')
-  {{ __('Home') }}
+    {{ __('Home') }}
 @endsection
 
 @section('metaKeywords')
-  @if (!empty($seoInfo))
-    {{ $seoInfo->meta_keyword_home }}
-  @endif
+    @if (!empty($seoInfo))
+        {{ $seoInfo->meta_keyword_home }}
+    @endif
 @endsection
 
 @section('metaDescription')
-  @if (!empty($seoInfo))
-    {{ $seoInfo->meta_description_home }}
-  @endif
+    @if (!empty($seoInfo))
+        {{ $seoInfo->meta_description_home }}
+    @endif
 @endsection
 
 @section('content')
@@ -38,7 +38,7 @@
               <div class="row justify-content-center align-items-center">
                 <div class="col-md-4 col-sm-6">
                   <div class="input-group">
-                    <label for="service_location" class="text-gradient"><i class="fas fa-map-marker-alt"></i></label>
+                    <label for="service_location" class="text-gradient"><i class="fal fa-map-marker-alt"></i></label>
                     <input type="text" id="service_location" name="location" class="form-control"
                       placeholder="{{ __('Search By Location') }}">
                     <div class="vr"></div>
@@ -46,14 +46,14 @@
                 </div>
                 <div class="col-md-4 col-sm-6">
                   <div class="input-group">
-                    <label for="service_title" class="text-gradient"><i class="fas fa-clipboard-list"></i></label>
+                    <label for="service_title" class="text-gradient"><i class="fal fa-clipboard-list"></i></label>
                     <input type="text" id="service_name" name="service_title" class="form-control"
                       placeholder="{{ __('Search Service') }}">
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <button type="submit" class="btn btn-lg btn-primary rounded-pill btn-gradient icon-start w-100">
-                    <i class="fas fa-search"></i>
+                    <i class="fal fa-search"></i>
                     {{ __('Find Now') }}
                   </button>
                 </div>
@@ -221,11 +221,11 @@
                 <div class="slider-navigation">
                   <button type="button" title="Slide prev" class="slider-btn rounded-circle"
                     id="product-slider-1-prev">
-                    <i class="fas fa-angle-left"></i>
+                    <i class="fal fa-angle-left"></i>
                   </button>
                   <button type="button" title="Slide next" class="slider-btn rounded-circle"
                     id="product-slider-1-next">
-                    <i class="fas fa-angle-right"></i>
+                    <i class="fal fa-angle-right"></i>
                   </button>
                 </div>
               @endif
@@ -270,7 +270,7 @@
                               class="btn btn-icon border rounded-circle {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                               data-tooltip="tooltip" data-bs-placement="right"
                               title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                              <i class="fas fa-heart"></i>
+                              <i class="fal fa-heart"></i>
                             </a>
                           </div>
                           <h6 class="product-title mb-0">
@@ -316,10 +316,10 @@
                           </div>
                           @if (!empty($service->address))
                             <span class="font-sm icon-start"><i
-                                class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                           @endif
                           @if ($service->zoom_meeting == 1)
-                            <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
+                            <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
                           @endif
                           <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
                             <div class="product-price">
@@ -464,7 +464,7 @@
                               <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
                                 class="btn btn-icon border rounded-circle {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                                 title="Save to Wishlist">
-                                <i class="fas fa-heart"></i>
+                                <i class="fal fa-heart"></i>
                               </a>
                             </div>
                             <h6 class="product-title mb-0">
@@ -512,10 +512,10 @@
                             </div>
                             @if (!empty($service->address))
                               <span class="font-sm icon-start"><i
-                                  class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                  class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                             @endif
                             @if ($service->zoom_meeting == 1)
-                              <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
+                              <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
                             @endif
                             <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
                               <div class="product-price">
@@ -535,7 +535,7 @@
                     <div class="cta-btn text-center mt-15">
                       <a href="{{ route('frontend.services') }}"
                         class="btn btn-lg btn-primary btn-gradient icon-start rounded-pill" title="View More"
-                        target="_self"><i class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
+                        target="_self"><i class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
                     </div>
                   </div>
                 </div>
@@ -608,7 +608,7 @@
                                   <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
                                     class="btn btn-icon border rounded-circle {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                                     title="Save to Wishlist">
-                                    <i class="fas fa-heart"></i>
+                                    <i class="fal fa-heart"></i>
                                   </a>
                                 </div>
                                 <h6 class="product-title mb-0">
@@ -647,11 +647,11 @@
                                 </div>
                                 @if (!empty($service->address))
                                   <span class="font-sm icon-start"><i
-                                      class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                      class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                 @endif
                                 @if ($service->zoom_meeting == 1)
                                   <span class="font-sm icon-start"><i
-                                      class="fas fa-video"></i>{{ __('Online') }}</span>
+                                      class="fal fa-video"></i>{{ __('Online') }}</span>
                                 @endif
                                 <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
                                   <div class="product-price">
@@ -672,7 +672,7 @@
                       <div class="cta-btn text-center mt-15">
                         <a href="{{ route('frontend.services', ['category_id' => $category->id]) }}"
                           class="btn btn-lg btn-primary btn-gradient icon-start rounded-pill" target="_self"><i
-                            class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
+                            class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
                       </div>
                     </div>
                   @endif
@@ -756,7 +756,7 @@
               @if ($vendors > 0)
                 <a href="{{ route('frontend.vendors') }}"
                   class="btn btn-lg btn-primary btn-gradient icon-start rounded-pill" target="_self"><i
-                    class="fas fa-arrow-right"></i>
+                    class="fal fa-arrow-right"></i>
                   @if ($vendors > 1)
                     {{ __('View All Vendors') }}
                   @else
@@ -812,7 +812,7 @@
                           @if ($vendorInfo)
                             @if ($vendorInfo->address != null)
                               <span class="font-sm icon-start"><i
-                                  class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                                  class="fal fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
                             @endif
                           @endif
                           <div class="d-flex align-items-center gap-15 mt-10">
@@ -842,46 +842,46 @@
                   @endforeach
                 </div>
 
-                <!-- If we need pagination -->
-                <div class="swiper-pagination position-static" id="product-slider-2-pagination"></div>
-              </div>
+                                <!-- If we need pagination -->
+                                <div class="swiper-pagination position-static" id="product-slider-2-pagination"></div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    @if (count($after_vendor) > 0)
+        @foreach ($after_vendor as $cusVendor)
+            @if (isset($homecusSec[$cusVendor->id]))
+                @if ($homecusSec[$cusVendor->id] == 1)
+                    @php
+                        $cusVendorContent = App\Models\CustomSectionContent::where('custom_section_id', $cusVendor->id)
+                            ->where('language_id', $currentLanguageInfo->id)
+                            ->first();
+                    @endphp
+                    @include('frontend.home.custom-section', ['data' => $cusVendorContent])
+                @endif
             @endif
-          </div>
-        </div>
-      </div>
-    </section>
-  @endif
-  @if (count($after_vendor) > 0)
-    @foreach ($after_vendor as $cusVendor)
-      @if (isset($homecusSec[$cusVendor->id]))
-        @if ($homecusSec[$cusVendor->id] == 1)
-          @php
-            $cusVendorContent = App\Models\CustomSectionContent::where('custom_section_id', $cusVendor->id)
-                ->where('language_id', $currentLanguageInfo->id)
-                ->first();
-          @endphp
-          @include('frontend.home.custom-section', ['data' => $cusVendorContent])
-        @endif
-      @endif
-    @endforeach
-  @endif
-  <!-- Shop-area end -->
+        @endforeach
+    @endif
+    <!-- Shop-area end -->
 @endsection
 @section('script')
-  <script src="https://js.stripe.com/v3/"></script>
-  <script src="{{ $authorizeUrl }}"></script>
-  <script>
-    let stripe_key = "{{ $stripe_key }}";
-    let authorize_login_key = "{{ $authorize_login_id }}";
-    let authorize_public_key = "{{ $authorize_public_key }}";
-    var complete = "{{ Session::get('complete') }}";
-    var bookingInfo = {!! json_encode(Session::get('paymentInfo')) !!};
-  </script>
-  {{-- <script src="{{ asset('assets/frontend/js/appointment.js') }}"></script> --}}
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{ $authorizeUrl }}"></script>
+    <script>
+        let stripe_key = "{{ $stripe_key }}";
+        let authorize_login_key = "{{ $authorize_login_id }}";
+        let authorize_public_key = "{{ $authorize_public_key }}";
+        var complete = "{{ Session::get('complete') }}";
+        var bookingInfo = {!! json_encode(Session::get('paymentInfo')) !!};
+    </script>
+    {{-- <script src="{{ asset('assets/frontend/js/appointment.js') }}"></script> --}}
 
-  <script>
-    @if (old('gateway') == 'stripe')
-      $('#stripe-element').removeClass('d-none');
-    @endif
-  </script>
+    <script>
+        @if (old('gateway') == 'stripe')
+            $('#stripe-element').removeClass('d-none');
+        @endif
+    </script>
 @endsection

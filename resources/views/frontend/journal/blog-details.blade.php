@@ -1,44 +1,43 @@
 @php
-  $version = $basicInfo->theme_version;
+    $version = $basicInfo->theme_version;
 @endphp
 @extends('frontend.layout')
 
 @php
-  $title = strlen($details->title) > 40 ? mb_substr($details->title, 0, 40, 'UTF-8') . '...' : $details->title;
+    $title = strlen($details->title) > 40 ? mb_substr($details->title, 0, 40, 'UTF-8') . '...' : $details->title;
 @endphp
 @section('pageHeading')
-  @if (!empty($title))
-    {{ $title ? $title : $pageHeading->blog_page_title }}
-  @endif
+    @if (!empty($title))
+        {{ $title ? $title : $pageHeading->blog_page_title }}
+    @endif
 @endsection
 
 @section('metaKeywords')
-  {{ $details->meta_keywords }}
+    {{ $details->meta_keywords }}
 @endsection
 
 @section('metaDescription')
-  {{ $details->meta_description }}
+    {{ $details->meta_description }}
 @endsection
 
 @section('content')
-  <!-- Page title start-->
-  <div
-    class="page-title-area bg-img bg-cover {{ $basicInfo->theme_version == 2 || $basicInfo->theme_version == 3 ? 'has_header_2' : '' }}"
-    @if (!empty($bgImg->breadcrumb)) data-bg-image="{{ asset('assets/img/' . $bgImg->breadcrumb) }}" @endif>
-    <div class="container">
-      <div class="content">
-        <h2>{{ !empty($title) ? $title : '' }}</h2>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ __('Home') }}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-              {{ !empty($pageHeading) ? $pageHeading->blog_page_title : __('Blog') }}</li>
-          </ol>
-        </nav>
-      </div>
+    <!-- Page title start-->
+    <div class="page-title-area bg-img bg-cover {{ $basicInfo->theme_version == 2 || $basicInfo->theme_version == 3 ? 'has_header_2' : '' }}"
+        @if (!empty($bgImg->breadcrumb)) data-bg-image="{{ asset('assets/img/' . $bgImg->breadcrumb) }}" @endif>
+        <div class="container">
+            <div class="content">
+                <h2>{{ !empty($title) ? $title : '' }}</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ __('Home') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            {{ !empty($pageHeading) ? $pageHeading->blog_page_title : __('Blog') }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- Page title end-->
+    <!-- Page title end-->
 
   <div class="blog-details-area pt-100 pb-60">
     <div class="container">
@@ -56,11 +55,11 @@
               </div>
               <div class="content">
                 <ul class="info-list">
-                  <li><i class="fas fa-user"></i>{{ $details->author }}</li>
-                  <li><i class="fas fa-calendar"></i> {{ \Carbon\Carbon::parse($details->created_at)->format('F d, Y') }}
+                  <li><i class="fal fa-user"></i>{{ $details->author }}</li>
+                  <li><i class="fal fa-calendar"></i> {{ \Carbon\Carbon::parse($details->created_at)->format('F d, Y') }}
                   </li>
 
-                  <li><i class="fas fa-tag"></i>
+                  <li><i class="fal fa-tag"></i>
                     <a href="{{ route('blog', ['category' => $details->categorySlug]) }}">
                       {{ $details->categoryName }}
                     </a>
@@ -101,7 +100,7 @@
                 @foreach ($categories as $category)
                   <li class="d-flex align-items-center justify-content-between">
                     <a href="{{ route('blog', ['category' => $category->slug]) }}" target="_self" title="Blogs"><i
-                        class="fas fa-folder"></i>{{ $category->name }}</a>
+                        class="fal fa-folder"></i>{{ $category->name }}</a>
                     <span class="tqy">({{ $category->blogCount }})</span>
                   </li>
                 @endforeach
@@ -123,8 +122,8 @@
                         {{ strlen($blog->title) > 40 ? mb_substr($blog->title, 0, 40, 'UTF-8') . '...' : $blog->title }}</a>
                     </h6>
                     <ul class="info-list">
-                      <li><i class="fas fa-user"></i>{{ __('Admin') }}</li>
-                      <li><i class="fas fa-calendar"></i>{{ date_format($details->created_at, 'M d, Y') }}</li>
+                      <li><i class="fal fa-user"></i>{{ __('Admin') }}</li>
+                      <li><i class="fal fa-calendar"></i>{{ date_format($details->created_at, 'M d, Y') }}</li>
                     </ul>
                   </div>
                 </article>
@@ -171,28 +170,28 @@
               </a>
             </div>
 
-            <div class="action-btn">
-              <a href="//www.linkedin.com/shareArticle?mini=true&amp;url={{ urlencode(url()->current()) }}&amp;title={{ $details->title }}"
-                class="linkedin" target="_blank">
-                <i class="fab fa-linkedin-in"></i>{{ __('Linkedin') }}
-              </a>
+                        <div class="action-btn">
+                            <a href="//www.linkedin.com/shareArticle?mini=true&amp;url={{ urlencode(url()->current()) }}&amp;title={{ $details->title }}"
+                                class="linkedin" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>{{ __('Linkedin') }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 @endsection
 @section('script')
-  @if ($disqusInfo->disqus_status == 1)
-    <script>
-      'use strict';
-      const shortName = '{{ $disqusInfo->disqus_short_name }}';
-      const slug = '{{ $details->blogSlug }}';
-      const blogId = '{{ $details->id }}';
-    </script>
-    <!-- disqus plugin -->
-    <script id="dsq-count-scr" src="//bookapp.disqus.com/count.js" async></script>
-    <script src="{{ asset('assets/frontend/js/disqus.js') }}"></script>
-  @endif
+    @if ($disqusInfo->disqus_status == 1)
+        <script>
+            'use strict';
+            const shortName = '{{ $disqusInfo->disqus_short_name }}';
+            const slug = '{{ $details->blogSlug }}';
+            const blogId = '{{ $details->id }}';
+        </script>
+        <!-- disqus plugin -->
+        <script id="dsq-count-scr" src="//bookapp.disqus.com/count.js" async></script>
+        <script src="{{ asset('assets/frontend/js/disqus.js') }}"></script>
+    @endif
 @endsection

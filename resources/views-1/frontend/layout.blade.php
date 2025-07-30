@@ -71,9 +71,10 @@
     <div class="request-loader-time" style="display: none;"><img src="{{ asset('assets/img/front-loader.gif') }}"
             alt="loader">
     </div>
-    <!-- @if ($basicInfo->preloader_status == 1) -->
-        <!-- Preloader start -->
-        <!-- <div id="preLoader" data-preloader-status="{{ $basicInfo->preloader_status }}">
+    <!-- @if ($basicInfo->preloader_status == 1)
+-->
+    <!-- Preloader start -->
+    <!-- <div id="preLoader" data-preloader-status="{{ $basicInfo->preloader_status }}">
             <img src="{{ asset('assets/img/' . $basicInfo->preloader) }}" alt="">
         </div> -->
     @endif
@@ -109,10 +110,7 @@
         @include('cookie-consent::index')
     @endif --}}
 
-    <div class="floating-btns">
-        <!-- WhatsApp Chat Button -->
-        <div id="WAButton"></div>
-    </div>
+
 
     @if ($basicInfo->shop_status == 1)
         <!-- Floating Cart Button -->

@@ -19,9 +19,9 @@
 
 @section('content')
   <!-- Page Header Section -->
-  <section class="page-header" 
-           @if(!empty($bgImg->breadcrumb)) 
-             style="background-image: url('{{ asset('assets/img/' . $bgImg->breadcrumb) }}')" 
+  <section class="page-header"
+           @if(!empty($bgImg->breadcrumb))
+             style="background-image: url('{{ asset('assets/img/' . $bgImg->breadcrumb) }}')"
            @endif>
     <div class="container">
       <div class="header-content">
@@ -53,9 +53,9 @@
                     <div class="swiper-slide">
                       <div class="gallery-item">
                         <a href="{{ asset('assets/img/services/service-gallery/' . $item->image) }}" class="gallery-link">
-                          <img class="lazyload" 
-                               src="{{ asset('assets/frontend/images/placeholder.png') }}" 
-                               data-src="{{ asset('assets/img/services/service-gallery/' . $item->image) }}" 
+                          <img class="lazyload"
+                               src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                               data-src="{{ asset('assets/img/services/service-gallery/' . $item->image) }}"
                                alt="Service image"
                                loading="lazy">
                         </a>
@@ -75,9 +75,9 @@
                   @foreach($details->sliderImage as $item)
                     <div class="swiper-slide">
                       <div class="thumb-item">
-                        <img class="lazyload" 
-                             src="{{ asset('assets/frontend/images/placeholder.png') }}" 
-                             data-src="{{ asset('assets/img/services/service-gallery/' . $item->image) }}" 
+                        <img class="lazyload"
+                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                             data-src="{{ asset('assets/img/services/service-gallery/' . $item->image) }}"
                              alt="Service thumbnail"
                              loading="lazy">
                       </div>
@@ -99,14 +99,14 @@
                     </a>
                   </span>
                   <h2 class="service-title">{{ $service->name }}</h2>
-                  
+
                   @if(!empty($service->address))
                     <div class="service-location">
                       <i class="fas fa-map-marker-alt"></i>
                       {{ $service->address }}
                     </div>
                   @endif
-                  
+
                   @if($details->zoom_meeting == 1)
                     <div class="service-online">
                       <i class="fas fa-video"></i>
@@ -122,32 +122,32 @@
                     <div class="original-price">{{ symbolPrice($details->prev_price) }}</div>
                   @endif
                 </div>
-                
+
                 <div class="service-provider">
                   <div class="provider-avatar">
                     @if($details->vendor_id != 0)
                       @if($details->vendor->photo != null)
                         <a href="{{ route('frontend.vendor.details', ['username' => $details->vendor->username]) }}">
-                          <img class="lazyload" 
-                               src="{{ asset('assets/frontend/images/placeholder.png') }}" 
-                               data-src="{{ asset('assets/admin/img/vendor-photo/' . $details->vendor->photo) }}" 
+                          <img class="lazyload"
+                               src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                               data-src="{{ asset('assets/admin/img/vendor-photo/' . $details->vendor->photo) }}"
                                alt="{{ $details->vendor->username }}"
                                loading="lazy">
                         </a>
                       @else
                         <a href="{{ route('frontend.vendor.details', ['username' => $details->vendor->username]) }}">
-                          <img class="lazyload" 
-                               src="{{ asset('assets/frontend/images/placeholder.png') }}" 
-                               data-src="{{ asset('assets/img/user.png') }}" 
+                          <img class="lazyload"
+                               src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                               data-src="{{ asset('assets/img/user.png') }}"
                                alt="{{ $details->vendor->username }}"
                                loading="lazy">
                         </a>
                       @endif
                     @else
                       <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}">
-                        <img class="lazyload" 
-                             src="{{ asset('assets/frontend/images/placeholder.png') }}" 
-                             data-src="{{ asset('assets/img/admins/' . $admin->image) }}" 
+                        <img class="lazyload"
+                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                             data-src="{{ asset('assets/img/admins/' . $admin->image) }}"
                              alt="{{ $admin->username }}"
                              loading="lazy">
                       </a>
@@ -212,9 +212,9 @@
           <div class="booking-cta">
             <div class="cta-content">
               <h4>{{ __('Do you want to book this service') }}?</h4>
-              <button class="book-now-btn" 
-                      data-bs-toggle="modal" 
-                      data-bs-target="#makeBooking" 
+              <button class="book-now-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#makeBooking"
                       data-id="{{ $details->id }}">
                 {{ __('Book Now') }}
               </button>
@@ -227,7 +227,7 @@
               <h3>
                 {{ count($related_services) > 1 ? __('Related Services') : __('Related Service') }}
               </h3>
-              
+
               <div class="services-slider">
                 <div class="swiper related-services-slider">
                   <div class="swiper-wrapper">
@@ -285,9 +285,9 @@
                     <div class="review-header">
                       <div class="reviewer-info">
                         <div class="reviewer-avatar">
-                          <img class="lazyload" 
-                               src="{{ asset('assets/frontend/images/placeholder.png') }}" 
-                               data-src="{{ $review->user->image ? asset('assets/img/users/' . $review->user->image) : asset('assets/img/user.png') }}" 
+                          <img class="lazyload"
+                               src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                               data-src="{{ $review->user->image ? asset('assets/img/users/' . $review->user->image) : asset('assets/img/user.png') }}"
                                alt="{{ $review->user->name }}"
                                loading="lazy">
                         </div>
@@ -372,7 +372,7 @@
   <script src="{{ asset('assets/frontend/js/vendors/leaflet.js') }}"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <script src="{{ $authorizeUrl }}"></script>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Initialize lazy loading
@@ -405,7 +405,7 @@
       @endif
     });
   </script>
-  
+
   <script src="{{ asset('assets/frontend/js/appointment.js') }}"></script>
   <script src="{{ asset('assets/frontend/js/init-map.js') }}"></script>
 @endsection

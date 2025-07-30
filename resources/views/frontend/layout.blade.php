@@ -109,10 +109,7 @@
         @include('cookie-consent::index')
     @endif --}}
 
-    <div class="floating-btns">
-        <!-- WhatsApp Chat Button -->
-        <div id="WAButton"></div>
-    </div>
+
 
     @if ($basicInfo->shop_status == 1)
         <!-- Floating Cart Button -->

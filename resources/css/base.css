@@ -19,7 +19,8 @@
   --font-size--h4: 24px;
   --font-size--h5: 20px;
   --font-size--h6: 18px;
-
+  --text-white: white;
+  --color-white: white;
   --color-primary-rgb: 255, 0, 55;
   --color-secondary-rgb: 255, 72, 112;
   --color-red-rgb: 235, 76, 76;
