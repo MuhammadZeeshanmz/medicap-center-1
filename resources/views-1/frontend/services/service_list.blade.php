@@ -25,7 +25,7 @@
       'title' => !empty($pageHeading) ? $pageHeading->service_page_title : __('Services'),
   ])
   <!-- Listing-list-area start -->
-  <div class="listing-area pt-100 pb-60">
+  <div class="listing-area pt-100 pb-60 mb-62">
     <div class="container">
       <div class="row gx-xl-5">
         <!--- services side-bar-->

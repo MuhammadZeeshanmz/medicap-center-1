@@ -1,5 +1,5 @@
 <!-- Page Header Section Start -->
-<section class="page-header {{ $basicInfo->theme_version == 2 || $basicInfo->theme_version == 3 ? 'theme-v2' : '' }}"
+<section class="mb-62 page-header {{ $basicInfo->theme_version == 2 || $basicInfo->theme_version == 3 ? 'theme-v2' : '' }}"
          @if(!empty($breadcrumb)) 
            style="background-image: url('{{ asset('assets/img/' . $breadcrumb) }}'); padding: 100px 0;"  {{-- Added padding here --}}
          @else

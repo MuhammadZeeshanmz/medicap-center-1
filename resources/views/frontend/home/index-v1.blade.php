@@ -168,13 +168,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                        </div>
-
-                        <!-- Swiper Pagination and Arrows -->
-                        <!-- <div class="swiper-pagination" style="margin-top: 100px !important;"></div> -->
-                        {{-- <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div> --}}
-                    </div>
+                       
                 @else
                     <div class="col-12 text-center mt-4">
                         <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
@@ -294,7 +288,7 @@
                                                         <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                             class="d-block overflow-hidden rounded"
                                                             style="height: 200px;">
-                                                            <img class="lazyload object-fit-cover w-100 h-100"
+                                                            <img class="lazyload object-fit-cover w-100 h-100 "
                                                                 src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                 data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                 alt="Service"
@@ -368,7 +362,7 @@
                                                             @else
                                                                 <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}"
                                                                     target="_self" title="{{ $admin->username }}">
-                                                                    <img class="lazyload"
+                                                                    <img class="lazyload by-admin"
                                                                         src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                         data-src="{{ asset('assets/img/admins/' . $admin->image) }}"
                                                                         alt="Vendor">
@@ -472,7 +466,7 @@
 
                             <div class="col-lg-6">
                                 <div class="image mb-40" data-aos="fade-left">
-                                    <img class="lazyload blur-up"
+                                    <img class="lazyload by-admin blur-up"
                                         src="{{ asset('assets/frontend/images/line-shape-1.png') }}"
                                         data-src="{{ $imagePath }}" alt="Image" height="auto" width="450px">
                                 </div>
@@ -546,16 +540,16 @@
                                                     <div class="product-default border radius-md p-15 mb-25">
                                                         <figure class="product-img mb-15">
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
-                                                                title="Image" target="_self"
-                                                                class="lazy-container radius-sm ratio ratio-2-3">
-                                                                <img class="lazyload"
+                                                                class="d-block overflow-hidden rounded"
+                                                                style="height: 200px;">
+                                                                <img class="lazyload  object-fit-cover w-100 h-100"
                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                     data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
-                                                                    alt="Service">
+                                                                    alt="Service"
+                                                                    style="object-fit: cover; width: 100%; height: 100%;">
                                                             </a>
-
                                                         </figure>
-                                                        <div class="product-details">
+                                                        <div class="product-details p-3">
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between gap-2">
                                                                 <a
@@ -580,7 +574,7 @@
                                                                     class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                                                                     data-tooltip="tooltip" data-bs-placement="right"
                                                                     title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                                                                    <i class="fal fa-heart"></i>
+                                                                    <i class="fas fa-heart"></i>
                                                                 </a>
                                                             </div>
                                                             <h6 class="product-title mb-0">
@@ -596,7 +590,7 @@
                                                                         <a href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
                                                                             target="_self"
                                                                             title="{{ $service->vendor->username }}">
-                                                                            <img class="lazyload blur-up"
+                                                                            <img class="lazyload by-admin blur-up"
                                                                                 src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                                 data-src="{{ asset('assets/admin/img/vendor-photo/' . $service->vendor->photo) }}"
                                                                                 alt="Image">
@@ -605,7 +599,7 @@
                                                                         <a href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
                                                                             target="_self"
                                                                             title="{{ $service->vendor->username }}">
-                                                                            <img class="lazyload"
+                                                                            <img class="lazyload by-admin"
                                                                                 src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                                 data-src="{{ asset('assets/img/user.png') }}"
                                                                                 alt="Vendor">
@@ -620,7 +614,7 @@
                                                                 @else
                                                                     <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}"
                                                                         target="_self" title="{{ $admin->username }}">
-                                                                        <img class="lazyload blur-up"
+                                                                        <img class="lazyload by-admin blur-up"
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/admins/' . $admin->image) }}"
                                                                             alt="Image">
@@ -635,11 +629,11 @@
                                                             </div>
                                                             @if (!empty($service->address))
                                                                 <span class="font-sm icon-start"><i
-                                                                        class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                                                        class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                                             @endif
                                                             @if ($service->zoom_meeting == 1)
                                                                 <span class="font-sm icon-start"><i
-                                                                        class="fal fa-video"></i>{{ __('Online') }}</span>
+                                                                        class="fas fa-video"></i>{{ __('Online') }}</span>
                                                             @endif
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between gap-2 mt-10">
@@ -650,7 +644,7 @@
                                                                         class="prev-price font-sm">{{ $service->prev_price ? symbolPrice($service->prev_price) : '' }}</span>
                                                                 </div>
                                                                 <a href="javaScript:void(0)"
-                                                                    class="bookNowBtn btn btn-sm btn-outline-2"
+                                                                    class="bookNowBtn btn btn-sm btn-outline-2 btn-primary"
                                                                     data-bs-toggle="modal" data-bs-target="#makeBooking"
                                                                     data-id="{{ $service->id }}" title="Book Now"
                                                                     target="_self">
@@ -663,9 +657,9 @@
                                         </div>
                                         <div class="cta-btn text-center mt-15">
                                             <a href="{{ route('frontend.services') }}"
-                                                class="btn btn-lg btn-primary btn-gradient icon-start" title="View More"
-                                                target="_self"><i
-                                                    class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
+                                                class="btn btn-lg btn-primary btn-gradient icon-start mt-5"
+                                                title="View More" target="_self"><i
+                                                    class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
                                         </div>
                                     </div>
                                     @foreach ($categories as $category)
@@ -736,16 +730,16 @@
                                                             <div class="product-default border radius-md p-15 mb-25">
                                                                 <figure class="product-img mb-15">
                                                                     <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
-                                                                        title="Image" target="_self"
-                                                                        class="lazy-container radius-sm ratio ratio-2-3">
-                                                                        <img class="lazyload"
+                                                                        class="d-block overflow-hidden rounded"
+                                                                        style="height: 200px;">
+                                                                        <img class="lazyload by-admin object-fit-cover w-100 h-100"
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
-                                                                            alt="Service">
+                                                                            alt="Service"
+                                                                            style="object-fit: cover; width: 100%; height: 100%;">
                                                                     </a>
-
                                                                 </figure>
-                                                                <div class="product-details">
+                                                                <div class="product-details p-3">
                                                                     <div
                                                                         class="d-flex align-items-center justify-content-between gap-2">
                                                                         <a
@@ -772,7 +766,7 @@
                                                                             data-tooltip="tooltip"
                                                                             data-bs-placement="right"
                                                                             title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                                                                            <i class="fal fa-heart"></i>
+                                                                            <i class="fas fa-heart"></i>
                                                                         </a>
                                                                     </div>
                                                                     <h6 class="product-title mb-0">
@@ -787,7 +781,7 @@
                                                                                 <a href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
                                                                                     target="_self"
                                                                                     title="{{ $service->vendor->username }}">
-                                                                                    <img class="lazyload blur-up"
+                                                                                    <img class="lazyload by-admin blur-up"
                                                                                         src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                                         data-src="{{ asset('assets/admin/img/vendor-photo/' . $service->vendor->photo) }}"
                                                                                         alt="Image">
@@ -796,7 +790,7 @@
                                                                                 <a href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
                                                                                     target="_self"
                                                                                     title="{{ $service->vendor->username }}">
-                                                                                    <img class="lazyload"
+                                                                                    <img class="lazyload by-admin"
                                                                                         src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                                         data-src="{{ asset('assets/img/user.png') }}"
                                                                                         alt="Vendor">
@@ -812,7 +806,7 @@
                                                                             <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}"
                                                                                 target="_self"
                                                                                 title="{{ $admin->username }}">
-                                                                                <img class="lazyload blur-up"
+                                                                                <img class="lazyload by-admin blur-up"
                                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                                     data-src="{{ asset('assets/img/admins/' . $admin->image) }}"
                                                                                     alt="Image">
@@ -828,11 +822,11 @@
                                                                     </div>
                                                                     @if (!empty($service->address))
                                                                         <span class="font-sm icon-start"><i
-                                                                                class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                                                                class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                                                     @endif
                                                                     @if ($service->zoom_meeting == 1)
                                                                         <span class="font-sm icon-start"><i
-                                                                                class="fal fa-video"></i>{{ __('Online') }}</span>
+                                                                                class="fas fa-video"></i>{{ __('Online') }}</span>
                                                                     @endif
                                                                     <div
                                                                         class="d-flex align-items-center justify-content-between gap-2 mt-10">
@@ -843,7 +837,7 @@
                                                                                 class="prev-price font-sm">{{ $service->prev_price ? symbolPrice($service->prev_price) : '' }}</span>
                                                                         </div>
                                                                         <a href="javaScript:void(0)"
-                                                                            class="bookNowBtn btn btn-sm btn-outline-2"
+                                                                            class="bookNowBtn btn btn-sm btn-outline-2 btn-primary"
                                                                             data-bs-toggle="modal"
                                                                             data-bs-target="#makeBooking"
                                                                             data-id="{{ $service->id }}"
@@ -857,9 +851,9 @@
                                                 </div>
                                                 <div class="cta-btn text-center mt-15">
                                                     <a href="{{ route('frontend.services', ['category_id' => $category->id]) }}"
-                                                        class="btn btn-lg btn-primary btn-gradient icon-start"
+                                                        class="btn btn-lg btn-primary btn-gradient icon-start mt-5"
                                                         target="_self"><i
-                                                            class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
+                                                            class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
                                                 </div>
                                             </div>
                                         @endif
@@ -892,151 +886,205 @@
 
 
 
-
-
-        <!-- Our doctors: Start -->
+        <!-- Shop-area start -->
         @if ($secInfo->vendor_featured_section_status == 1)
-            <section id="landingTeam" class="section-py landing-team">
+            <section class="shop-area shop-1 pb-100">
                 <div class="container">
-                    <div class="text-center mb-3 pb-1">
-                        <span class="badge bg-label-primary">Our Specialists</span>
-                    </div>
-                    <h3 class="text-center mb-1">
-                        <span class="position-relative fw-bold z-1">Meet Our
-                            <img src="{{ asset('assets/img/front-pages/icons/section-title-icon.png') }}"
-                                alt="medical icon"
-                                class="section-title-img position-absolute object-fit-contain bottom-0 z-n1">
-                        </span>
-                        Medical Team
-                    </h3>
-                    <p class="text-center mb-md-5 pb-3">Board-certified physicians dedicated to your health and
-                        well-being.
-                    </p>
-                    <div class="row gy-5 mt-2">
-                        @if (count($featuredVendors) > 0)
-                            @foreach ($featuredVendors as $vendor)
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="card mt-3 mt-lg-0 shadow-none">
-                                        <div class="bg-label-primary position-relative team-image-box">
-                                            @if ($vendor->photo)
-                                                <img src="{{ asset('assets/admin/img/vendor-photo/' . $vendor->photo) }}"
-                                                    class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
-                                                    alt="doctor" />
-                                            @else
-                                                <img src="{{ asset('assets/img/user.png') }}"
-                                                    class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
-                                                    alt="doctor" />
-                                            @endif
-                                        </div>
-                                        <div class="card-body border border-top-0 border-label-primary text-center">
-                                            <h5 class="card-title mb-0">{{ $vendor->username }}</h5>
-                                            <p class="text-muted mb-0">Specialist</p>
-                                            <div class="mt-2">
-                                                <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
-                                                    class="btn btn-sm btn-outline-primary">View Profile</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="col-12 text-center">
-                                <h4>{{ __('NO VENDORS FOUND') }}!</h4>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </section>
-        @endif
-
-
-        <!-- Our doctors: End -->
-
-
-
-
-        <!-- Testimonials: Start -->
-        @if ($secInfo->testimonial_section_status == 1)
-            <section id="landingReviews" class="section-py bg-body landing-reviews pb-0">
-                <div class="container">
-                    <div class="row align-items-center gx-0 gy-4 g-lg-5">
-                        <div class="col-md-6 col-lg-5 col-xl-3">
-                            <div class="mb-3 pb-1">
-                                <span class="badge bg-label-primary">Patient Testimonials</span>
-                            </div>
-                            <h3 class="mb-1">
-                                <span class="position-relative fw-bold z-1">What our patients
-                                    <img src="{{ asset('assets/img/front-pages/icons/section-title-icon.png') }}"
-                                        alt="medical icon"
-                                        class="section-title-img position-absolute object-fit-contain bottom-0 z-n1">
-                                </span>
-                                say
-                            </h3>
-                            <p class="mb-3 mb-md-5">
-                                {{ !empty($sectionContent->testimonial_section_subtitle) ? $sectionContent->testimonial_section_subtitle : 'Hear from our patients about their experiences at our medical center.' }}
-                            </p>
-                            <div class="landing-reviews-btns">
-                                <button id="reviews-previous-btn"
-                                    class="btn btn-label-primary reviews-btn me-3 scaleX-n1-rtl" type="button">
-                                    <i class="ti ti-chevron-left ti-sm"></i>
-                                </button>
-                                <button id="reviews-next-btn" class="btn btn-label-primary reviews-btn scaleX-n1-rtl"
-                                    type="button">
-                                    <i class="ti ti-chevron-right ti-sm"></i>
-                                </button>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title title-inline mb-50 d-flex" data-aos="fade-up">
+                                <h2 class="title">
+                                    {{ !empty($sectionContent->vendor_section_title) ? $sectionContent->vendor_section_title : 'Our Top Featured Vendor' }}
+                                </h2>
+                                @if ($vendors > 0)
+                                    <a href="{{ route('frontend.vendors') }}"
+                                        class="btn btn-lg btn-primary btn-gradient icon-start" title="View All Vendor"
+                                        target="_self"><i class="fas fa-arrow-right"></i>
+                                        @if ($vendors > 1)
+                                            {{ __('View All Vendors') }}
+                                        @else
+                                            {{ __('View All Vendor') }}
+                                        @endif
+                                    </a>
+                                @endif
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-7 col-xl-9">
-                            <div class="swiper-reviews-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
-                                <div class="swiper" id="swiper-reviews">
+                        <div class="col-12">
+                            @if ($featuredVendors->count() == 0)
+                                <h4 class="text-center">{{ __('NO VENDOR FOUND') . '!' }}</h4>
+                            @else
+                                <!-- Slider main container -->
+                                <div class="swiper product-slider" id="product-slider-2" data-slides-per-view="4"
+                                    data-swiper-loop="false" data-aos="fade-up">
+                                    <!-- Additional required wrapper -->
                                     <div class="swiper-wrapper">
-                                        @if (count($testimonials) > 0)
-                                            @foreach ($testimonials as $testimonial)
-                                                <div class="swiper-slide">
-                                                    <div class="card h-100">
-                                                        <div
-                                                            class="card-body text-body d-flex flex-column justify-content-between h-100">
-                                                            <p>
-                                                                "{{ $testimonial->comment }}"
-                                                            </p>
-                                                            <div class="text-warning mb-3">
-                                                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                                                    <i class="ti ti-star-filled ti-sm"></i>
-                                                                @endfor
-                                                            </div>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar me-2 avatar-sm">
-                                                                    <img src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
-                                                                        alt="Avatar" class="rounded-circle" />
-                                                                </div>
-                                                                <div>
-                                                                    <h6 class="mb-0">{{ $testimonial->name }}</h6>
-                                                                    <p class="small text-muted mb-0">
-                                                                        {{ $testimonial->occupation }}</p>
-                                                                </div>
-                                                            </div>
+                                        <!-- Slides -->
+                                        @foreach ($featuredVendors as $vendor)
+                                            <div class="swiper-slide" style="width:306px;">
+                                                <div class="product-default border radius-md p-15 mb-25">
+                                                    <figure class="product-img mb-15">
+                                                        <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                            title="Vendor Image" target="_self"
+                                                            class="lazy-container radius-sm ratio ratio-2-3">
+
+                                                            <img class="lazyload by-admin"
+                                                                src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                                                data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
+                                                                alt="{{ $vendor->username ?? 'Vendor' }}">
+
+                                                        </a>
+                                                    </figure>
+
+                                                    <div class="product-details p-3">
+                                                        @php
+                                                            $vendorInfo = App\Models\VendorInfo::where([
+                                                                ['vendor_id', $vendor->vendorId],
+                                                                ['language_id', $language->id],
+                                                            ])->first();
+                                                        @endphp
+                                                        <h6 class="product-title mb-0">
+                                                            <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                                target="_self" title="{{ $vendor->username }}">
+                                                                @if ($vendorInfo->name != null)
+                                                                    {{ $vendorInfo->name }}
+                                                                @else
+                                                                    {{ $vendor->username }}
+                                                                @endif
+                                                            </a>
+                                                        </h6>
+                                                        @if ($vendorInfo)
+                                                            @if ($vendorInfo->address != null)
+                                                                <span class="font-sm icon-start"><i
+                                                                        class="fal fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                                                            @endif
+                                                        @endif
+                                                        <div class="d-flex align-items-center gap-15 mt-10">
+                                                            <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                                class="btn btn-sm btn-outline-2"
+                                                                title="{{ __('Visit Store') }}"
+                                                                target="_self">{{ __('Visit Store') }}</a>
+                                                            <span class="font-sm">
+                                                                @if ($vendor->total_service > 1)
+                                                                    {{ $vendor->total_service }}
+                                                                    {{ __('Services Available') }}
+                                                                @elseif($vendor->total_service == 1)
+                                                                    {{ $vendor->total_service }}
+                                                                    {{ __('Services Available') }}
+                                                                @else
+                                                                    {{ __('No Service Available') }}
+                                                                @endif
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endforeach
-                                        @else
-                                            <div class="col-12 text-center">
-                                                <h4>{{ __('NO TESTIMONIALS FOUND') }}!</h4>
                                             </div>
-                                        @endif
+                                        @endforeach
                                     </div>
-                                    <div class="swiper-button-next"></div>
-                                    <div class="swiper-button-prev"></div>
+
+                                    <!-- If we need pagination -->
+                                    {{-- <div class="swiper-pagination position-static" id="product-slider-2-pagination"></div> --}}
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
-                <hr class="m-0" />
-
             </section>
         @endif
-        <!-- Testimonials: End -->
+        <!-- Shop-area end -->
+        @if (count($after_vendor) > 0)
+            @foreach ($after_vendor as $cusVendor)
+                @if (isset($homecusSec[$cusVendor->id]))
+                    @if ($homecusSec[$cusVendor->id] == 1)
+                        @php
+                            $cusVendorContent = App\Models\CustomSectionContent::where(
+                                'custom_section_id',
+                                $cusVendor->id,
+                            )
+                                ->where('language_id', $currentLanguageInfo->id)
+                                ->first();
+                        @endphp
+                        @include('frontend.home.custom-section', ['data' => $cusVendorContent])
+                    @endif
+                @endif
+            @endforeach
+        @endif
+
+
+     <!-- Testimonials: Start -->
+@if ($secInfo->testimonial_section_status == 1)
+<section id="landingReviews" class="section-py landing-reviews pb-0 pb-100">
+  <div class="container">
+    <div class="row align-items-center gx-5 gy-4">
+      <!-- Left Column (Text + Slider) -->
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-3">
+          What Customers Say About <br />
+          <span class="text-primary">Our Booking Systems</span>
+        </h2>
+        <p class="mb-4 text-body">
+          We have 2000+ positive customer reviews
+        </p>
+
+        <div class="swiper-reviews-carousel overflow-hidden">
+          <div class="swiper" id="swiper-reviews">
+            <div class="swiper-wrapper">
+              @if (count($testimonials) > 0)
+                @foreach ($testimonials as $testimonial)
+                  <div class="swiper-slide">
+                    <div class="card border-0 shadow-sm p-3 h-100">
+                      <div class="card-body d-flex flex-column justify-content-between h-100">
+                        <div class="text-body mb-3">
+                          "{{ $testimonial->comment }}"
+                        </div>
+                        <div class="text-warning mb-2">
+                          @for ($i = 0; $i < $testimonial->rating; $i++)
+                            <i class="ti ti-star-filled ti-sm"></i>
+                          @endfor
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="avatar me-3 avatar-sm">
+                            <img src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
+                                 class="rounded-circle"
+                                 alt="{{ $testimonial->name }}" />
+                          </div>
+                          <div>
+                            <h6 class="mb-0 text-body">{{ $testimonial->name }}</h6>
+                            <small class="text-muted">{{ $testimonial->occupation }}</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+              @else
+                <div class="col-12 text-center">
+                  <h4 class="text-muted">{{ __('NO TESTIMONIALS FOUND') }}!</h4>
+                </div>
+              @endif
+            </div>
+            <div class="swiper-pagination" id="testimonial-slider-1-pagination"></div>
+           
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (Booking Illustration) -->
+      <div class="col-lg-6 text-center">
+        <img src="{{ !empty($sectionContent->hero_section_background_img)
+          ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img)
+          : asset('assets/img/front-pages/medical/hero-doctor.png') }}"
+          alt="Booking Illustration"
+          class="img-fluid hero-illustration"
+          style="max-width: 90%; height: auto;" />
+      </div>
+    </div>
+  </div>
+  <hr class="m-0" />
+</section>
+@endif
+<!-- Testimonials: End -->
+
 
 
 
@@ -1139,10 +1187,7 @@
                                 clickable: true,
                                 dynamicBullets: true,
                             },
-                            navigation: {
-                                nextEl: '.swiper-button-next',
-                                prevEl: '.swiper-button-prev',
-                            },
+                           
                             breakpoints: {
                                 768: {
                                     slidesPerView: 2,
@@ -1204,10 +1249,7 @@
                 el: '#works-slider-1-pagination',
                 clickable: true,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+           
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,
@@ -1237,10 +1279,7 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+          
             breakpoints: {
                 576: {
                     slidesPerView: 1
@@ -1259,3 +1298,34 @@
         });
     });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('#testimonial-slider-1', {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '#testimonial-slider-1-pagination',
+        clickable: true,
+      },
+      slidesPerView: 1,
+      spaceBetween: 20,
+      breakpoints: {
+        768: {
+          slidesPerView: 1
+        },
+        992: {
+          slidesPerView: 1
+        }
+      }
+    });
+  });
+</script>
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
