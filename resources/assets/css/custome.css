@@ -2,3 +2,26 @@
   max-width: 540px;
   margin-inline: auto;
 }
+
+
+.title {
+  max-width: 640px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bolder;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.ptb-100 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.pb-60{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}

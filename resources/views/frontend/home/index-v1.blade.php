@@ -546,16 +546,16 @@
                                                     <div class="product-default border radius-md p-15 mb-25">
                                                         <figure class="product-img mb-15">
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
-                                                                title="Image" target="_self"
-                                                                class="lazy-container radius-sm ratio ratio-2-3">
-                                                                <img class="lazyload"
+                                                                class="d-block overflow-hidden rounded"
+                                                                style="height: 200px;">
+                                                                <img class="lazyload object-fit-cover w-100 h-100"
                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                     data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
-                                                                    alt="Service">
+                                                                    alt="Service"
+                                                                    style="object-fit: cover; width: 100%; height: 100%;">
                                                             </a>
-
                                                         </figure>
-                                                        <div class="product-details">
+                                                        <div class="product-details p-3">
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between gap-2">
                                                                 <a
@@ -580,7 +580,7 @@
                                                                     class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                                                                     data-tooltip="tooltip" data-bs-placement="right"
                                                                     title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                                                                    <i class="fal fa-heart"></i>
+                                                                    <i class="fas fa-heart"></i>
                                                                 </a>
                                                             </div>
                                                             <h6 class="product-title mb-0">
@@ -635,11 +635,11 @@
                                                             </div>
                                                             @if (!empty($service->address))
                                                                 <span class="font-sm icon-start"><i
-                                                                        class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                                                        class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                                             @endif
                                                             @if ($service->zoom_meeting == 1)
                                                                 <span class="font-sm icon-start"><i
-                                                                        class="fal fa-video"></i>{{ __('Online') }}</span>
+                                                                        class="fas fa-video"></i>{{ __('Online') }}</span>
                                                             @endif
                                                             <div
                                                                 class="d-flex align-items-center justify-content-between gap-2 mt-10">
@@ -650,7 +650,7 @@
                                                                         class="prev-price font-sm">{{ $service->prev_price ? symbolPrice($service->prev_price) : '' }}</span>
                                                                 </div>
                                                                 <a href="javaScript:void(0)"
-                                                                    class="bookNowBtn btn btn-sm btn-outline-2"
+                                                                    class="bookNowBtn btn btn-sm btn-outline-2 btn-primary"
                                                                     data-bs-toggle="modal" data-bs-target="#makeBooking"
                                                                     data-id="{{ $service->id }}" title="Book Now"
                                                                     target="_self">
@@ -663,9 +663,9 @@
                                         </div>
                                         <div class="cta-btn text-center mt-15">
                                             <a href="{{ route('frontend.services') }}"
-                                                class="btn btn-lg btn-primary btn-gradient icon-start" title="View More"
-                                                target="_self"><i
-                                                    class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
+                                                class="btn btn-lg btn-primary btn-gradient icon-start mt-5"
+                                                title="View More" target="_self"><i
+                                                    class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
                                         </div>
                                     </div>
                                     @foreach ($categories as $category)
@@ -736,16 +736,16 @@
                                                             <div class="product-default border radius-md p-15 mb-25">
                                                                 <figure class="product-img mb-15">
                                                                     <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
-                                                                        title="Image" target="_self"
-                                                                        class="lazy-container radius-sm ratio ratio-2-3">
-                                                                        <img class="lazyload"
+                                                                        class="d-block overflow-hidden rounded"
+                                                                        style="height: 200px;">
+                                                                        <img class="lazyload object-fit-cover w-100 h-100"
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
-                                                                            alt="Service">
+                                                                            alt="Service"
+                                                                            style="object-fit: cover; width: 100%; height: 100%;">
                                                                     </a>
-
                                                                 </figure>
-                                                                <div class="product-details">
+                                                                <div class="product-details p-3">
                                                                     <div
                                                                         class="d-flex align-items-center justify-content-between gap-2">
                                                                         <a
@@ -772,7 +772,7 @@
                                                                             data-tooltip="tooltip"
                                                                             data-bs-placement="right"
                                                                             title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                                                                            <i class="fal fa-heart"></i>
+                                                                            <i class="fas fa-heart"></i>
                                                                         </a>
                                                                     </div>
                                                                     <h6 class="product-title mb-0">
@@ -828,11 +828,11 @@
                                                                     </div>
                                                                     @if (!empty($service->address))
                                                                         <span class="font-sm icon-start"><i
-                                                                                class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                                                                class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                                                     @endif
                                                                     @if ($service->zoom_meeting == 1)
                                                                         <span class="font-sm icon-start"><i
-                                                                                class="fal fa-video"></i>{{ __('Online') }}</span>
+                                                                                class="fas fa-video"></i>{{ __('Online') }}</span>
                                                                     @endif
                                                                     <div
                                                                         class="d-flex align-items-center justify-content-between gap-2 mt-10">
@@ -843,7 +843,7 @@
                                                                                 class="prev-price font-sm">{{ $service->prev_price ? symbolPrice($service->prev_price) : '' }}</span>
                                                                         </div>
                                                                         <a href="javaScript:void(0)"
-                                                                            class="bookNowBtn btn btn-sm btn-outline-2"
+                                                                            class="bookNowBtn btn btn-sm btn-outline-2 btn-primary"
                                                                             data-bs-toggle="modal"
                                                                             data-bs-target="#makeBooking"
                                                                             data-id="{{ $service->id }}"
@@ -857,9 +857,9 @@
                                                 </div>
                                                 <div class="cta-btn text-center mt-15">
                                                     <a href="{{ route('frontend.services', ['category_id' => $category->id]) }}"
-                                                        class="btn btn-lg btn-primary btn-gradient icon-start"
+                                                        class="btn btn-lg btn-primary btn-gradient icon-start mt-5"
                                                         target="_self"><i
-                                                            class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
+                                                            class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
                                                 </div>
                                             </div>
                                         @endif
@@ -892,151 +892,271 @@
 
 
 
-
-
-        <!-- Our doctors: Start -->
+        <!-- Shop-area start -->
         @if ($secInfo->vendor_featured_section_status == 1)
-            <section id="landingTeam" class="section-py landing-team">
+            <section class="shop-area shop-1 pb-100">
                 <div class="container">
-                    <div class="text-center mb-3 pb-1">
-                        <span class="badge bg-label-primary">Our Specialists</span>
-                    </div>
-                    <h3 class="text-center mb-1">
-                        <span class="position-relative fw-bold z-1">Meet Our
-                            <img src="{{ asset('assets/img/front-pages/icons/section-title-icon.png') }}"
-                                alt="medical icon"
-                                class="section-title-img position-absolute object-fit-contain bottom-0 z-n1">
-                        </span>
-                        Medical Team
-                    </h3>
-                    <p class="text-center mb-md-5 pb-3">Board-certified physicians dedicated to your health and
-                        well-being.
-                    </p>
-                    <div class="row gy-5 mt-2">
-                        @if (count($featuredVendors) > 0)
-                            @foreach ($featuredVendors as $vendor)
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="card mt-3 mt-lg-0 shadow-none">
-                                        <div class="bg-label-primary position-relative team-image-box">
-                                            @if ($vendor->photo)
-                                                <img src="{{ asset('assets/admin/img/vendor-photo/' . $vendor->photo) }}"
-                                                    class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
-                                                    alt="doctor" />
-                                            @else
-                                                <img src="{{ asset('assets/img/user.png') }}"
-                                                    class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
-                                                    alt="doctor" />
-                                            @endif
-                                        </div>
-                                        <div class="card-body border border-top-0 border-label-primary text-center">
-                                            <h5 class="card-title mb-0">{{ $vendor->username }}</h5>
-                                            <p class="text-muted mb-0">Specialist</p>
-                                            <div class="mt-2">
-                                                <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
-                                                    class="btn btn-sm btn-outline-primary">View Profile</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="col-12 text-center">
-                                <h4>{{ __('NO VENDORS FOUND') }}!</h4>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title title-inline mb-50 d-flex" data-aos="fade-up">
+                                <h2 class="title">
+                                    {{ !empty($sectionContent->vendor_section_title) ? $sectionContent->vendor_section_title : 'Our Top Featured Vendor' }}
+                                </h2>
+                                @if ($vendors > 0)
+                                    <a href="{{ route('frontend.vendors') }}"
+                                        class="btn btn-lg btn-primary btn-gradient icon-start" title="View All Vendor"
+                                        target="_self"><i class="fas fa-arrow-right"></i>
+                                        @if ($vendors > 1)
+                                            {{ __('View All Vendors') }}
+                                        @else
+                                            {{ __('View All Vendor') }}
+                                        @endif
+                                    </a>
+                                @endif
                             </div>
-                        @endif
+                        </div>
+                        <div class="col-12">
+                            @if ($featuredVendors->count() == 0)
+                                <h4 class="text-center">{{ __('NO VENDOR FOUND') . '!' }}</h4>
+                            @else
+                                <!-- Slider main container -->
+                                <div class="swiper product-slider" id="product-slider-2" data-slides-per-view="4"
+                                    data-swiper-loop="false" data-aos="fade-up">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <!-- Slides -->
+                                        @foreach ($featuredVendors as $vendor)
+                                            <div class="swiper-slide" style="width:306px; margin-bottom:50px;">
+                                                <div class="product-default border radius-md p-15 mb-25">
+                                                    <figure class="product-img mb-15">
+                                                        <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                            title="Vendor Image" target="_self"
+                                                            class="lazy-container radius-sm ratio ratio-2-3">
+
+                                                            <img class="lazyload"
+                                                                src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                                                data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
+                                                                alt="{{ $vendor->username ?? 'Vendor' }}">
+
+                                                        </a>
+                                                    </figure>
+
+                                                    <div class="product-details p-3">
+                                                        @php
+                                                            $vendorInfo = App\Models\VendorInfo::where([
+                                                                ['vendor_id', $vendor->vendorId],
+                                                                ['language_id', $language->id],
+                                                            ])->first();
+                                                        @endphp
+                                                        <h6 class="product-title mb-0">
+                                                            <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                                target="_self" title="{{ $vendor->username }}">
+                                                                @if ($vendorInfo->name != null)
+                                                                    {{ $vendorInfo->name }}
+                                                                @else
+                                                                    {{ $vendor->username }}
+                                                                @endif
+                                                            </a>
+                                                        </h6>
+                                                        @if ($vendorInfo)
+                                                            @if ($vendorInfo->address != null)
+                                                                <span class="font-sm icon-start"><i
+                                                                        class="fal fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                                                            @endif
+                                                        @endif
+                                                        <div class="d-flex align-items-center gap-15 mt-10">
+                                                            <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                                class="btn btn-sm btn-outline-2"
+                                                                title="{{ __('Visit Store') }}"
+                                                                target="_self">{{ __('Visit Store') }}</a>
+                                                            <span class="font-sm">
+                                                                @if ($vendor->total_service > 1)
+                                                                    {{ $vendor->total_service }}
+                                                                    {{ __('Services Available') }}
+                                                                @elseif($vendor->total_service == 1)
+                                                                    {{ $vendor->total_service }}
+                                                                    {{ __('Services Available') }}
+                                                                @else
+                                                                    {{ __('No Service Available') }}
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- If we need pagination -->
+                                    {{-- <div class="swiper-pagination position-static" id="product-slider-2-pagination"></div> --}}
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </section>
         @endif
+        <!-- Shop-area end -->
+        @if (count($after_vendor) > 0)
+            @foreach ($after_vendor as $cusVendor)
+                @if (isset($homecusSec[$cusVendor->id]))
+                    @if ($homecusSec[$cusVendor->id] == 1)
+                        @php
+                            $cusVendorContent = App\Models\CustomSectionContent::where(
+                                'custom_section_id',
+                                $cusVendor->id,
+                            )
+                                ->where('language_id', $currentLanguageInfo->id)
+                                ->first();
+                        @endphp
+                        @include('frontend.home.custom-section', ['data' => $cusVendorContent])
+                    @endif
+                @endif
+            @endforeach
+        @endif
 
 
-        <!-- Our doctors: End -->
-
-
-
-
-        <!-- Testimonials: Start -->
+        <!-- Testimonial-area start -->
         @if ($secInfo->testimonial_section_status == 1)
-            <section id="landingReviews" class="section-py bg-body landing-reviews pb-0">
-                <div class="container">
-                    <div class="row align-items-center gx-0 gy-4 g-lg-5">
-                        <div class="col-md-6 col-lg-5 col-xl-3">
-                            <div class="mb-3 pb-1">
-                                <span class="badge bg-label-primary">Patient Testimonials</span>
+            <section class="testimonial-area testimonial-1 parallax pb-60">
+                <div class="container container-lg-fluid">
+                    <div class="row align-items-center gx-xl-5">
+
+                        <!-- Left Column: Card Design -->
+                        <div class="col-lg-6">
+                            <h2 class="title mb-20">
+                                {{ $sectionContent->testimonial_section_title ?? 'What Customers Say About Our Booking Systems' }}
+                            </h2>
+                            <div class="content-title mb-40">
+
+                                <div class="content-text mb-40">
+                                    <p>
+                                        {{ $sectionContent->testimonial_section_subtitle ?? 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum omnis natus cumque possimus dicta suscipit enim, aperiam, voluptatum quis deleniti.' }}
+                                    </p>
+                                </div>
                             </div>
-                            <h3 class="mb-1">
-                                <span class="position-relative fw-bold z-1">What our patients
-                                    <img src="{{ asset('assets/img/front-pages/icons/section-title-icon.png') }}"
-                                        alt="medical icon"
-                                        class="section-title-img position-absolute object-fit-contain bottom-0 z-n1">
-                                </span>
-                                say
-                            </h3>
-                            <p class="mb-3 mb-md-5">
-                                {{ !empty($sectionContent->testimonial_section_subtitle) ? $sectionContent->testimonial_section_subtitle : 'Hear from our patients about their experiences at our medical center.' }}
-                            </p>
-                            <div class="landing-reviews-btns">
-                                <button id="reviews-previous-btn"
-                                    class="btn btn-label-primary reviews-btn me-3 scaleX-n1-rtl" type="button">
-                                    <i class="ti ti-chevron-left ti-sm"></i>
-                                </button>
-                                <button id="reviews-next-btn" class="btn btn-label-primary reviews-btn scaleX-n1-rtl"
-                                    type="button">
-                                    <i class="ti ti-chevron-right ti-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-7 col-xl-9">
-                            <div class="swiper-reviews-carousel overflow-hidden mb-5 pb-md-2 pb-md-3">
-                                <div class="swiper" id="swiper-reviews">
-                                    <div class="swiper-wrapper">
-                                        @if (count($testimonials) > 0)
+
+                            @if (count($testimonials) > 0)
+                                <div class="card shadow-lg rounded-4 p-4 h-100 bg-white" style="border: 1px solid #eee;"
+                                    data-aos="fade-up">
+                                    <div class="swiper mb-40" id="testimonial-slider-1">
+                                        <div class="swiper-wrapper">
                                             @foreach ($testimonials as $testimonial)
                                                 <div class="swiper-slide">
-                                                    <div class="card h-100">
+                                                    <div class="slider-item radius-md p-3 border rounded-3">
                                                         <div
-                                                            class="card-body text-body d-flex flex-column justify-content-between h-100">
-                                                            <p>
-                                                                "{{ $testimonial->comment }}"
-                                                            </p>
-                                                            <div class="text-warning mb-3">
-                                                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                                                    <i class="ti ti-star-filled ti-sm"></i>
-                                                                @endfor
-                                                            </div>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar me-2 avatar-sm">
-                                                                    <img src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
-                                                                        alt="Avatar" class="rounded-circle" />
+                                                            class="client gap-20 flex-wrap mb-3 d-flex justify-content-between">
+                                                            <div class="client-info d-flex align-items-center">
+                                                                <div class="client-img me-3">
+                                                                    <div class="lazy-container rounded-pill  ratio-1-1">
+                                                                        <img class="lazyload"
+                                                                            src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                                                            data-src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
+                                                                            alt="{{ $testimonial->name ?? 'Client' }}"
+                                                                            style="object-fit: cover; width: auto; height: 50px; border-radius: 100%;">
+
+
+                                                                    </div>
                                                                 </div>
-                                                                <div>
-                                                                    <h6 class="mb-0">{{ $testimonial->name }}</h6>
-                                                                    <p class="small text-muted mb-0">
-                                                                        {{ $testimonial->occupation }}</p>
+                                                                <div class="content">
+                                                                    <h6 class="name mb-0">{{ $testimonial->name }}</h6>
+                                                                    <span
+                                                                        class="designation font-sm">{{ $testimonial->occupation }}</span>
                                                                 </div>
                                                             </div>
+
+                                                            <div class="rating-area flex-column align-items-start mt-2">
+                                                                <div class="ratings mb-1" style="height: 24px;">
+                                                                    <div class="rate"
+                                                                        style="position: relative; width: 120px; height: 24px;">
+                                                                        <!-- Gray stars background -->
+                                                                        <div
+                                                                            style="
+                                                                              background-image: url('{{ asset('assets/frontend/images/rate-star-empty.png') }}');
+                                                                              background-size: contain;
+                                                                              background-repeat: no-repeat;
+                                                                              width: 100%;
+                                                                              height: 100%;
+                                                                              position: absolute;
+                                                                              top: 0;
+                                                                              left: 0;
+                                                                          ">
+                                                                        </div>
+
+                                                                        <!-- Yellow stars overlay (based on rating %) -->
+                                                                        <div
+                                                                            style="
+                                                                              background-image: url('{{ asset('assets/frontend/images/rate-star-filled.png') }}');
+                                                                              background-size: contain;
+                                                                              background-repeat: no-repeat;
+                                                                              width: {{ $testimonial->rating * 20 }}%;
+                                                                              height: 100%;
+                                                                              position: absolute;
+                                                                              top: 0;
+                                                                              left: 0;
+                                                                              overflow: hidden;
+                                                                          ">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <span class="ratings-total">
+                                                                    {{ $testimonial->rating }} {{ __('star of') }}
+                                                                    {{ $total_testimonial }}
+                                                                    {{ $total_testimonial > 1 ? __('reviews') : __('review') }}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="quote">
+                                                            <span class="icon"><i class="fas fa-quote-right"></i></span>
+                                                            <p class="text font-lg mb-0">{{ $testimonial->comment }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @endforeach
-                                        @else
-                                            <div class="col-12 text-center">
-                                                <h4>{{ __('NO TESTIMONIALS FOUND') }}!</h4>
-                                            </div>
-                                        @endif
+                                        </div>
+
+                                        <!-- Pagination -->
+                                        <div class="swiper-pagination position-static mt-30"
+                                            id="testimonial-slider-1-pagination"></div>
                                     </div>
-                                    <div class="swiper-button-next"></div>
-                                    <div class="swiper-button-prev"></div>
-                                </div>
-                            </div>
+                                @else
+                                    <h4 class="text-danger">{{ __('NO TESTIMONIAL FOUND!') }}</h4>
+                            @endif
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Image -->
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="image mb-40 parallax-img" data-speed="0.5" data-revert="true">
+                            <img class="lazyload blur-up w-100"
+                                src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                data-src="{{ asset('assets/img/' . $sectionContent->testimonial_section_image) }}"
+                                alt="Testimonial Image">
                         </div>
                     </div>
                 </div>
-                <hr class="m-0" />
 
             </section>
         @endif
-        <!-- Testimonials: End -->
+
+        <!-- After testimonial custom sections -->
+        @if (count($after_testimonial) > 0)
+            @foreach ($after_testimonial as $cusTest)
+                @if (isset($homecusSec[$cusTest->id]) && $homecusSec[$cusTest->id] == 1)
+                    @php
+                        $cusTestContent = App\Models\CustomSectionContent::where('custom_section_id', $cusTest->id)
+                            ->where('language_id', $currentLanguageInfo->id)
+                            ->first();
+                    @endphp
+                    @include('frontend.home.custom-section', ['data' => $cusTestContent])
+                @endif
+            @endforeach
+        @endif
+        <!-- Testimonial-area end -->
+
+
 
 
 
