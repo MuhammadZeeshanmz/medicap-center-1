@@ -21,6 +21,72 @@
 @endsection
 @section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    @includeIf('frontend.partials.breadcrumb', [
+        'breadcrumb' => $bgImg->breadcrumb,
+        'title' => !empty($pageHeading) ? $pageHeading->service_page_title : __('Services'),
+    ])
+    <!-- Listing-list-area start -->
+    <div class="listing-area pt-100 pb-60 mb-62">
+        <div class="container">
+            <div class="row gx-xl-5">
+                <!--- services side-bar-->
+                @includeIf('frontend.services.side-bar')
+                <div class="col-lg-8 col-xl-9">
+                    <div class="sort-area" data-aos="fade-up">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h5 class="mb-20">
+                                    @if ($total_services > 1)
+                                        <span class="color-primary" id="total-service">
+                                            {{ $total_services }}
+                                        </span>
+                                        {{ __('Services Found') }}
+                                    @elseif ($total_services == 1)
+                                        <span class="color-primary" id="total-service">
+                                            {{ $total_services }}
+                                        </span>
+                                        {{ __('Service Found') }}
+                                    @else
+                                        {{ __('No Service Available') }}
+                                    @endif
+                                </h5>
+                            </div>
+                            <div class="col-4 d-lg-none">
+                                <button class="btn btn-sm btn-outline icon-end radius-sm mb-20" type="button"
+                                    data-bs-toggle="offcanvas" data-bs-target="#widgetOffcanvas"
+                                    aria-controls="widgetOffcanvas">
+                                    {{ __('Filter') }} <i class="fas fa-filter"></i>
+                                </button>
+                            </div>
+                            <div class="col-8 col-lg-6">
+                                <ul class="sort-list list-unstyled mb-20">
+                                    <li class="item">
+                                        <div class="sort-item d-flex align-items-center">
+                                            <label class="me-2 font-sm">{{ __('Sort By') }}:</label>
+                                            <select name="sort" class="sort nice-select right color-dark">
+                                                <option {{ request()->input('newest') == 'default' ? 'selected' : '' }}
+                                                    value="newest">
+                                                    {{ __('Date : Newest on top') }}
+                                                </option>
+                                                <option {{ request()->input('sort') == 'oldest' ? 'selected' : '' }}
+                                                    value="oldest">
+                                                    {{ __('Date : Oldest on top') }}
+                                                </option>
+                                                <option {{ request()->input('sort') == 'high-to-low' ? 'selected' : '' }}
+                                                    value="high-to-low">
+                                                    {{ __('Price : High to Low') }}</option>
+                                                <option {{ request()->input('sort') == 'low-to-high' ? 'selected' : '' }}
+                                                    value="low-to-high">
+                                                    {{ __('Price : Low to High') }}</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   @includeIf('frontend.partials.breadcrumb', [
       'breadcrumb' => $bgImg->breadcrumb,
       'title' => !empty($pageHeading) ? $pageHeading->service_page_title : __('Services'),
@@ -169,6 +235,7 @@
                           <span class="h6 new-price">{{ symbolPrice($service->price) }}</span>
                           <span
                             class="prev-price font-sm">{{ $service->prev_price ? symbolPrice($service->prev_price) : '' }}</span>
+<<<<<<< HEAD
 =======
     @includeIf('frontend.partials.breadcrumb', [
         'breadcrumb' => $bgImg->breadcrumb,
@@ -233,6 +300,9 @@
                                 </ul>
                             </div>
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                         </div>
                     </div>
                     <div id="search_container">
@@ -250,6 +320,7 @@
                                                     alt="Service">
                                             </a>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
               @foreach ($services as $service)
                 <div class="col-xl-4 col-sm-6" data-aos="fade-up">
@@ -338,6 +409,8 @@
                           <span
                             class="prev-price font-sm">{{ $service->prev_price ? symbolPrice($service->prev_price) : '' }}</span>
 =======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                                         </figure>
                                         <div class="product-details">
                                             <div class="d-flex align-items-center justify-content-between gap-2">
@@ -542,7 +615,98 @@
                                     </div>
                                 </div>
                             @endforeach
+<<<<<<< HEAD
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+=======
+              @foreach ($services as $service)
+                <div class="col-xl-4 col-sm-6" data-aos="fade-up">
+                  <div class="product-default border radius-md p-15 mb-25">
+                    <figure class="product-img mb-15">
+                      <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
+                        title="Image" target="_self" class="lazy-container radius-sm ratio ratio-2-3">
+                        <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                          data-src="{{ asset('assets/img/services/' . $service->service_image) }}" alt="Service">
+                      </a>
+                    </figure>
+                    <div class="product-details">
+                      <div class="d-flex align-items-center justify-content-between gap-2">
+                        <a href="{{ route('frontend.services', ['category_id' => $service->categoryid]) }}">
+                          <span class="tag font-sm">{{ $service->categoryName }}</span>
+                        </a>
+                        @if (Auth::guard('web')->check())
+                          @php
+                            $user_id = Auth::guard('web')->user()->id;
+                            $checkWishList = checkWishList($service->id, $user_id);
+                          @endphp
+                        @else
+                          @php
+                            $checkWishList = false;
+                          @endphp
+                        @endif
+                        <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
+                          class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
+                          data-tooltip="tooltip" data-bs-placement="right"
+                          title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
+                          <i class="fas fa-heart"></i>
+                        </a>
+                      </div>
+                      <h6 class="product-title mb-0">
+                        <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
+                          target="_self" title="service">
+                          {{ truncateString($service->name, 60) }}
+                        </a>
+                      </h6>
+                      <input type="hidden" value="{{ $service->language_id }}">
+                      <div class="author mb-10 mt-10">
+                        @if ($service->vendor_id != 0)
+                          @if ($service->vendor->photo != null)
+                            <a href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
+                              target="_self" title="{{ $service->vendor->username }}">
+                              <img class="lazyload blur-up" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                data-src="{{ asset('assets/admin/img/vendor-photo/' . $service->vendor->photo) }}"
+                                alt="Image">
+                            </a>
+                          @else
+                            <a href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
+                              target="_self" title="{{ $service->vendor->username }}">
+                              <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                data-src="{{ asset('assets/img/user.png') }}" alt="Vendor">
+                            </a>
+                          @endif
+                          <span class="font-sm">
+                            {{ __('By') }} <a
+                              href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
+                              target="_self"
+                              title="{{ $service->vendor->username }}">{{ $service->vendor->username }}</a>
+                          </span>
+                        @else
+                          <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}"
+                            target="_self" title="{{ $admin->username }}">
+                            <img class="lazyload blur-up" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                              data-src="{{ asset('assets/img/admins/' . $admin->image) }}" alt="Image">
+                          </a>
+                          <span class="font-sm">
+                            {{ __('By') }} <a
+                              href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}"
+                              target="_self">{{ $admin->username }}</a>
+                          </span>
+                        @endif
+                      </div>
+                      @if (!empty($service->address))
+                        <span class="font-sm icon-start"><i
+                            class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                      @endif
+                      @if ($service->zoom_meeting == 1)
+                        <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
+                      @endif
+                      <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
+                        <div class="product-price">
+                          <span class="h6 new-price">{{ symbolPrice($service->price) }}</span>
+                          <span
+                            class="prev-price font-sm">{{ $service->prev_price ? symbolPrice($service->prev_price) : '' }}</span>
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                         </div>
 
                         <!--pagination -->

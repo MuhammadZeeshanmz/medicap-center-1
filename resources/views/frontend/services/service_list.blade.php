@@ -27,6 +27,74 @@
     ])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <!-- Services Listing Section Start -->
+    <section class="services-listing-section pt-100 pb-60">
+        <div class="container">
+            <div class="row gx-xl-5">
+                <!-- Services Sidebar -->
+                @includeIf('frontend.services.side-bar')
+
+                <!-- Main Content Area -->
+                <div class="col-lg-8 col-xl-9">
+                    <!-- Sorting and Filter Controls -->
+                    <div class="listing-controls" data-aos="fade-up">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h5 class="results-count mb-20">
+                                    @if ($total_services > 1)
+                                        <span class="highlight" id="total-service">{{ $total_services }}</span>
+                                        {{ __('Services Found') }}
+                                    @elseif ($total_services == 1)
+                                        <span class="highlight" id="total-service">{{ $total_services }}</span>
+                                        {{ __('Service Found') }}
+                                    @else
+                                        {{ __('No Service Available') }}
+                                    @endif
+                                </h5>
+                            </div>
+                            <div class="col-4 d-lg-none">
+                                <button class="btn btn-sm btn-outline filter-toggle radius-sm mb-20" type="button"
+                                    data-bs-toggle="offcanvas" data-bs-target="#widgetOffcanvas"
+                                    aria-controls="widgetOffcanvas">
+                                    {{ __('Filter') }} <i class="fas fa-filter"></i>
+                                </button>
+                            </div>
+                            <div class="col-8 col-lg-6">
+                                <div class="sorting-options">
+                                    <ul class="sort-list list-unstyled mb-20">
+                                        <li class="sort-item">
+                                            <div class="sort-control d-flex align-items-center">
+                                                <label class="me-2 font-sm">{{ __('Sort By') }}:</label>
+                                                <select name="sort" class="sort-select nice-select right">
+                                                    <option {{ request()->input('newest') == 'default' ? 'selected' : '' }}
+                                                        value="newest">
+                                                        {{ __('Date : Newest on top') }}
+                                                    </option>
+                                                    <option {{ request()->input('sort') == 'oldest' ? 'selected' : '' }}
+                                                        value="oldest">
+                                                        {{ __('Date : Oldest on top') }}
+                                                    </option>
+                                                    <option
+                                                        {{ request()->input('sort') == 'high-to-low' ? 'selected' : '' }}
+                                                        value="high-to-low">
+                                                        {{ __('Price : High to Low') }}
+                                                    </option>
+                                                    <option
+                                                        {{ request()->input('sort') == 'low-to-high' ? 'selected' : '' }}
+                                                        value="low-to-high">
+                                                        {{ __('Price : Low to High') }}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <!-- Services Listing Section Start -->
   <section class="services-listing-section pt-100 pb-60">
     <div class="container">
@@ -196,6 +264,7 @@
                           {{ __('Book Now') }}
                         </a>
                       </div>
+<<<<<<< HEAD
 =======
     <!-- Services Listing Section Start -->
     <section class="services-listing-section pt-100 pb-60">
@@ -262,6 +331,9 @@
                             </div>
                         </div>
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                     </div>
 
                     <!-- Services Grid -->

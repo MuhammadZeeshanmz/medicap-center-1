@@ -26,6 +26,29 @@
     ])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <!-- Vendor-area start -->
+    <div class="vendor-area pt-100 pb-60">
+        <div class="container">
+            <div class="sort-area" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <h5 class="mb-20">
+                            @php
+                                $t_vendor = $vendors->count();
+                                if ($admin) {
+                                    $a_vendor = 1;
+                                } else {
+                                    $a_vendor = 0;
+                                }
+                                $totalvendor = $t_vendor + $a_vendor;
+                            @endphp
+                            {{ $totalvendor }}
+                            {{ count($vendors) > 1 ? __('Vendors') : __('Vendor') }} {{ __('Found') }}
+                        </h5>
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <!-- Vendor-area start -->
   <div class="vendor-area pt-100 pb-60">
     <div class="container">
@@ -143,6 +166,7 @@
                     @endphp
                     <div class="rating-icon bg-img" style="width: {{ $width }}"
                       data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
+<<<<<<< HEAD
 =======
     <!-- Vendor-area start -->
     <div class="vendor-area pt-100 pb-60">
@@ -164,6 +188,9 @@
                             {{ count($vendors) > 1 ? __('Vendors') : __('Vendor') }} {{ __('Found') }}
                         </h5>
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                     </div>
                     <div class="col-lg-7">
                         <form action="{{ route('frontend.vendors') }}" method="GET">
@@ -217,6 +244,7 @@
                                     @endif
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </a>
               </figure>
               <div class="card-details">
@@ -242,6 +270,8 @@
                         class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
                   @endif
 =======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                                 </a>
                             </figure>
                             <div class="card-details">
@@ -310,7 +340,36 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+=======
+                </a>
+              </figure>
+              <div class="card-details">
+                @php
+                  $vendorInfo = App\Models\VendorInfo::where([
+                      ['vendor_id', $vendor->vendorId],
+                      ['language_id', $language->id],
+                  ])->first();
+                @endphp
+                <h6 class="card-title mb-1">
+                  <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}" target="_self"
+                    title="{{ $vendor->username }}">
+                    @if ($vendorInfo->name != null)
+                      {{ $vendorInfo->name }}
+                    @else
+                      {{ $vendor->username }}
+                    @endif
+                  </a>
+                </h6>
+                @if ($vendorInfo)
+                  @if ($vendorInfo->address != null)
+                    <span class="font-sm icon-start"><i
+                        class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                  @endif
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 @endif
                 @foreach ($vendors as $vendor)
                     <div class="col-md-6 col-lg-4 col-xl-3" data-aos="fade-up">

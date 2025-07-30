@@ -29,6 +29,22 @@
 
 @section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <!-- Home-area start-->
+    <section class="hero-banner hero-banner-1 parallax">
+        <div class="container container-lg-fluid">
+            <div class="row align-items-center gx-xl-5">
+                <div class="col-lg-7">
+                    <div class="fluid-left">
+                        <div class="banner-content mb-40">
+                            <h1 class="title mb-30" data-aos="fade-up" data-aos-delay="100">
+                                {{ !empty($sectionContent->hero_section_title) ? $sectionContent->hero_section_title : 'Find Anything From Nearest Location To Make A Booking' }}
+                            </h1>
+                            <p class="text" data-aos="fade-up" data-aos-delay="100">
+                                {{ !empty($sectionContent->hero_section_subtitle) ? $sectionContent->hero_section_subtitle : 'Link Build is an advanced and modern-looking directory script with rich SEO features where you can create your.' }}
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <!-- Home-area start-->
   <section class="hero-banner hero-banner-1 parallax">
     <div class="container container-lg-fluid">
@@ -955,6 +971,7 @@
                             <span class="icon"><i class="fas fa-quote-right"></i></span>
                             <p class="text font-lg mb-0">
                               {{ $testimonial->comment }}
+<<<<<<< HEAD
 =======
     <!-- Home-area start-->
     <section class="hero-banner hero-banner-1 parallax">
@@ -969,6 +986,9 @@
                             <p class="text" data-aos="fade-up" data-aos-delay="100">
                                 {{ !empty($sectionContent->hero_section_subtitle) ? $sectionContent->hero_section_subtitle : 'Link Build is an advanced and modern-looking directory script with rich SEO features where you can create your.' }}
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                             </p>
                             <div class="banner-filter-form mt-40" data-aos="fade-up" data-aos-delay="150">
                                 <div class="form-wrapper shadow-md bg-white p-20 radius-md">

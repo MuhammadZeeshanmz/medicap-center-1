@@ -1,4 +1,51 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+@extends('frontend.layout')
+
+@section('pageHeading')
+    {{ !empty($pageHeading) ? $pageHeading->vendor_page_title : __('Vendors') }}
+@endsection
+
+@section('metaKeywords')
+    @if (!empty($seoInfo))
+        {{ $seoInfo->meta_keywords_vendor_page }}
+    @endif
+@endsection
+
+@section('metaDescription')
+    @if (!empty($seoInfo))
+        {{ $seoInfo->meta_description_vendor_page }}
+    @endif
+@endsection
+
+@section('content')
+    @includeIf('frontend.partials.breadcrumb', [
+        'breadcrumb' => $bgImg->breadcrumb,
+        'title' => !empty($pageHeading) ? $pageHeading->vendor_page_title : __('Vendors'),
+    ])
+
+    <!-- Vendor-area start -->
+    <div class="vendor-area pt-100 pb-60">
+        <div class="container">
+            <div class="sort-area" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <h5 class="mb-20">
+                            @php
+                                $t_vendor = $vendors->count();
+                                if ($admin) {
+                                    $a_vendor = 1;
+                                } else {
+                                    $a_vendor = 0;
+                                }
+                                $totalvendor = $t_vendor + $a_vendor;
+                            @endphp
+                            {{ $totalvendor }}
+                            {{ count($vendors) > 1 ? __('Vendors') : __('Vendor') }} {{ __('Found') }}
+                        </h5>
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
 
 @php
   $version = $basicInfo->theme_version;
@@ -150,6 +197,7 @@
                     @endphp
                     <div class="rating-icon bg-img" style="width: {{ $width }}"
                       data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
+<<<<<<< HEAD
 =======
 @extends('frontend.layout')
 
@@ -195,6 +243,9 @@
                             {{ count($vendors) > 1 ? __('Vendors') : __('Vendor') }} {{ __('Found') }}
                         </h5>
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                     </div>
                     <div class="col-lg-7">
                         <form action="{{ route('frontend.vendors') }}" method="GET">
@@ -233,6 +284,36 @@
                 </div>
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            <div class="row">
+                @if ($admin)
+                    <div class="col-md-6 col-lg-4 col-xl-3" data-aos="fade-up">
+                        <div class="card text-center border radius-md p-15 mb-25">
+                            <figure class="card-img mx-auto mb-15">
+                                <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}"
+                                    title="Image" target="_self" class="lazy-container rounded-circle ratio ratio-1-1">
+                                    @if ($admin->image && file_exists(public_path('assets/img/admins/' . $admin->image)))
+                                        <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                            data-src="{{ asset('assets/img/admins/' . $admin->image) }}"
+                                            alt="{{ $admin->username }}" loading="lazy"
+                                            onerror="this.onerror=null;this.src='{{ asset('assets/img/user.png') }}'">
+                                    @else
+                                        <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                            data-src="{{ asset('assets/img/user.png') }}" alt="{{ $admin->username }}"
+                                            loading="lazy">
+                                    @endif
+                                </a>
+                            </figure>
+                            <div class="card-details">
+                                <h6 class="card-title mb-1">
+                                    <a href="{{ route('frontend.vendor.details', ['username' => $admin->username]) }}"
+                                        target="_self" title="{{ $admin->username }}">
+                                        {{ __('Admin') }}
+                                    </a>
+                                </h6>
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
           </div>
         @endif
         @foreach ($vendors as $vendor)
@@ -286,6 +367,7 @@
                         ->where('status', 1)
                         ->count();
                   @endphp
+<<<<<<< HEAD
 =======
             <div class="row">
                 @if ($admin)
@@ -314,6 +396,9 @@
                                     </a>
                                 </h6>
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
 
                                 @if ($admin->address != null)
                                     <span class="font-sm icon-start"><i
@@ -727,7 +812,14 @@
     </script>
 @endpush
 <<<<<<< HEAD
+<<<<<<< HEAD
  
 =======
 <!-- Vendor-area end -->
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+<!-- Vendor-area end -->
+=======
+ 
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25

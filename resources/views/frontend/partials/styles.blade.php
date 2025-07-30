@@ -25,7 +25,15 @@
 @vite([
     'resources/assets/css/custome.css',
     // 'resources/css/app.css',
+<<<<<<< HEAD
     // 'resources/css/base.css',
+=======
+<<<<<<< HEAD
+    'resources/css/base.css',
+=======
+       'resources/css/base.css',
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     // 'resources/css/font-awesome.css',
     // 'resources/css/font.css',
     // 'resources/css/inner-pages.css',

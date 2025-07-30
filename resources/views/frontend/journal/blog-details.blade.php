@@ -50,6 +50,82 @@
                   <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
                     data-src="{{ asset('assets/img/blogs/' . $details->image) }}" alt="Blog Image">
                 </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                <div class="col-lg-4">
+                    <aside class="widget-area mb-10">
+                        <div class="widget widget-search mb-30 p-30 border radius-md">
+                            <h4 class="title mb-15">{{ __('Search Posts') }}</h4>
+                            <form class="search-form radius-md" action="{{ route('blog') }}" method="GET">
+                                <input type="search" class="search-input" placeholder="{{ __('Search By Title') }}"
+                                    name="title"
+                                    value="{{ !empty(request()->input('title')) ? request()->input('title') : '' }}">
+                                @if (!empty(request()->input('category')))
+                                    <input type="hidden" name="category" value="{{ request()->input('category') }}">
+                                @endif
+                                <button class="btn-search" type="submit">
+                                    <i class="far fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="widget widget-blog-categories mb-30 p-30 border radius-md">
+                            <h4 class="title mb-15">{{ __('Categories') }}</h4>
+                            <ul class="list-unstyled m-0">
+                                @foreach ($categories as $category)
+                                    <li class="d-flex align-items-center justify-content-between">
+                                        <a href="{{ route('blog', ['category' => $category->slug]) }}" target="_self"
+                                            title="Blogs"><i class="fas fa-folder"></i>{{ $category->name }}</a>
+                                        <span class="tqy">({{ $category->blogCount }})</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="widget widget-post mb-30 p-30 border radius-md">
+                            <h4 class="title mb-15">{{ __('Recent Posts') }}</h4>
+                            @foreach ($recent_blogs as $blog)
+                                <article class="article-item mb-30">
+                                    <div class="image">
+                                        <a href="blog-details.html" class="lazy-container ratio ratio-5-4" target="_self"
+                                            title="Blog">
+                                            <img class="lazyload"
+                                                src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                                data-src="{{ asset('assets/img/blogs/' . $blog->image) }}"
+                                                alt="Blog Image">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h6 class="lc-2">
+                                            <a href="{{ route('blog_details', ['slug' => $blog->slug]) }}" target="_self"
+                                                title="Blog">
+                                                {{ strlen($blog->title) > 40 ? mb_substr($blog->title, 0, 40, 'UTF-8') . '...' : $blog->title }}</a>
+                                        </h6>
+                                        <ul class="info-list">
+                                            <li><i class="fas fa-user"></i>{{ __('Admin') }}</li>
+                                            <li><i
+                                                    class="fas fa-calendar"></i>{{ date_format($details->created_at, 'M d, Y') }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </article>
+                            @endforeach
+                        </div>
+                        @if (!empty(showAd(1)))
+                            <div class="text-center mb-40">
+                                {!! showAd(1) !!}
+                            </div>
+                        @endif
+                        @if (!empty(showAd(2)))
+                            <div class="text-center mb-40">
+                                {!! showAd(2) !!}
+                            </div>
+                        @endif
+                    </aside>
+                </div>
+            </div>
+        </div>
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 <a href="javaScript:void(0)" class="btn btn-md btn-primary btn-gradient icon-start" data-bs-toggle="modal"
                   data-bs-target="#socialMediaModal"><i class="fas fa-share-alt"></i>{{ __('Share Now') }}</a>
               </div>
@@ -142,6 +218,10 @@
           </aside>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
   </div>
   @php

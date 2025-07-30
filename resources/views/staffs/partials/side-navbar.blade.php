@@ -124,11 +124,21 @@
            @if (request()->routeIs('staff.rejected_appointment')) active @endif
            @if (request()->routeIs('staff.appointment')) active @endif">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                    <a data-toggle="collapse" href="#eventBooking">
+                        <i class="fas fa-calendar"></i>
+                        <p>Appointments </p>
+                        <span class="caret"></span>
+                    </a>
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
           <a data-toggle="collapse" href="#eventBooking">
             <i class="fas fa-calendar"></i>
             <p>Appointments </p>
             <span class="caret"></span>
           </a>
+<<<<<<< HEAD
 =======
                     <a data-toggle="collapse" href="#eventBooking">
                         <i class="fas fa-calendar"></i>
@@ -136,6 +146,9 @@
                         <span class="caret"></span>
                     </a>
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
 
                     <div id="eventBooking"
                         class="collapse
@@ -221,6 +234,7 @@
                 {{-- edit profile --}}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <li class="nav-item @if (request()->routeIs('staff.edit.profile')) active @endif">
           <a href="{{ route('staff.edit.profile') }}">
             <i class="fas fa-user-edit"></i>
@@ -242,6 +256,8 @@
         </li>
       </ul>
 =======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 <li class="nav-item @if (request()->routeIs('staff.edit.profile')) active @endif">
                     <a href="{{ route('staff.edit.profile') }}">
                         <i class="fas fa-user-edit"></i>
@@ -263,6 +279,31 @@
                 </li>
             </ul>
         </div>
+<<<<<<< HEAD
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+=======
+        <li class="nav-item @if (request()->routeIs('staff.edit.profile')) active @endif">
+          <a href="{{ route('staff.edit.profile') }}">
+            <i class="fas fa-user-edit"></i>
+            <p>Edit Profile</p>
+          </a>
+        </li>
+        <li class="nav-item @if (request()->routeIs('staff.change_password')) active @endif">
+          <a href="{{ route('staff.change_password') }}">
+            <i class="fas fa-key"></i>
+            <p>Change Password</p>
+          </a>
+        </li>
+
+        <li class="nav-item @if (request()->routeIs('staff.logout')) active @endif">
+          <a href="{{ route('staff.logout') }}">
+            <i class="fas fa-sign-out"></i>
+            <p>Logout</p>
+          </a>
+        </li>
+      </ul>
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 </div>

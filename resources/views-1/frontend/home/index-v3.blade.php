@@ -19,6 +19,7 @@
 @endsection
 @section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
   <!-- Home-area start-->
   <section class="hero-banner hero-banner-3 pb-100">
     <div class="container">
@@ -55,6 +56,8 @@
             </form>
           </div>
 =======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     <!-- Home-area start-->
     <section class="hero-banner hero-banner-3 pb-100">
         <div class="container">
@@ -95,7 +98,47 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+=======
+  <!-- Home-area start-->
+  <section class="hero-banner hero-banner-3 pb-100">
+    <div class="container">
+      <div class="banner-content mx-auto text-center">
+        <h1 class="title mb-30" data-aos="fade-up" data-aos-delay="100">
+          {{ !empty($sectionContent->hero_section_title) ? $sectionContent->hero_section_title : 'Find Anything From Nearest Location To Make A Booking' }}
+        </h1>
+        <div class="banner-filter-form mx-auto" data-aos="fade-up" data-aos-delay="150">
+          <div class="form-wrapper shadow-md bg-white p-20 rounded-pill">
+            <form id="homepage_search" action="{{ route('frontend.services') }}" method="get">
+              <div class="row justify-content-center align-items-center">
+                <div class="col-md-4 col-sm-6">
+                  <div class="input-group">
+                    <label for="service_location" class="text-gradient"><i class="fas fa-map-marker-alt"></i></label>
+                    <input type="text" id="service_location" name="location" class="form-control"
+                      placeholder="{{ __('Search By Location') }}">
+                    <div class="vr"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                  <div class="input-group">
+                    <label for="service_title" class="text-gradient"><i class="fas fa-clipboard-list"></i></label>
+                    <input type="text" id="service_name" name="service_title" class="form-control"
+                      placeholder="{{ __('Search Service') }}">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                  <button type="submit" class="btn btn-lg btn-primary rounded-pill btn-gradient icon-start w-100">
+                    <i class="fas fa-search"></i>
+                    {{ __('Find Now') }}
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
         </div>
         <!-- Shape -->
         <div class="shape">
@@ -116,6 +159,12 @@
                             ->first();
                     @endphp
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                    @include('frontend.home.custom-section', ['data' => $cusHeroContent])
+                @endif
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                     <div class="swiper-slide mb-40" data-category-id="{{ $category->id }}">
                       <div class="card text-center shadow-md">
                         <div class="card-img mb-10">
@@ -916,10 +965,14 @@
                 <!-- If we need pagination -->
                 <div class="swiper-pagination position-static" id="product-slider-1-pagination"></div>
               </div>
+<<<<<<< HEAD
 =======
                     @include('frontend.home.custom-section', ['data' => $cusHeroContent])
                 @endif
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
             @endif
         @endforeach
     @endif

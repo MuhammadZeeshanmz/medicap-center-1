@@ -192,6 +192,11 @@
                 {!! showAd(1) !!}
             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        @endif
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
           </div>
 
           <!-- Ratings Filter -->
@@ -257,9 +262,13 @@
         <!-- Spacer -->
         <div class="pb-40"></div>
       </aside>
+<<<<<<< HEAD
 =======
         @endif
 >>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 </div>
 
