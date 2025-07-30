@@ -66,10 +66,10 @@
               <!-- Slider navigation buttons -->
               <div class="slider-navigation">
                 <button type="button" title="Slide prev" class="slider-btn slider-btn-prev radius-0">
-                  <i class="fal fa-angle-left"></i>
+                  <i class="fas fa-angle-left"></i>
                 </button>
                 <button type="button" title="Slide next" class="slider-btn slider-btn-next radius-0">
-                  <i class="fal fa-angle-right"></i>
+                  <i class="fas fa-angle-right"></i>
                 </button>
               </div>
             </div>
@@ -115,12 +115,12 @@
             <div class="btn-groups mt-30">
               <div class="quantity-input">
                 <div class="quantity-down">
-                  <i class="fal fa-minus"></i>
+                  <i class="fas fa-minus"></i>
                 </div>
                 <input type="text" value="1" name="quantity" id="product-quantity" spellcheck="false"
                   data-ms-editor="true">
                 <div class="quantity-up">
-                  <i class="fal fa-plus"></i>
+                  <i class="fas fa-plus"></i>
                 </div>
               </div>
               <a href="{{ route('shop.product.add_to_cart', ['id' => $details->id, 'quantity' => 1]) }}"
@@ -286,11 +286,11 @@
         <div class="slider-navigation mb-20">
           <button type="button" title="Slide prev" class="slider-btn slider-btn-prev btn-outline radius-0"
             id="shop-slider-prev">
-            <i class="fal fa-angle-left"></i>
+            <i class="fas fa-angle-left"></i>
           </button>
           <button type="button" title="Slide next" class="slider-btn slider-btn-next btn-outline radius-0"
             id="shop-slider-next">
-            <i class="fal fa-angle-right"></i>
+            <i class="fas fa-angle-right"></i>
           </button>
         </div>
       </div>

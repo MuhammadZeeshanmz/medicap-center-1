@@ -64,8 +64,8 @@
                   @endforeach
                 </div>
                 <div class="gallery-navigation">
-                  <button class="gallery-prev"><i class="fal fa-angle-left"></i></button>
-                  <button class="gallery-next"><i class="fal fa-angle-right"></i></button>
+                  <button class="gallery-prev"><i class="fas fa-angle-left"></i></button>
+                  <button class="gallery-next"><i class="fas fa-angle-right"></i></button>
                 </div>
               </div>
             </div>
@@ -102,14 +102,14 @@
                   
                   @if(!empty($service->address))
                     <div class="service-location">
-                      <i class="fal fa-map-marker-alt"></i>
+                      <i class="fas fa-map-marker-alt"></i>
                       {{ $service->address }}
                     </div>
                   @endif
                   
                   @if($details->zoom_meeting == 1)
                     <div class="service-online">
-                      <i class="fal fa-video"></i>
+                      <i class="fas fa-video"></i>
                       {{ __('Online') }}
                     </div>
                   @endif
@@ -200,7 +200,7 @@
               <ul class="features-list">
                 @foreach(explode("\n", $service->features) as $feature)
                   <li class="feature-item">
-                    <i class="fal fa-check-square"></i>
+                    <i class="fas fa-check-square"></i>
                     <span>{{ trim($feature) }}</span>
                   </li>
                 @endforeach
@@ -308,11 +308,11 @@
                       </div>
                       <div class="review-meta">
                         <div class="review-location">
-                          <i class="fal fa-map-marker-alt"></i>
+                          <i class="fas fa-map-marker-alt"></i>
                           {{ $review->user->address }}, {{ $review->user->country }}
                         </div>
                         <div class="review-date">
-                          <i class="fal fa-clock"></i>
+                          <i class="fas fa-clock"></i>
                           {{ $review->created_at->diffForHumans() }}
                         </div>
                       </div>

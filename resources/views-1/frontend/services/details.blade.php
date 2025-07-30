@@ -82,10 +82,10 @@
             <!-- Slider navigation buttons -->
             <div class="slider-navigation position-middle">
               <button type="button" title="Slide prev" class="slider-btn slider-btn-prev" id="product-single-btn-prev">
-                <i class="fal fa-angle-left"></i>
+                <i class="fas fa-angle-left"></i>
               </button>
               <button type="button" title="Slide next" class="slider-btn slider-btn-next" id="product-single-btn-next">
-                <i class="fal fa-angle-right"></i>
+                <i class="fas fa-angle-right"></i>
               </button>
             </div>
           </div>
@@ -97,10 +97,10 @@
                 </a>
                 <h3 class="product-title my-1">{{ $service->name }}</h3>
                 @if (!empty($service->address))
-                  <span class="font-sm icon-start"><i class="fal fa-map-marker-alt"></i>{{ $service->address }}</span>
+                  <span class="font-sm icon-start"><i class="fas fa-map-marker-alt"></i>{{ $service->address }}</span>
                 @endif
                 @if ($details->zoom_meeting == 1)
-                  <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
+                  <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
                 @endif
               </div>
               <div class="col-md-4">
@@ -190,7 +190,7 @@
                   @endphp
                   @foreach ($parts as $part)
                     <li class="icon-start">
-                      <i class="fal fa-check-square"></i>
+                      <i class="fas fa-check-square"></i>
                       <span>{{ trim($part) }}</span>
                     </li>
                   @endforeach
@@ -267,7 +267,7 @@
                                 class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                                 data-tooltip="tooltip" data-bs-placement="right"
                                 title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                                <i class="fal fa-heart"></i>
+                                <i class="fas fa-heart"></i>
                               </a>
 
                             </div>
@@ -315,12 +315,12 @@
                               @endif
                             </div>
                             @if (!empty($related_service->address))
-                              <span class="font-sm icon-start"><i class="fal fa-map-marker-alt"></i>
+                              <span class="font-sm icon-start"><i class="fas fa-map-marker-alt"></i>
                                 {{ truncateString($related_service->address, 30) }}
                               </span>
                             @endif
                             @if ($related_service->zoom_meeting == 1)
-                              <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
+                              <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
                             @endif
                             <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
                               <div class="product-price">
@@ -444,10 +444,10 @@
                             <div class="more-info font-sm">
                               <div class="icon-start">
                                 <i
-                                  class="fal fa-map-marker-alt"></i>{{ $review->user->address }},{{ $review->user->country }}
+                                  class="fas fa-map-marker-alt"></i>{{ $review->user->address }},{{ $review->user->country }}
                               </div>
                               <div class="icon-start"><i
-                                  class="fal fa-clock"></i>{{ $review->created_at->diffForHumans() }}
+                                  class="fas fa-clock"></i>{{ $review->created_at->diffForHumans() }}
                               </div>
                             </div>
                           </div>

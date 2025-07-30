@@ -8,7 +8,7 @@
                 data-app-dark-img="front-pages/backgrounds/footer-bg-dark.png" />
             <div class="container">
                 <div class="row gx-0 gy-4 g-md-5">
-                    <div class="go-top"><i class="fal fa-long-arrow-up"></i></div>
+                    <div class="go-top"><i class="fas fa-long-arrow-up"></i></div>
                     <div class="footer-top pt-100 pb-70 text-center">
                         <div class="container">
                             <div class="row justify-content-center">

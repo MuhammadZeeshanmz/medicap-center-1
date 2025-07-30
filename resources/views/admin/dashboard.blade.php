@@ -72,7 +72,7 @@
               <div class="row">
                 <div class="col-5">
                   <div class="icon-big text-center">
-                    <i class="fal fa-exchange-alt"></i>
+                    <i class="fas fa-exchange-alt"></i>
                   </div>
                 </div>
 
@@ -97,7 +97,7 @@
               <div class="row">
                 <div class="col-5">
                   <div class="icon-big text-center">
-                    <i class="fal fa-box-alt"></i>
+                    <i class="fas fa-box-alt"></i>
                   </div>
                 </div>
 
@@ -122,7 +122,7 @@
               <div class="row">
                 <div class="col-5">
                   <div class="icon-big text-center">
-                    <i class="fal fa-shopping-cart"></i>
+                    <i class="fas fa-shopping-cart"></i>
                   </div>
                 </div>
 
@@ -147,7 +147,7 @@
               <div class="row">
                 <div class="col-5">
                   <div class="icon-big text-center">
-                    <i class="fal fa-blog"></i>
+                    <i class="fas fa-blog"></i>
                   </div>
                 </div>
 
@@ -223,7 +223,7 @@
               <div class="row">
                 <div class="col-5">
                   <div class="icon-big text-center">
-                    <i class="fal fa-bell"></i>
+                    <i class="fas fa-bell"></i>
                   </div>
                 </div>
 

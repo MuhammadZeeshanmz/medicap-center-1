@@ -83,44 +83,44 @@
                         <ul class="card_list toggle-list list-unstyled mt-25">
                           <li>
                             <span>
-                              <i class="fal fa-check"></i>{{ __('Services') }}
+                              <i class="fas fa-check"></i>{{ __('Services') }}
                               <span>({{ $package->number_of_service_add === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_service_add }})
                               </span>
                             </span>
 
                           </li>
                           <li>
-                            <span><i class="fal fa-check"></i>{{ __('Images/Service') }} <span>
+                            <span><i class="fas fa-check"></i>{{ __('Images/Service') }} <span>
                                 ({{ $package->number_of_service_image === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_service_image }})
                               </span></span>
 
                           </li>
                           <li>
-                            <span><i class="fal fa-check"></i>{{ __('Appointments') }} <span>
+                            <span><i class="fas fa-check"></i>{{ __('Appointments') }} <span>
                                 ({{ $package->number_of_appointment === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_appointment }})</span></span>
 
                           </li>
                           <li>
-                            <span><i class="fal fa-check"></i>{{ __('Staffs') }}
+                            <span><i class="fas fa-check"></i>{{ __('Staffs') }}
                               <span>
                                 ({{ $package->staff_limit === 999999 ? '(' . __('Unlimited') . ')' : $package->staff_limit }})</span></span>
 
                           </li>
                           @if ($package->support_ticket_status == 1)
                             <li>
-                              <span><i class="fal fa-check"></i>{{ __('Support Tickets') }}</span>
+                              <span><i class="fas fa-check"></i>{{ __('Support Tickets') }}</span>
                             </li>
                           @else
                             <li>
-                              <span><i class="fal fa-times"></i>{{ __('Support Tickets') }}</span>
+                              <span><i class="fas fa-times"></i>{{ __('Support Tickets') }}</span>
                             </li>
                           @endif
                           <li>
                             <span>
                               @if ($package->zoom_meeting_status == 1)
-                                <i class="fal fa-check"></i>
+                                <i class="fas fa-check"></i>
                               @else
-                                <i class="fal fa-times"></i>
+                                <i class="fas fa-times"></i>
                               @endif
                               {{ __('Zoom Meeting') }}
                             </span>
@@ -128,9 +128,9 @@
                           <li>
                             <span>
                               @if ($package->calendar_status == 1)
-                                <i class="fal fa-check"></i>
+                                <i class="fas fa-check"></i>
                               @else
-                                <i class="fal fa-times"></i>
+                                <i class="fas fa-times"></i>
                               @endif
                               {{ __('Google Calendar') }}
                             </span>
@@ -143,7 +143,7 @@
                             @if (count($features) > 0)
                               @foreach ($features as $key => $value)
                                 <li>
-                                  <span><i class="fal fa-check"></i>{{ $value }}</span>
+                                  <span><i class="fas fa-check"></i>{{ $value }}</span>
                                 </li>
                               @endforeach
                             @endif

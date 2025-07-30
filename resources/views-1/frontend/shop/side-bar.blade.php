@@ -155,7 +155,7 @@
           </div>
           <div class="cta">
             <a href="{{ route('shop.products') }}" class="btn btn-lg btn-primary icon-start w-100"><i
-                class="fal fa-sync-alt"></i>{{ __('Reset All') }}</a>
+                class="fas fa-sync-alt"></i>{{ __('Reset All') }}</a>
           </div>
         </form>
         <!-- Spacer -->

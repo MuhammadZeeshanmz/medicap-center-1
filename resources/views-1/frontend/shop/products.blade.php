@@ -47,7 +47,7 @@
               <div class="col-4 d-lg-none">
                 <button class="btn btn-sm btn-outline icon-end radius-sm mb-20" type="button" data-bs-toggle="offcanvas"
                   data-bs-target="#widgetOffcanvas" aria-controls="widgetOffcanvas">
-                  {{ __('Filter') }} <i class="fal fa-filter"></i>
+                  {{ __('Filter') }} <i class="fas fa-filter"></i>
                 </button>
               </div>
               <div class="col-8 col-lg-6">

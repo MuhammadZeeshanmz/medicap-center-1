@@ -123,7 +123,7 @@
            @if (request()->routeIs('staff.rejected_appointment')) active @endif
            @if (request()->routeIs('staff.appointment')) active @endif">
           <a data-toggle="collapse" href="#eventBooking">
-            <i class="fal fa-calendar"></i>
+            <i class="fas fa-calendar"></i>
             <p>Appointments </p>
             <span class="caret"></span>
           </a>
@@ -211,20 +211,20 @@
 
         <li class="nav-item @if (request()->routeIs('staff.edit.profile')) active @endif">
           <a href="{{ route('staff.edit.profile') }}">
-            <i class="fal fa-user-edit"></i>
+            <i class="fas fa-user-edit"></i>
             <p>Edit Profile</p>
           </a>
         </li>
         <li class="nav-item @if (request()->routeIs('staff.change_password')) active @endif">
           <a href="{{ route('staff.change_password') }}">
-            <i class="fal fa-key"></i>
+            <i class="fas fa-key"></i>
             <p>Change Password</p>
           </a>
         </li>
 
         <li class="nav-item @if (request()->routeIs('staff.logout')) active @endif">
           <a href="{{ route('staff.logout') }}">
-            <i class="fal fa-sign-out"></i>
+            <i class="fas fa-sign-out"></i>
             <p>Logout</p>
           </a>
         </li>

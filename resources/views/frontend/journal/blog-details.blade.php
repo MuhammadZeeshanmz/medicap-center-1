@@ -56,11 +56,11 @@
               </div>
               <div class="content">
                 <ul class="info-list">
-                  <li><i class="fal fa-user"></i>{{ $details->author }}</li>
-                  <li><i class="fal fa-calendar"></i> {{ \Carbon\Carbon::parse($details->created_at)->format('F d, Y') }}
+                  <li><i class="fas fa-user"></i>{{ $details->author }}</li>
+                  <li><i class="fas fa-calendar"></i> {{ \Carbon\Carbon::parse($details->created_at)->format('F d, Y') }}
                   </li>
 
-                  <li><i class="fal fa-tag"></i>
+                  <li><i class="fas fa-tag"></i>
                     <a href="{{ route('blog', ['category' => $details->categorySlug]) }}">
                       {{ $details->categoryName }}
                     </a>
@@ -101,7 +101,7 @@
                 @foreach ($categories as $category)
                   <li class="d-flex align-items-center justify-content-between">
                     <a href="{{ route('blog', ['category' => $category->slug]) }}" target="_self" title="Blogs"><i
-                        class="fal fa-folder"></i>{{ $category->name }}</a>
+                        class="fas fa-folder"></i>{{ $category->name }}</a>
                     <span class="tqy">({{ $category->blogCount }})</span>
                   </li>
                 @endforeach
@@ -123,8 +123,8 @@
                         {{ strlen($blog->title) > 40 ? mb_substr($blog->title, 0, 40, 'UTF-8') . '...' : $blog->title }}</a>
                     </h6>
                     <ul class="info-list">
-                      <li><i class="fal fa-user"></i>{{ __('Admin') }}</li>
-                      <li><i class="fal fa-calendar"></i>{{ date_format($details->created_at, 'M d, Y') }}</li>
+                      <li><i class="fas fa-user"></i>{{ __('Admin') }}</li>
+                      <li><i class="fas fa-calendar"></i>{{ date_format($details->created_at, 'M d, Y') }}</li>
                     </ul>
                   </div>
                 </article>

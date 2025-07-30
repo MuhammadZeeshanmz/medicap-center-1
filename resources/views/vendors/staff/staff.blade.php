@@ -223,7 +223,7 @@
                                       <a class="dropdown-item btn btn-sm mr-1 editBtn"
                                         href="{{ route('vendor.staff.permission', ['id' => $staff->id]) }}">
                                         <span class="btn-label">
-                                          <i class="fal fa-users-cog"></i>
+                                          <i class="fas fa-users-cog"></i>
                                         </span>
                                         {{ __('Permission') }}
                                       </a>
@@ -233,7 +233,7 @@
                                         href="{{ route('vendor.staff.change_password', ['id' => $staff->id]) }}"
                                         target="_self">
                                         <span class="btn-label">
-                                          <i class="fal fa-key"></i>
+                                          <i class="fas fa-key"></i>
                                         </span>
                                         {{ __('Change Password') }}
                                       </a>

@@ -1,31 +1,3 @@
-@php
-  $version = $basicInfo->theme_version;
-@endphp
-@extends('frontend.layout')
-
-@section('pageHeading')
-  {{ !empty($pageHeading) ? $pageHeading->vendor_page_title : __('Vendors') }}
-@endsection
-
-@section('metaKeywords')
-  @if (!empty($seoInfo))
-    {{ $seoInfo->meta_keywords_vendor_page }}
-  @endif
-@endsection
-
-@section('metaDescription')
-  @if (!empty($seoInfo))
-    {{ $seoInfo->meta_description_vendor_page }}
-  @endif
-@endsection
-
-@section('content')
-  @includeIf('frontend.partials.breadcrumb', [
-      'breadcrumb' => $bgImg->breadcrumb,
-      'title' => !empty($pageHeading) ? $pageHeading->vendor_page_title : __('Vendors'),
-  ])
-
-  <!-- Vendor-area start -->
 
 @php
   $version = $basicInfo->theme_version;
@@ -98,7 +70,7 @@
                 <div class="col-md-2">
                   <div class="form-group icon-start">
                     <button type="submit" class="btn btn-icon bg-primary radius-sm color-white w-100">
-                      <i class="fal fa-search"></i>
+                      <i class="fas fa-search"></i>
                       <span class="d-inline-block d-md-none">{{ __('Search') }}</span>
                     </button>
                   </div>
@@ -141,7 +113,7 @@
 
                 @if ($admin->address != null)
                   <span class="font-sm icon-start"><i
-                      class="fal fa-map-marker-alt"></i>{{ truncateString($admin->address, 30) }}</span>
+                      class="fas fa-map-marker-alt"></i>{{ truncateString($admin->address, 30) }}</span>
                 @endif
                 <div class="mt-10 pt-10 border-top text-center">
                   @php
@@ -237,7 +209,7 @@
                 @if ($vendorInfo)
                   @if ($vendorInfo->address != null)
                     <span class="font-sm icon-start"><i
-                        class="fal fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                        class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
                   @endif
                 @endif
                 <div class="mt-10 pt-10 border-top text-center">
@@ -524,5 +496,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endpush
-  <!-- Vendor-area end -->
-@endsection
+ 

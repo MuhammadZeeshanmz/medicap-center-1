@@ -33,3 +33,51 @@
 .accordion-button::after {
     display: none !important;
 }
+.accordion-button::after {
+    display: none !important; /* removes default Bootstrap icon */
+}
+
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+.radio-custom {
+    accent-color: #ff2c72; /* Pinkish red circle (as seen in image) */
+}
+
+.accordion-button::after {
+    display: none !important; /* Remove default Bootstrap chevron */
+}
+.accordion-button::after {
+    display: none !important; /* Remove default Bootstrap toggle icon */
+}
+
+.range-slider {
+    height: 5px;
+    background: #e0e0e0;
+    border-radius: 5px;
+}
+
+.price-values {
+    color: #000; /* Keep main text color consistent */
+    font-weight: 600;
+}
+.radio-custom {
+    accent-color: #ff2c72; /* Red/pink circle color like the image */
+}
+
+.accordion-button::after {
+    display: none !important; /* Removes default Bootstrap arrow */
+}
+
+.purchase-btn:hover{
+  color: black;
+}
+.p-r{
+  color: white;
+}
+
+
+

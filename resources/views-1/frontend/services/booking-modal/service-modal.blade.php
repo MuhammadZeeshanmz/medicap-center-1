@@ -4,35 +4,35 @@
     <div class="step" data-target="#staff">
       <button type="button" class="step-trigger" role="tab" aria-controls="staff" id="staff-trigger">
         <span class="h3 mb-1">01</span>
-        <span class="bs-stepper-circle"><i class="fal fa-user-circle"></i></span>
+        <span class="bs-stepper-circle"><i class="fas fa-user-circle"></i></span>
         <span class="bs-stepper-label">{{ __('Staff') }}</span>
       </button>
     </div>
     <div class="step" data-target="#time">
       <button type="button" class="step-trigger" role="tab" aria-controls="time" id="time-trigger">
         <span class="h3 mb-1">02</span>
-        <span class="bs-stepper-circle"><i class="fal fa-clock"></i></span>
+        <span class="bs-stepper-circle"><i class="fas fa-clock"></i></span>
         <span class="bs-stepper-label">{{ __('Date & Time') }}</span>
       </button>
     </div>
     <div class="step" data-target="#info">
       <button type="button" class="step-trigger" role="tab" aria-controls="info" id="info-trigger">
         <span class="h3 mb-1">03</span>
-        <span class="bs-stepper-circle"><i class="fal fa-clipboard-list-check"></i></span>
+        <span class="bs-stepper-circle"><i class="fas fa-clipboard-list-check"></i></span>
         <span class="bs-stepper-label">{{ __('Information') }}</span>
       </button>
     </div>
     <div class="step" data-target="#payment">
       <button type="button" class="step-trigger" role="tab" aria-controls="payment" id="payment-trigger">
         <span class="h3 mb-1">04</span>
-        <span class="bs-stepper-circle"><i class="fal fa-credit-card"></i></span>
+        <span class="bs-stepper-circle"><i class="fas fa-credit-card"></i></span>
         <span class="bs-stepper-label">{{ __('Payment') }}</span>
       </button>
     </div>
     <div class="step" data-target="#confirm">
       <button type="button" class="step-trigger" role="tab" aria-controls="confirm" id="confirm-trigger">
         <span class="h3 mb-1">05</span>
-        <span class="bs-stepper-circle"><i class="fal fa-check-circle"></i></span>
+        <span class="bs-stepper-circle"><i class="fas fa-check-circle"></i></span>
         <span class="bs-stepper-label">{{ __('Confirmation') }}</span>
       </button>
     </div>
@@ -137,11 +137,11 @@
           <div class="btn-groups justify-content-center w-100 mt-20">
             <a id="time_prev_step" href="javaScript:void(0)" class="btn-text color-primary icon-start"
               onclick="bookingStepper.previous()" target="_self"><i
-                class="fal fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
+                class="fas fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
 
             <a id="time_next_step" href="javaScript:void(0)" class="d-none btn-text color-primary icon-start"
               onclick="bookingStepper.next()" target="_self">{{ __('Next Step') }}<i
-                class="fal fa-long-arrow-right"></i></a>
+                class="fas fa-long-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -195,7 +195,7 @@
               <div class="btn-groups d-flex justify-content-center mt-30">
                 <a href="javaScript:void(0)" class="btn-text color-primary icon-start"
                   onclick="bookingStepper.previous()" target="_self"><i
-                    class="fal fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
+                    class="fas fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
               </div>
             </div>
           </div>
@@ -263,15 +263,15 @@
                 @if (Auth::guard('web')->user())
                   <a href="javaScript:void(0)" class="btn-text color-primary icon-start"
                     onclick="bookingStepper.previous()" target="_self">
-                    <i class="fal fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
+                    <i class="fas fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
                 @else
                   <a href="javaScript:void(0)" id="billing_prev" class="btn-text color-primary icon-start login_prev"
                     target="_self">
-                    <i class="fal fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
+                    <i class="fas fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
                 @endif
                 <a href="javaScript:void(0)" onclick="submitForm(event)" class="btn-text color-primary icon-end"
                   target="_self">{{ __('Next Step') }}
-                  <i class="fal fa-long-arrow-right"></i></a>
+                  <i class="fas fa-long-arrow-right"></i></a>
               </div>
             </div>
           </form>
@@ -397,7 +397,7 @@
           <div class="btn-groups justify-content-center w-100 mt-20">
             <a href="javaScript:void(0)" id="payment_prev" class="btn-text color-primary icon-start"
               onclick="bookingStepper.previous()" target="_self"><i
-                class="fal fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
+                class="fas fa-long-arrow-left"></i>{{ __('Prev Step') }}</a>
           </div>
         </div>
       </div>

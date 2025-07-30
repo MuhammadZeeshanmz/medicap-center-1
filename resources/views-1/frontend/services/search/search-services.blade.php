@@ -35,7 +35,7 @@
               <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
                 class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                 title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                <i class="fal fa-heart"></i>
+                <i class="fas fa-heart"></i>
               </a>
             </div>
             <h6 class="product-title mb-0">
@@ -81,10 +81,10 @@
             </div>
             @if (!empty($service->address))
               <span class="font-sm icon-start"><i
-                  class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                  class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
             @endif
             @if ($service->zoom_meeting == 1)
-              <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
+              <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
             @endif
             <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
               <div class="product-price">
@@ -130,7 +130,7 @@
               <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
                 class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                 title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                <i class="fal fa-heart"></i>
+                <i class="fas fa-heart"></i>
               </a>
             </div>
             <h6 class="product-title mb-0">
@@ -176,10 +176,10 @@
             </div>
             @if (!empty($service->address))
               <span class="font-sm icon-start"><i
-                  class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                  class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
             @endif
             @if ($service->zoom_meeting == 1)
-              <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
+              <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
             @endif
             <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
               <div class="product-price">

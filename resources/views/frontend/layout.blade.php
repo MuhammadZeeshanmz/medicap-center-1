@@ -137,7 +137,7 @@
             @endphp
             <a href="{{ route('shop.cart') }} " class="d-block" id="cartIcon">
                 <div class="cart-length">
-                    <i class="fal fa-shopping-bag"></i>
+                    <i class="fas fa-shopping-bag"></i>
                     <span class="length totalItems">
                         {{ $productCartQuantity }} {{ __('Items') }}
                     </span>

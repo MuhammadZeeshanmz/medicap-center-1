@@ -263,7 +263,7 @@
                             <div class="row">
                                 <div class="col-5">
                                     <div class="icon-big text-center">
-                                        <i class="fal fa-lightbulb-dollar"></i>
+                                        <i class="fas fa-lightbulb-dollar"></i>
                                     </div>
                                 </div>
 

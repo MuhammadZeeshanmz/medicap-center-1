@@ -48,13 +48,13 @@
                   </div>
                   <div class="card-content p-25">
                       <ul class="card-list list-unstyled d-flex justify-content-between">
-                      <li class="mb-10 font-sm icon-start"><i class="fal fa-user-circle"></i>{{ @$blog->author }}
+                      <li class="mb-10 font-sm icon-start"><i class="fas fa-user-circle"></i>{{ @$blog->author }}
                       </li>
                       <li class="mb-10 font-sm icon-start">
                         <a href="{{ route('blog', ['category' => $blog->categorySlug]) }}" target="_self"
-                          title="{{ @$blog->categoryName }}"><i class="fal fa-tag"></i>{{ @$blog->categoryName }}</a>
+                          title="{{ @$blog->categoryName }}"><i class="fas fa-tag"></i>{{ @$blog->categoryName }}</a>
                       </li>
-                      <li class="mb-10 font-sm icon-start"><i class="fal fa-calendar-alt"></i>
+                      <li class="mb-10 font-sm icon-start"><i class="fas fa-calendar-alt"></i>
                         {{ \Carbon\Carbon::parse($blog->created_at)->format('F d, Y') }}
                       </li>
                     </ul>
@@ -67,7 +67,7 @@
                     <a href="{{ route('blog_details', ['slug' => $blog->slug]) }}"
                       class="btn-text icon-end color-primary" target="_self"
                       title="{{ __('Read More') }}">{{ __('CONTINUE READING') }}<i
-                        class="fal fa-long-arrow-right"></i></a>
+                        class="fas fa-long-arrow-right"></i></a>
                   </div>
                 </article>
               </div>
@@ -101,7 +101,7 @@
                 @foreach ($categories as $category)
                   <li class="d-flex align-items-center justify-content-between">
                     <a href="{{ route('blog', ['category' => $category->slug]) }}" target="_self" title="Blogs"><i
-                        class="fal fa-folder"></i>{{ $category->name }}</a>
+                        class="fas fa-folder"></i>{{ $category->name }}</a>
                     <span class="tqy">({{ $category->blogCount }})</span>
                   </li>
                 @endforeach

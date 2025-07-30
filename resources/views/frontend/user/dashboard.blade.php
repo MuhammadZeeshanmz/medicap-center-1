@@ -46,7 +46,7 @@
                 <div class="card card-box radius-md mb-30 color-1">
                   <div class="card-icon mb-15">
 
-                    <i class="fal fa-clipboard-list-check"></i>
+                    <i class="fas fa-clipboard-list-check"></i>
                   </div>
                   <div class="card-info">
                     <h3 class="mb-0">
@@ -66,7 +66,7 @@
                 <a href="{{ route('user.order.index') }}" target="_blank">
                   <div class="card card-box radius-md mb-30 color-2">
                     <div class="card-icon mb-15">
-                      <i class="fal fa-shopping-bag"></i>
+                      <i class="fas fa-shopping-bag"></i>
                     </div>
                     <div class="card-info">
                       <h3 class="mb-0">
@@ -90,7 +90,7 @@
               <a href="{{ route('user.wishlist') }}" target="_blank">
                 <div class="card card-box radius-md mb-30 color-3">
                   <div class="card-icon mb-15">
-                    <i class="fal fa-heart"></i>
+                    <i class="fas fa-heart"></i>
                   </div>
                   <div class="card-info">
                     <h3 class="mb-0">

@@ -191,7 +191,7 @@
 
         <div class="cta pb-40">
           <a href="{{ route('frontend.services') }}" class="btn btn-lg btn-primary btn-gradient icon-end w-100">
-            <i class="fal fa-sync-alt"></i> {{ __('Reset All') }}
+            <i class="fas fa-sync-alt"></i> {{ __('Reset All') }}
           </a>
         </div>
         @if (!empty(showAd(1)))

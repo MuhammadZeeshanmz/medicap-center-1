@@ -53,7 +53,7 @@
               <div class="col-4 d-lg-none">
                 <button class="btn btn-sm btn-outline icon-end radius-sm mb-20" type="button" data-bs-toggle="offcanvas"
                   data-bs-target="#widgetOffcanvas" aria-controls="widgetOffcanvas">
-                  {{ __('Filter') }} <i class="fal fa-filter"></i>
+                  {{ __('Filter') }} <i class="fas fa-filter"></i>
                 </button>
               </div>
               <div class="col-8 col-lg-6">
@@ -112,7 +112,7 @@
                             class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                             data-tooltip="tooltip" data-bs-placement="right"
                             title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                            <i class="fal fa-heart"></i>
+                            <i class="fas fa-heart"></i>
                           </a>
                       </div>
                       <h6 class="product-title mb-0">
@@ -158,10 +158,10 @@
                       </div>
                       @if (!empty($service->address))
                         <span class="font-sm icon-start"><i
-                            class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                            class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                       @endif
                       @if ($service->zoom_meeting == 1)
-                        <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
+                        <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
                       @endif
                       <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
                         <div class="product-price">
@@ -207,7 +207,7 @@
                           class="btn btn-icon border radius-sm {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                           data-tooltip="tooltip" data-bs-placement="right"
                           title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                          <i class="fal fa-heart"></i>
+                          <i class="fas fa-heart"></i>
                         </a>
                       </div>
                       <h6 class="product-title mb-0">
@@ -254,10 +254,10 @@
                       </div>
                       @if (!empty($service->address))
                         <span class="font-sm icon-start"><i
-                            class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                            class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                       @endif
                       @if ($service->zoom_meeting == 1)
-                        <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
+                        <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
                       @endif
                       <div class="d-flex align-items-center justify-content-between gap-2 mt-10">
                         <div class="product-price">

@@ -326,7 +326,7 @@
                             </div>
                           </div>
                           <div class="quote">
-                            <span class="icon"><i class="fal fa-quote-right"></i></span>
+                            <span class="icon"><i class="fas fa-quote-right"></i></span>
                             <p class="text font-lg mb-0">
                               {{ $testimonial->comment }}
                             </p>

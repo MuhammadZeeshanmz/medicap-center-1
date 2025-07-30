@@ -101,11 +101,11 @@
                             <td class="text-center">
                               <a href="{{ route('frontend.service.details', ['slug' => $item->slug, 'id' => $item->service_id]) }}"
                                 target="_blank" title="Remove" class="btn btn-remove rounded-pill mx-auto">
-                                <i class="fal fa-eye"></i>
+                                <i class="fas fa-eye"></i>
                               </a>
                               <a href="{{ route('remove.wishlist', ['id' => $item->service_id]) }}" target="_self"
                                 title="Remove" class="btn btn-remove rounded-pill mx-auto">
-                                <i class="fal fa-trash-alt"></i>
+                                <i class="fas fa-trash-alt"></i>
                               </a>
                             </td>
                           </tr>

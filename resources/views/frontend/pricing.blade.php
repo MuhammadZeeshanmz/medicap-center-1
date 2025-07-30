@@ -35,13 +35,27 @@
     background-color: #3f51b5; /* Deep indigo/blue tone */
   }
 
-  .recommended-card:hover {
+  /* .recommended-card:hover {
     background-color: #1919e8ff !important;
-  }
+  } */
 
-  .pricing-card.bg-white:hover {
-    background-color: #f9f9f9;
+  @keyframes slideFromTop {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
   }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pricing-card.bg-white:hover {
+  background-color: #3f51b5 !important;
+  color: white !important;
+  animation: slideFromTop 2s ease-out forwards;
+}
+
 
   .pricing-btn {
     transition: all 0.3s ease;
@@ -49,7 +63,7 @@
 
   .pricing-btn:hover {
     background-color: var(--bs-primary);
-    color: #fff !important;
+    color: black !important;
   }
 </style>
 
@@ -66,10 +80,7 @@
         <div class="col-12">
           @if (!empty($terms) && count($terms) > 0)
             <div class="section-title title-center mb-50" data-aos="fade-up">
-              <div class="section-img">
-                <img src="{{ asset('assets/img/' . $version . '/section-shape.png') }}" alt="section shape" class="shape hover-scale">
-              </div>
-              <h2 class="title mb-30 hover-text-primary">{{ __('Most Affordable Package') }}</h2>
+              <h2 class=" mb-30 hover-text-primary">{{ __('Most Affordable Package') }}</h2>
               <div class="tabs-navigation text-center">
                 <ul class="nav nav-tabs d-inline-flex flex-wrap justify-content-center p-3 radius-md bg-light" style="gap: 10px;">
                   @foreach ($terms as $term)
@@ -166,7 +177,7 @@
                             @if (Auth::guard('vendor')->check())
                               <a href="{{ route('vendor.plan.extend.checkout', ['package_id' => $package->id]) }}" class="btn pricing-btn {{ $package->recommended == 1 ? 'btn-outline-light' : 'btn-outline-primary' }} w-100 mt-3">{{ __('Extend') }}</a>
                             @else
-                              <a href="{{ route('vendor.login', ['redirectPath' => 'buy_plan', 'buy_package' => $package->id]) }}" class="btn pricing-btn {{ $package->recommended == 1 ? 'btn-outline-light' : 'btn-outline-primary' }} w-100 mt-3">{{ __('Purchase') }}</a>
+                              <a href="{{ route('vendor.login', ['redirectPath' => 'buy_plan', 'buy_package' => $package->id]) }}" class="btn pricing-btn {{ $package->recommended == 1 ? 'btn-outline-light' : 'btn-outline-primary' }} w-100 mt-3 purchase-btn">{{ __('Purchase') }}</a>
                             @endif
                           </div>
                         </div>
@@ -184,3 +195,4 @@
   </section>
   <!-- Pricing-area End -->
 @endsection
+

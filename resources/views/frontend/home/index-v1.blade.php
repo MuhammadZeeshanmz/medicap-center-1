@@ -88,7 +88,7 @@
                                         <div class="col-md-4">
                                             <div class="input-group">
                                                 <span class="input-group-text bg-white border-end-0">
-                                                    <i class="fas fa-map-marker-alt text-danger"></i>
+                                                    <i class="fas fa-map-marker-alt text-black"></i>
                                                 </span>
                                                 <input type="text" name="location" id="service_location"
                                                     class="form-control border-start-0"
@@ -98,7 +98,7 @@
                                         <div class="col-md-4">
                                             <div class="input-group">
                                                 <span class="input-group-text bg-white border-end-0">
-                                                    <i class="fas fa-clipboard-list text-danger"></i>
+                                                    <i class="fas fa-clipboard-list text-black"></i>
                                                 </span>
                                                 <input type="text" name="service_title" id="service_name"
                                                     class="form-control border-start-0"
@@ -168,7 +168,12 @@
                                     </div>
                                 </div>
                             @endforeach
+                        </div>
+
+                        <!-- Swiper Pagination and Arrows -->
+                        <!-- <div class="swiper-pagination" style="margin-top: 100px !important;"></div> -->
                        
+                    </div>
                 @else
                     <div class="col-12 text-center mt-4">
                         <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
@@ -260,11 +265,11 @@
                                     <div class="slider-navigation">
                                         <button type="button" title="Slide prev" class="slider-btn"
                                             id="product-slider-1-prev">
-                                            <i class="fal fa-angle-left"></i>
+                                            <i class="fas fa-angle-left"></i>
                                         </button>
                                         <button type="button" title="Slide next" class="slider-btn"
                                             id="product-slider-1-next">
-                                            <i class="fal fa-angle-right"></i>
+                                            <i class="fas fa-angle-right"></i>
                                         </button>
                                     </div>
                                 @endif
@@ -377,11 +382,11 @@
                                                         </div>
                                                         @if (!empty($service->address))
                                                             <span class="font-sm icon-start"><i
-                                                                    class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                                                    class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                                         @endif
                                                         @if ($service->zoom_meeting == 1)
                                                             <span class="font-sm icon-start"><i
-                                                                    class="fal fa-video"></i>{{ __('Online') }}</span>
+                                                                    class="fas fa-video"></i>{{ __('Online') }}</span>
                                                         @endif
                                                         <div
                                                             class="d-flex align-items-center justify-content-between gap-2 mt-10">
@@ -517,7 +522,7 @@
                                             </li>
                                             @foreach ($categories as $category)
                                                 <li class="nav-item">
-                                                    <button class="nav-link hover-effect btn-md radius-sm"
+                                                    <button class="nav-link hover-effect btn-md radius-sm" style="color: black;"
                                                         data-bs-toggle="tab"
                                                         data-bs-target="#serviceTab{{ $category->id }}"
                                                         type="button">{{ $category->name }}</button>
@@ -542,11 +547,7 @@
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                 class="d-block overflow-hidden rounded"
                                                                 style="height: 200px;">
-<<<<<<< HEAD
                                                                 <img class="lazyload  object-fit-cover w-100 h-100"
-=======
-                                                                <img class="lazyload object-fit-cover w-100 h-100"
->>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                     data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                     alt="Service"
@@ -736,11 +737,7 @@
                                                                     <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                         class="d-block overflow-hidden rounded"
                                                                         style="height: 200px;">
-<<<<<<< HEAD
                                                                         <img class="lazyload by-admin object-fit-cover w-100 h-100"
-=======
-                                                                        <img class="lazyload object-fit-cover w-100 h-100"
->>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                             alt="Service"
@@ -928,22 +925,14 @@
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         @foreach ($featuredVendors as $vendor)
-<<<<<<< HEAD
                                             <div class="swiper-slide" style="width:306px;">
-=======
-                                            <div class="swiper-slide" style="width:306px; margin-bottom:50px;">
->>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                 <div class="product-default border radius-md p-15 mb-25">
                                                     <figure class="product-img mb-15">
                                                         <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
                                                             title="Vendor Image" target="_self"
                                                             class="lazy-container radius-sm ratio ratio-2-3">
 
-<<<<<<< HEAD
                                                             <img class="lazyload by-admin"
-=======
-                                                            <img class="lazyload"
->>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                                 src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                 data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
                                                                 alt="{{ $vendor->username ?? 'Vendor' }}">
@@ -971,7 +960,7 @@
                                                         @if ($vendorInfo)
                                                             @if ($vendorInfo->address != null)
                                                                 <span class="font-sm icon-start"><i
-                                                                        class="fal fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                                                                        class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
                                                             @endif
                                                         @endif
                                                         <div class="d-flex align-items-center gap-15 mt-10">
@@ -990,7 +979,6 @@
                                                                     {{ __('No Service Available') }}
                                                                 @endif
                                                             </span>
-<<<<<<< HEAD
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1080,21 +1068,26 @@
               @endif
             </div>
             <div class="swiper-pagination" id="testimonial-slider-1-pagination"></div>
-           
+          
 
           </div>
         </div>
       </div>
 
-      <!-- Right Column (Booking Illustration) -->
-      <div class="col-lg-6 text-center">
-        <img src="{{ !empty($sectionContent->hero_section_background_img)
-          ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img)
-          : asset('assets/img/front-pages/medical/hero-doctor.png') }}"
-          alt="Booking Illustration"
-          class="img-fluid hero-illustration"
-          style="max-width: 90%; height: auto;" />
-      </div>
+     <!-- Right Column (Booking Illustration) -->
+<!-- Right Column (Booking Illustration) -->
+<div class="col-lg-6" data-aos="fade-left">
+  <div class="image mb-40 parallax-img"
+       data-speed="0.5"
+       data-revert="true"
+       style="transform: matrix(1, 0, 0, 1, 25.35, 32.35);">
+    <img class="lazyload blur-up"
+         src="{{ asset('assets/frontend/images/placeholder.png') }}"
+         data-src="{{ asset('assets/img/' . @$sectionContent->testimonial_section_image) }}"
+         alt="Image">
+  </div>
+</div>
+
     </div>
   </div>
   <hr class="m-0" />
@@ -1102,185 +1095,6 @@
 @endif
 <!-- Testimonials: End -->
 
-=======
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-
-                                    <!-- If we need pagination -->
-                                    {{-- <div class="swiper-pagination position-static" id="product-slider-2-pagination"></div> --}}
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </section>
-        @endif
-        <!-- Shop-area end -->
-        @if (count($after_vendor) > 0)
-            @foreach ($after_vendor as $cusVendor)
-                @if (isset($homecusSec[$cusVendor->id]))
-                    @if ($homecusSec[$cusVendor->id] == 1)
-                        @php
-                            $cusVendorContent = App\Models\CustomSectionContent::where(
-                                'custom_section_id',
-                                $cusVendor->id,
-                            )
-                                ->where('language_id', $currentLanguageInfo->id)
-                                ->first();
-                        @endphp
-                        @include('frontend.home.custom-section', ['data' => $cusVendorContent])
-                    @endif
-                @endif
-            @endforeach
-        @endif
-
-
-        <!-- Testimonial-area start -->
-        @if ($secInfo->testimonial_section_status == 1)
-            <section class="testimonial-area testimonial-1 parallax pb-60">
-                <div class="container container-lg-fluid">
-                    <div class="row align-items-center gx-xl-5">
-
-                        <!-- Left Column: Card Design -->
-                        <div class="col-lg-6">
-                            <h2 class="title mb-20">
-                                {{ $sectionContent->testimonial_section_title ?? 'What Customers Say About Our Booking Systems' }}
-                            </h2>
-                            <div class="content-title mb-40">
-
-                                <div class="content-text mb-40">
-                                    <p>
-                                        {{ $sectionContent->testimonial_section_subtitle ?? 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum omnis natus cumque possimus dicta suscipit enim, aperiam, voluptatum quis deleniti.' }}
-                                    </p>
-                                </div>
-                            </div>
-
-                            @if (count($testimonials) > 0)
-                                <div class="card shadow-lg rounded-4 p-4 h-100 bg-white" style="border: 1px solid #eee;"
-                                    data-aos="fade-up">
-                                    <div class="swiper mb-40" id="testimonial-slider-1">
-                                        <div class="swiper-wrapper">
-                                            @foreach ($testimonials as $testimonial)
-                                                <div class="swiper-slide">
-                                                    <div class="slider-item radius-md p-3 border rounded-3">
-                                                        <div
-                                                            class="client gap-20 flex-wrap mb-3 d-flex justify-content-between">
-                                                            <div class="client-info d-flex align-items-center">
-                                                                <div class="client-img me-3">
-                                                                    <div class="lazy-container rounded-pill  ratio-1-1">
-                                                                        <img class="lazyload"
-                                                                            src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                                                                            data-src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
-                                                                            alt="{{ $testimonial->name ?? 'Client' }}"
-                                                                            style="object-fit: cover; width: auto; height: 50px; border-radius: 100%;">
-
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="content">
-                                                                    <h6 class="name mb-0">{{ $testimonial->name }}</h6>
-                                                                    <span
-                                                                        class="designation font-sm">{{ $testimonial->occupation }}</span>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="rating-area flex-column align-items-start mt-2">
-                                                                <div class="ratings mb-1" style="height: 24px;">
-                                                                    <div class="rate"
-                                                                        style="position: relative; width: 120px; height: 24px;">
-                                                                        <!-- Gray stars background -->
-                                                                        <div
-                                                                            style="
-                                                                              background-image: url('{{ asset('assets/frontend/images/rate-star-empty.png') }}');
-                                                                              background-size: contain;
-                                                                              background-repeat: no-repeat;
-                                                                              width: 100%;
-                                                                              height: 100%;
-                                                                              position: absolute;
-                                                                              top: 0;
-                                                                              left: 0;
-                                                                          ">
-                                                                        </div>
-
-                                                                        <!-- Yellow stars overlay (based on rating %) -->
-                                                                        <div
-                                                                            style="
-                                                                              background-image: url('{{ asset('assets/frontend/images/rate-star-filled.png') }}');
-                                                                              background-size: contain;
-                                                                              background-repeat: no-repeat;
-                                                                              width: {{ $testimonial->rating * 20 }}%;
-                                                                              height: 100%;
-                                                                              position: absolute;
-                                                                              top: 0;
-                                                                              left: 0;
-                                                                              overflow: hidden;
-                                                                          ">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <span class="ratings-total">
-                                                                    {{ $testimonial->rating }} {{ __('star of') }}
-                                                                    {{ $total_testimonial }}
-                                                                    {{ $total_testimonial > 1 ? __('reviews') : __('review') }}
-                                                                </span>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="quote">
-                                                            <span class="icon"><i class="fas fa-quote-right"></i></span>
-                                                            <p class="text font-lg mb-0">{{ $testimonial->comment }}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-
-                                        <!-- Pagination -->
-                                        <div class="swiper-pagination position-static mt-30"
-                                            id="testimonial-slider-1-pagination"></div>
-                                    </div>
-                                @else
-                                    <h4 class="text-danger">{{ __('NO TESTIMONIAL FOUND!') }}</h4>
-                            @endif
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Image -->
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <div class="image mb-40 parallax-img" data-speed="0.5" data-revert="true">
-                            <img class="lazyload blur-up w-100"
-                                src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                                data-src="{{ asset('assets/img/' . $sectionContent->testimonial_section_image) }}"
-                                alt="Testimonial Image">
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-        @endif
-
-        <!-- After testimonial custom sections -->
-        @if (count($after_testimonial) > 0)
-            @foreach ($after_testimonial as $cusTest)
-                @if (isset($homecusSec[$cusTest->id]) && $homecusSec[$cusTest->id] == 1)
-                    @php
-                        $cusTestContent = App\Models\CustomSectionContent::where('custom_section_id', $cusTest->id)
-                            ->where('language_id', $currentLanguageInfo->id)
-                            ->first();
-                    @endphp
-                    @include('frontend.home.custom-section', ['data' => $cusTestContent])
-                @endif
-            @endforeach
-        @endif
-        <!-- Testimonial-area end -->
-
-
->>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
 
 
 
@@ -1475,7 +1289,7 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
-          
+            
             breakpoints: {
                 576: {
                     slidesPerView: 1
@@ -1519,6 +1333,18 @@
     });
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll('.parallax-img img');
+    new simpleParallax(images, {
+      scale: 1.1,
+      delay: 0.1,
+      transition: 'cubic-bezier(0,0,0,1)',
+      overflow: true,
+    });
+  });
+</script>
+
 
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />

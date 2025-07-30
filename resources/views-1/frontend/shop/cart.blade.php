@@ -114,12 +114,12 @@
                         <td class="qty">
                           <div class="quantity-input">
                             <div class="quantity-down">
-                              <i class="fal fa-minus"></i>
+                              <i class="fas fa-minus"></i>
                             </div>
                             <input type="text" name="quantity" spellcheck="false" data-ms-editor="true"
                               value="{{ $c_product['quantity'] }}" class="product-qty">
                             <div class="quantity-up">
-                              <i class="fal fa-plus"></i>
+                              <i class="fas fa-plus"></i>
                             </div>
                           </div>
                         </td>
@@ -152,7 +152,7 @@
                           <a href="{{ route('shop.cart.remove_product', ['id' => $key]) }}"
                             class="btn btn-remove rounded-pill mx-auto remove-product-icon"
                             data-product_id="{{ $key }}">
-                            <i class="fal fa-trash-alt"></i>
+                            <i class="fas fa-trash-alt"></i>
                           </a>
                         </td>
                       </tr>

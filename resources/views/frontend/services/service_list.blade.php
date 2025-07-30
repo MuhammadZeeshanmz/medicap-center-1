@@ -54,7 +54,7 @@
               <div class="col-4 d-lg-none">
                 <button class="btn btn-sm btn-outline filter-toggle radius-sm mb-20" type="button" 
                   data-bs-toggle="offcanvas" data-bs-target="#widgetOffcanvas" aria-controls="widgetOffcanvas">
-                  {{ __('Filter') }} <i class="fal fa-filter"></i>
+                  {{ __('Filter') }} <i class="fas fa-filter"></i>
                 </button>
               </div>
               <div class="col-8 col-lg-6">
@@ -111,12 +111,12 @@
                           class="wishlist-btn {{ checkWishList($service->id, Auth::id()) ? 'active' : '' }}"
                           data-tooltip="tooltip" 
                           title="{{ checkWishList($service->id, Auth::id()) ? __('Saved') : __('Save to Wishlist') }}">
-                          <i class="fal fa-heart"></i>
+                          <i class="fas fa-heart"></i>
                         </a>
                         @else
                         <a href="{{ route('user.login') }}" class="wishlist-btn" 
                           data-tooltip="tooltip" title="{{ __('Save to Wishlist') }}">
-                          <i class="fal fa-heart"></i>
+                          <i class="fas fa-heart"></i>
                         </a>
                         @endauth
                       </div>
@@ -170,14 +170,14 @@
                       
                       @if (!empty($service->address))
                         <div class="service-location">
-                          <i class="fal fa-map-marker-alt"></i>
+                          <i class="fas fa-map-marker-alt"></i>
                           {{ truncateString($service->address, 30) }}
                         </div>
                       @endif
                       
                       @if ($service->zoom_meeting == 1)
                         <div class="service-online">
-                          <i class="fal fa-video"></i>
+                          <i class="fas fa-video"></i>
                           {{ __('Online') }}
                         </div>
                       @endif
