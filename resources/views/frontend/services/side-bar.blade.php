@@ -200,7 +200,7 @@
                 <!-- Reset Button -->
                 <div class="filter-actions pb-40">
                     <a href="{{ route('frontend.services') }}" class="btn btn-lg btn-primary btn-gradient w-100">
-                        <i class="fal fa-sync-alt me-2"></i>{{ __('Reset All') }}
+                        <i class="fas fa-sync-alt me-2"></i>{{ __('Reset All') }}
                     </a>
                 </div>
 

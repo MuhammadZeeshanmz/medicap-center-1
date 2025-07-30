@@ -168,11 +168,10 @@
                                     </div>
                                 </div>
                             @endforeach
-
-                @else
-                    <div class="col-12 text-center mt-4">
-                        <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
-                    </div>
+                        @else
+                            <div class="col-12 text-center mt-4">
+                                <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
+                            </div>
                 @endif
             </div>
         </section>
@@ -260,11 +259,11 @@
                                     <div class="slider-navigation">
                                         <button type="button" title="Slide prev" class="slider-btn"
                                             id="product-slider-1-prev">
-                                            <i class="fal fa-angle-left"></i>
+                                            <i class="fas fa-angle-left"></i>
                                         </button>
                                         <button type="button" title="Slide next" class="slider-btn"
                                             id="product-slider-1-next">
-                                            <i class="fal fa-angle-right"></i>
+                                            <i class="fas fa-angle-right"></i>
                                         </button>
                                     </div>
                                 @endif
@@ -377,11 +376,11 @@
                                                         </div>
                                                         @if (!empty($service->address))
                                                             <span class="font-sm icon-start"><i
-                                                                    class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                                                    class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                                         @endif
                                                         @if ($service->zoom_meeting == 1)
                                                             <span class="font-sm icon-start"><i
-                                                                    class="fal fa-video"></i>{{ __('Online') }}</span>
+                                                                    class="fas fa-video"></i>{{ __('Online') }}</span>
                                                         @endif
                                                         <div
                                                             class="d-flex align-items-center justify-content-between gap-2 mt-10">
@@ -542,11 +541,7 @@
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                 class="d-block overflow-hidden rounded"
                                                                 style="height: 200px;">
-<<<<<<< HEAD
                                                                 <img class="lazyload object-fit-cover w-100 h-100"
-=======
-                                                                <img class="lazyload  object-fit-cover w-100 h-100"
->>>>>>> 96331ab9fcae489efcb5df91e53184545e82990f
                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                     data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                     alt="Service"
@@ -736,11 +731,7 @@
                                                                     <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                         class="d-block overflow-hidden rounded"
                                                                         style="height: 200px;">
-<<<<<<< HEAD
                                                                         <img class="lazyload object-fit-cover w-100 h-100"
-=======
-                                                                        <img class="lazyload by-admin object-fit-cover w-100 h-100"
->>>>>>> 96331ab9fcae489efcb5df91e53184545e82990f
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                             alt="Service"
@@ -928,22 +919,14 @@
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         @foreach ($featuredVendors as $vendor)
-<<<<<<< HEAD
                                             <div class="swiper-slide" style="width:306px; margin-bottom:50px;">
-=======
-                                            <div class="swiper-slide" style="width:306px;">
->>>>>>> 96331ab9fcae489efcb5df91e53184545e82990f
                                                 <div class="product-default border radius-md p-15 mb-25">
                                                     <figure class="product-img mb-15">
                                                         <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
                                                             title="Vendor Image" target="_self"
                                                             class="lazy-container radius-sm ratio ratio-2-3">
 
-<<<<<<< HEAD
                                                             <img class="lazyload"
-=======
-                                                            <img class="lazyload by-admin"
->>>>>>> 96331ab9fcae489efcb5df91e53184545e82990f
                                                                 src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                 data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
                                                                 alt="{{ $vendor->username ?? 'Vendor' }}">
@@ -971,7 +954,7 @@
                                                         @if ($vendorInfo)
                                                             @if ($vendorInfo->address != null)
                                                                 <span class="font-sm icon-start"><i
-                                                                        class="fal fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                                                                        class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
                                                             @endif
                                                         @endif
                                                         <div class="d-flex align-items-center gap-15 mt-10">
@@ -1026,80 +1009,82 @@
         @endif
 
 
-     <!-- Testimonials: Start -->
-@if ($secInfo->testimonial_section_status == 1)
-<section id="landingReviews" class="section-py landing-reviews pb-0 pb-100">
-  <div class="container">
-    <div class="row align-items-center gx-5 gy-4">
-      <!-- Left Column (Text + Slider) -->
-      <div class="col-lg-6">
-        <h2 class="fw-bold mb-3">
-          What Customers Say About <br />
-          <span class="text-primary">Our Booking Systems</span>
-        </h2>
-        <p class="mb-4 text-body">
-          We have 2000+ positive customer reviews
-        </p>
+        <!-- Testimonials: Start -->
+        @if ($secInfo->testimonial_section_status == 1)
+            <section id="landingReviews" class="section-py landing-reviews pb-0 pb-100">
+                <div class="container">
+                    <div class="row align-items-center gx-5 gy-4">
+                        <!-- Left Column (Text + Slider) -->
+                        <div class="col-lg-6">
+                            <h2 class="fw-bold mb-3">
+                                What Customers Say About <br />
+                                <span class="text-primary">Our Booking Systems</span>
+                            </h2>
+                            <p class="mb-4 text-body">
+                                We have 2000+ positive customer reviews
+                            </p>
 
-        <div class="swiper-reviews-carousel overflow-hidden">
-          <div class="swiper" id="swiper-reviews">
-            <div class="swiper-wrapper">
-              @if (count($testimonials) > 0)
-                @foreach ($testimonials as $testimonial)
-                  <div class="swiper-slide">
-                    <div class="card border-0 shadow-sm p-3 h-100">
-                      <div class="card-body d-flex flex-column justify-content-between h-100">
-                        <div class="text-body mb-3">
-                          "{{ $testimonial->comment }}"
+                            <div class="swiper-reviews-carousel overflow-hidden">
+                                <div class="swiper" id="swiper-reviews">
+                                    <div class="swiper-wrapper">
+                                        @if (count($testimonials) > 0)
+                                            @foreach ($testimonials as $testimonial)
+                                                <div class="swiper-slide">
+                                                    <div class="card border-0 shadow-sm p-3 h-100">
+                                                        <div
+                                                            class="card-body d-flex flex-column justify-content-between h-100">
+                                                            <div class="text-body mb-3">
+                                                                "{{ $testimonial->comment }}"
+                                                            </div>
+                                                            <div class="text-warning mb-2">
+                                                                @for ($i = 0; $i < $testimonial->rating; $i++)
+                                                                    <i class="ti ti-star-filled ti-sm"></i>
+                                                                @endfor
+                                                            </div>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="avatar me-3 avatar-sm">
+                                                                    <img src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
+                                                                        class="rounded-circle"
+                                                                        alt="{{ $testimonial->name }}" />
+                                                                </div>
+                                                                <div>
+                                                                    <h6 class="mb-0 text-body">{{ $testimonial->name }}
+                                                                    </h6>
+                                                                    <small
+                                                                        class="text-muted">{{ $testimonial->occupation }}</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="col-12 text-center">
+                                                <h4 class="text-muted">{{ __('NO TESTIMONIALS FOUND') }}!</h4>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="swiper-pagination" id="testimonial-slider-1-pagination"></div>
+
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-warning mb-2">
-                          @for ($i = 0; $i < $testimonial->rating; $i++)
-                            <i class="ti ti-star-filled ti-sm"></i>
-                          @endfor
+
+                        <!-- Right Column (Booking Illustration) -->
+                        <div class="col-lg-6 text-center">
+                            <img src="{{ !empty($sectionContent->hero_section_background_img)
+                                ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img)
+                                : asset('assets/img/front-pages/medical/hero-doctor.png') }}"
+                                alt="Booking Illustration" class="img-fluid hero-illustration"
+                                style="max-width: 90%; height: auto;" />
                         </div>
-                        <div class="d-flex align-items-center">
-                          <div class="avatar me-3 avatar-sm">
-                            <img src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
-                                 class="rounded-circle"
-                                 alt="{{ $testimonial->name }}" />
-                          </div>
-                          <div>
-                            <h6 class="mb-0 text-body">{{ $testimonial->name }}</h6>
-                            <small class="text-muted">{{ $testimonial->occupation }}</small>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                @endforeach
-              @else
-                <div class="col-12 text-center">
-                  <h4 class="text-muted">{{ __('NO TESTIMONIALS FOUND') }}!</h4>
                 </div>
-              @endif
-            </div>
-            <div class="swiper-pagination" id="testimonial-slider-1-pagination"></div>
-
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column (Booking Illustration) -->
-      <div class="col-lg-6 text-center">
-        <img src="{{ !empty($sectionContent->hero_section_background_img)
-          ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img)
-          : asset('assets/img/front-pages/medical/hero-doctor.png') }}"
-          alt="Booking Illustration"
-          class="img-fluid hero-illustration"
-          style="max-width: 90%; height: auto;" />
-      </div>
-    </div>
-  </div>
-  <hr class="m-0" />
-</section>
-@endif
-<!-- Testimonials: End -->
+                <hr class="m-0" />
+            </section>
+        @endif
+        <!-- Testimonials: End -->
 
 
 
@@ -1315,29 +1300,29 @@
     });
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('#testimonial-slider-1', {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '#testimonial-slider-1-pagination',
-        clickable: true,
-      },
-      slidesPerView: 1,
-      spaceBetween: 20,
-      breakpoints: {
-        768: {
-          slidesPerView: 1
-        },
-        992: {
-          slidesPerView: 1
-        }
-      }
+    document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('#testimonial-slider-1', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '#testimonial-slider-1-pagination',
+                clickable: true,
+            },
+            slidesPerView: 1,
+            spaceBetween: 20,
+            breakpoints: {
+                768: {
+                    slidesPerView: 1
+                },
+                992: {
+                    slidesPerView: 1
+                }
+            }
+        });
     });
-  });
 </script>
 
 <!-- Swiper CSS -->

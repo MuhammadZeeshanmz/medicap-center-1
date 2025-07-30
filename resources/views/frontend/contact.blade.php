@@ -34,7 +34,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card mb-30 color-1" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon">
-                            <i class="fal fa-phone-plus"></i>
+                            <i class="fas fa-phone-plus"></i>
                         </div>
                         <div class="card-text">
                             @if (!empty($info->contact_number))
@@ -46,7 +46,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card mb-30 color-2" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon">
-                            <i class="fal fa-envelope"></i>
+                            <i class="fas fa-envelope"></i>
                         </div>
                         <div class="card-text">
                             @if (!empty($info->address))
@@ -58,7 +58,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card mb-30 color-3" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon">
-                            <i class="fal fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="card-text">
                             @if (!empty($info->email_address))

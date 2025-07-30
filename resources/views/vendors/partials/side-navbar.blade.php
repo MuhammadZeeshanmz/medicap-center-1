@@ -161,7 +161,7 @@ active
                 <li
                     class="nav-item @if (request()->routeIs('vendor.pending_appointment')) active @endif @if (request()->routeIs('vendor.accepted_appointment')) active @endif @if (request()->routeIs('vendor.appointment.details')) active @endif @if (request()->routeIs('vendor.rejected_appointment')) active @endif @if (request()->routeIs('vendor.appointment.details')) active @endif @if (request()->routeIs('vendor.all_appointment')) active @endif">
                     <a data-toggle="collapse" href="#eventBooking">
-                        <i class="fal fa-calendar"></i>
+                        <i class="fas fa-calendar"></i>
                         <p>Appointments</p>
                         <span class="caret"></span>
                     </a>
@@ -208,7 +208,7 @@ active
                 <li
                     class="nav-item @if (request()->routeIs('vendor.withdraw')) active @endif @if (request()->routeIs('vendor.withdraw.create')) active @endif">
                     <a href="{{ route('vendor.withdraw') }}">
-                        <i class="fal fa-donate"></i>
+                        <i class="fas fa-donate"></i>
                         <p>Request Withdrawal</p>
                     </a>
                 </li>
@@ -216,7 +216,7 @@ active
                 {{-- transation --}}
                 <li class="nav-item @if (request()->routeIs('vendor.transaction')) active @endif">
                     <a href="{{ route('vendor.transaction') }}">
-                        <i class="fal fa-exchange-alt"></i>
+                        <i class="fas fa-exchange-alt"></i>
                         <p>Transactions</p>
                     </a>
                 </li>
@@ -239,7 +239,7 @@ active
                         @endif @endif {{-- dashboard --}} {{--
                 <li class="nav-item @if (request()->routeIs('vendor.plan.extend.index')) active @elseif (request()->routeIs('vendor.plan.extend.checkout')) active @endif">
                     <a href="{{ route('vendor.plan.extend.index') }}">
-                        <i class="fal fa-lightbulb-dollar"></i>
+                        <i class="fas fa-lightbulb-dollar"></i>
                         <p>Buy Plan</p>
                     </a>
                 </li>
@@ -281,20 +281,20 @@ active
                         @endif
                         <li class="nav-item @if (request()->routeIs('vendor.edit.profile')) active @endif">
                             <a href="{{ route('vendor.edit.profile') }}">
-                                <i class="fal fa-user-edit"></i>
+                                <i class="fas fa-user-edit"></i>
                                 <p>Edit Profile</p>
                             </a>
                         </li>
                         <li class="nav-item @if (request()->routeIs('vendor.change_password')) active @endif">
                             <a href="{{ route('vendor.change_password') }}">
-                                <i class="fal fa-key"></i>
+                                <i class="fas fa-key"></i>
                                 <p>Change Password</p>
                             </a>
                         </li>
 
                         <li class="nav-item @if (request()->routeIs('vendor.logout')) active @endif">
                             <a href="{{ route('vendor.logout') }}">
-                                <i class="fal fa-sign-out"></i>
+                                <i class="fas fa-sign-out"></i>
                                 <p>Logout</p>
                             </a>
                         </li>

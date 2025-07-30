@@ -84,7 +84,7 @@
                 {{-- @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Menu Builder', $rolePermissions)))
                     <li class="nav-item @if (request()->routeIs('admin.menu_builder')) active @endif">
                         <a href="{{ route('admin.menu_builder', ['language' => $defaultLang->code]) }}">
-                            <i class="fal fa-bars"></i>
+                            <i class="fas fa-bars"></i>
                             <p>Menu Builder</p>
                         </a>
                     </li>
@@ -97,7 +97,7 @@
             @elseif (request()->routeIs('admin.package.index')) active
             @elseif (request()->routeIs('admin.package.edit')) active @endif">
                         <a data-toggle="collapse" href="#packageManagement">
-                            <i class="fal fa-receipt"></i>
+                            <i class="fas fa-receipt"></i>
                             <p>Package Management</p>
                             <span class="caret"></span>
                         </a>
@@ -375,7 +375,7 @@ show
            @if (request()->routeIs('admin.appointment.details')) active @endif
            @if (request()->routeIs('admin.all_appointment')) active @endif">
             <a data-toggle="collapse" href="#appointment">
-                <i class="fal fa-calendar"></i>
+                <i class="fas fa-calendar"></i>
                 <p>Appointments </p>
                 <span class="caret"></span>
             </a>
@@ -433,7 +433,7 @@ show
             @elseif (request()->routeIs('admin.shop_management.settings')) active
             @elseif (request()->routeIs('admin.shop_management.report')) active @endif">
             <a data-toggle="collapse" href="#shop">
-                <i class="fal fa-store-alt"></i>
+                <i class="fas fa-store-alt"></i>
                 <p>Shop Management</p>
                 <span class="caret"></span>
             </a>
@@ -541,7 +541,7 @@ show
           @if (request()->routeIs('admin.withdraw.withdraw_request')) active @endif
           ">
             <a data-toggle="collapse" href="#withdrew">
-                <i class="fal fa-credit-card"></i>
+                <i class="fas fa-credit-card"></i>
                 <p>Withdraws</p>
                 <span class="caret"></span>
             </a>
@@ -577,7 +577,7 @@ show
     @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Transactions', $rolePermissions)))
         <li class="nav-item @if (request()->routeIs('admin.transaction')) active @endif">
             <a href="{{ route('admin.transaction') }}">
-                <i class="fal fa-exchange-alt"></i>
+                <i class="fas fa-exchange-alt"></i>
                 <p>Transactions</p>
             </a>
         </li>
@@ -1190,7 +1190,7 @@ active @endif
             @elseif (request()->routeIs('admin.announcement_popups.create_popup')) active
             @elseif (request()->routeIs('admin.announcement_popups.edit_popup')) active @endif">
             <a href="{{ route('admin.announcement_popups', ['language' => $defaultLang->code]) }}">
-                <i class="fal fa-bullhorn"></i>
+                <i class="fas fa-bullhorn"></i>
                 <p>Announcement Popups</p>
             </a>
         </li>
@@ -1358,7 +1358,7 @@ active @endif
             @elseif (request()->routeIs('admin.admin_management.role.permissions')) active
             @elseif (request()->routeIs('admin.admin_management.registered_admins')) active @endif">
             <a data-toggle="collapse" href="#admin">
-                <i class="fal fa-users-cog"></i>
+                <i class="fas fa-users-cog"></i>
                 <p>Admin Management</p>
                 <span class="caret"></span>
             </a>

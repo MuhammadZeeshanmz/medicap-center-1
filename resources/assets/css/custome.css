@@ -20,22 +20,50 @@
   padding-top: 100px;
   padding-bottom: 100px;
 }
-<<<<<<< HEAD
 
-.pb-60{
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-=======
-.by-admin{
+.by-admin {
   height: 30px;
   border-radius: 100%;
 }
-.mb-62{
+
+.mb-62 {
   margin-bottom: 62px !important;
 }
-.mb-c{
+
+.mb-c {
   margin-bottom: 25 !important;
 
 }
->>>>>>> 96331ab9fcae489efcb5df91e53184545e82990f
+
+.form-group {
+  position: relative;
+}
+
+.form-group.icon-start .icon {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 50%;
+  width: 18px;
+  font-size: var(--font-sm);
+  margin-inline-end: auto;
+  margin-inline-start: 20px !important;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.form-group.icon-start .form-control {
+  padding-inline-start: 44px;
+}
+
+.footer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.2; /* Optional to give background feel */
+}
+
