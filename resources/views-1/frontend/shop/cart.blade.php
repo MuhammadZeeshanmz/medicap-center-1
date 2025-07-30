@@ -64,6 +64,7 @@
                                     </span>
                                 </h6>
                             </div>
+<<<<<<< HEAD
                             <div class="item-list border radius-md mb-30 table-responsive">
                                 <table class="shopping-table table table-borderless">
                                     <thead>
@@ -179,6 +180,72 @@
                     </div>
                 </div>
             @endif
+=======
+                            <span class="ratings-total">({{ $product->average_rating }})</span>
+                          </div>
+                        </td>
+                        <td class="qty">
+                          <div class="quantity-input">
+                            <div class="quantity-down">
+                              <i class="fas fa-minus"></i>
+                            </div>
+                            <input type="text" name="quantity" spellcheck="false" data-ms-editor="true"
+                              value="{{ $c_product['quantity'] }}" class="product-qty">
+                            <div class="quantity-up">
+                              <i class="fas fa-plus"></i>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="product-availability">
+                          @if ($c_product['type'] == 'digital')
+                            <span class="badge bg-success">{{ __('Available Now') }}</span>
+                          @else
+                            @if ($product->stock >= $c_product['quantity'])
+                              <span class="badge bg-success">{{ __('In Stock') }}</span>
+                            @else
+                              <span class="badge bg-danger">{{ __('Out Of Stock') }}</span>
+                            @endif
+                          @endif
+                        </td>
+                        <td class="product-price">
+                          <h6 dir="ltr" class="m-0">
+                            {{ $position == 'left' ? $symbol : '' }}
+                            <span
+                              class="product-unit-price">{{ $product->current_price }}</span>{{ $position == 'right' ? $symbol : '' }}
+                          </h6>
+                        </td>
+                        <td>
+                          <h6 dir="ltr" class="m-0">
+                            {{ $position == 'left' ? $symbol : '' }}
+                            <span class="per-product-total">{{ $product->current_price * $c_product['quantity'] }}</span>
+                            {{ $position == 'right' ? $symbol : '' }}
+                          </h6>
+                        </td>
+                        <td class="text-center">
+                          <a href="{{ route('shop.cart.remove_product', ['id' => $key]) }}"
+                            class="btn btn-remove rounded-pill mx-auto remove-product-icon"
+                            data-product_id="{{ $key }}">
+                            <i class="fas fa-trash-alt"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      @php
+                        $cart_total_qty += $c_product['quantity'];
+                        $cart_total_price += $product->current_price * $c_product['quantity'];
+                      @endphp
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+              <div class="btn-groups justify-content-end w-100 mb-40">
+                <a href="{{ route('shop.update_cart') }}" class="btn btn-md btn-primary" title="{{ __('Update Cart') }}"
+                  id="update-cart-btn">{{ __('Update Cart') }}</a>
+                <a href="{{ route('shop.checkout') }}" class="btn btn-md btn-primary" title="{{ __('Checkout') }}"
+                  target="_self">{{ __('Checkout') }}</a>
+              </div>
+            </form>
+          </div>
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
         </div>
     </div>
     <!-- Cart-area end -->

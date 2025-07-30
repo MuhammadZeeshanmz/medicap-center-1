@@ -88,7 +88,7 @@
                                         <div class="col-md-4">
                                             <div class="input-group">
                                                 <span class="input-group-text bg-white border-end-0">
-                                                    <i class="fas fa-map-marker-alt text-danger"></i>
+                                                    <i class="fas fa-map-marker-alt text-black"></i>
                                                 </span>
                                                 <input type="text" name="location" id="service_location"
                                                     class="form-control border-start-0"
@@ -98,7 +98,7 @@
                                         <div class="col-md-4">
                                             <div class="input-group">
                                                 <span class="input-group-text bg-white border-end-0">
-                                                    <i class="fas fa-clipboard-list text-danger"></i>
+                                                    <i class="fas fa-clipboard-list text-black"></i>
                                                 </span>
                                                 <input type="text" name="service_title" id="service_name"
                                                     class="form-control border-start-0"
@@ -168,10 +168,23 @@
                                     </div>
                                 </div>
                             @endforeach
+<<<<<<< HEAD
                         @else
                             <div class="col-12 text-center mt-4">
                                 <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
                             </div>
+=======
+                        </div>
+
+                        <!-- Swiper Pagination and Arrows -->
+                        <!-- <div class="swiper-pagination" style="margin-top: 100px !important;"></div> -->
+                       
+                    </div>
+                @else
+                    <div class="col-12 text-center mt-4">
+                        <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
+                    </div>
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                 @endif
             </div>
         </section>
@@ -516,7 +529,7 @@
                                             </li>
                                             @foreach ($categories as $category)
                                                 <li class="nav-item">
-                                                    <button class="nav-link hover-effect btn-md radius-sm"
+                                                    <button class="nav-link hover-effect btn-md radius-sm" style="color: black;"
                                                         data-bs-toggle="tab"
                                                         data-bs-target="#serviceTab{{ $category->id }}"
                                                         type="button">{{ $category->name }}</button>
@@ -541,7 +554,11 @@
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                 class="d-block overflow-hidden rounded"
                                                                 style="height: 200px;">
+<<<<<<< HEAD
                                                                 <img class="lazyload object-fit-cover w-100 h-100"
+=======
+                                                                <img class="lazyload  object-fit-cover w-100 h-100"
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                     data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                     alt="Service"
@@ -731,7 +748,11 @@
                                                                     <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                         class="d-block overflow-hidden rounded"
                                                                         style="height: 200px;">
+<<<<<<< HEAD
                                                                         <img class="lazyload object-fit-cover w-100 h-100"
+=======
+                                                                        <img class="lazyload by-admin object-fit-cover w-100 h-100"
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                             alt="Service"
@@ -919,14 +940,22 @@
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         @foreach ($featuredVendors as $vendor)
+<<<<<<< HEAD
                                             <div class="swiper-slide" style="width:306px; margin-bottom:50px;">
+=======
+                                            <div class="swiper-slide" style="width:306px;">
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                                                 <div class="product-default border radius-md p-15 mb-25">
                                                     <figure class="product-img mb-15">
                                                         <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
                                                             title="Vendor Image" target="_self"
                                                             class="lazy-container radius-sm ratio ratio-2-3">
 
+<<<<<<< HEAD
                                                             <img class="lazyload"
+=======
+                                                            <img class="lazyload by-admin"
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                                                                 src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                 data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
                                                                 alt="{{ $vendor->username ?? 'Vendor' }}">
@@ -1081,10 +1110,42 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <hr class="m-0" />
             </section>
         @endif
         <!-- Testimonials: End -->
+=======
+              @endif
+            </div>
+            <div class="swiper-pagination" id="testimonial-slider-1-pagination"></div>
+          
+
+          </div>
+        </div>
+      </div>
+
+     <!-- Right Column (Booking Illustration) -->
+<!-- Right Column (Booking Illustration) -->
+<div class="col-lg-6" data-aos="fade-left">
+  <div class="image mb-40 parallax-img"
+       data-speed="0.5"
+       data-revert="true"
+       style="transform: matrix(1, 0, 0, 1, 25.35, 32.35);">
+    <img class="lazyload blur-up"
+         src="{{ asset('assets/frontend/images/placeholder.png') }}"
+         data-src="{{ asset('assets/img/' . @$sectionContent->testimonial_section_image) }}"
+         alt="Image">
+  </div>
+</div>
+
+    </div>
+  </div>
+  <hr class="m-0" />
+</section>
+@endif
+<!-- Testimonials: End -->
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
 
 
 
@@ -1188,7 +1249,7 @@
                                 clickable: true,
                                 dynamicBullets: true,
                             },
-
+                           
                             breakpoints: {
                                 768: {
                                     slidesPerView: 2,
@@ -1250,7 +1311,7 @@
                 el: '#works-slider-1-pagination',
                 clickable: true,
             },
-
+           
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,
@@ -1280,7 +1341,7 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
-
+            
             breakpoints: {
                 576: {
                     slidesPerView: 1
@@ -1324,6 +1385,18 @@
         });
     });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const images = document.querySelectorAll('.parallax-img img');
+    new simpleParallax(images, {
+      scale: 1.1,
+      delay: 0.1,
+      transition: 'cubic-bezier(0,0,0,1)',
+      overflow: true,
+    });
+  });
+</script>
+
 
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />

@@ -19,8 +19,12 @@
   --font-size--h4: 24px;
   --font-size--h5: 20px;
   --font-size--h6: 18px;
+<<<<<<< HEAD
   --text-white: white;
   --color-white: white;
+=======
+
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
   --color-primary-rgb: 255, 0, 55;
   --color-secondary-rgb: 255, 72, 112;
   --color-red-rgb: 235, 76, 76;
@@ -2075,7 +2079,7 @@ Lazyload CSS
 }
 
 .tabs-navigation .nav .nav-link {
-  color: var(--text-dark);
+  color: white;
   font-weight: var(--font-medium);
   margin: 0;
   z-index: 999;

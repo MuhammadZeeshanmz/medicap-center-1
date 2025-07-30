@@ -35,6 +35,7 @@
                                 src="{{ asset('assets/img/about-us/' . $about->about_section_image) }}" alt="Image">
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-lg-6">
                         <div class="content-title mb-40">
                             <span class="subtitle">{{ @$about->title }}</span>
@@ -43,6 +44,140 @@
                             </h2>
                             <p>
                                 {!! @$about->text !!}
+=======
+                  @endforeach
+                </div>
+                <div class="swiper-pagination position-static mt-30" id="works-slider-1-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    @endif
+  @endif
+  @if ($basicInfo->theme_version == 2)
+    @if ($secInfo->about_work_status == 1)
+      <section class="works-area works-2 pt-100 pb-70 bg-primary-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-title title-center mb-50" data-aos="fade-up">
+                <h2 class="title">
+                  {{ !empty($sectionContent->workprocess_section_title) ? $sectionContent->workprocess_section_title : 'How the Appointment Booking System Works ' }}
+                </h2>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                @foreach ($processes as $processe)
+                  <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="fade-up">
+                    <div class="card p-30 radius-lg text-center mb-30 shadow-md">
+                      <div class="card-img mb-20">
+                        <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                          data-src="{{ asset('assets/img/workprocess/' . $processe->image) }}" alt="Image">
+                      </div>
+                      <h4 class="card-title lc-1 mb-0">
+                        {{ $processe->title }}
+                      </h4>
+                      <span class="h1 color-primary stroke-gradient">0{{ $loop->iteration }}</span>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    @endif
+  @endif
+  <!-- Works-area end -->
+  @if (count($after_work_process) > 0)
+    @foreach ($after_work_process as $Cuwork_process)
+      @if (isset($aboutSec[$Cuwork_process->id]))
+        @if ($aboutSec[$Cuwork_process->id] == 1)
+          @php
+            $cuWorkProcess = App\Models\CustomSectionContent::where('custom_section_id', $Cuwork_process->id)
+                ->where('language_id', $currentLanguageInfo->id)
+                ->first();
+          @endphp
+          <section class="custom-section-area pt-100 pb-60">
+            <div class="container">
+              <div class="section-title title-center mb-50" data-aos="fade-up">
+                <h2 class="title mb-0">
+                  {{ @$cuWorkProcess->section_name }}
+                </h2>
+              </div>
+              <div class="row align-items-center gx-xl-5">
+                {!! @$cuWorkProcess->content !!}
+              </div>
+            </div>
+          </section>
+        @endif
+      @endif
+    @endforeach
+  @endif
+  @if ($secInfo->about_testimonial_section_status == 1)
+    <section class="testimonial-area testimonial-1 parallax ptb-60">
+      <div class="container container-lg-fluid">
+        <div class="row align-items-center gx-xl-5">
+          <div class="col-lg-6">
+            <div class="fluid-left">
+              <div class="content-title mb-40" data-aos="fade-up">
+                <h2 class="title mb-20">
+                  {{ !empty($sectionContent->testimonial_section_title) ? $sectionContent->testimonial_section_title : 'What Customers Say About Our Booking Systems ' }}
+                </h2>
+                <div class="content-text mb-40">
+                  <p>
+                    {{ !empty($sectionContent->testimonial_section_subtitle) ? $sectionContent->testimonial_section_subtitle : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum omnis natus cumque possimus dicta suscipit enim, aperiam, voluptatum quis deleniti. ' }}
+                  </p>
+                </div>
+              </div>
+              @if (count($testimonials) > 0)
+                <div class="swiper mb-40" id="testimonial-slider-1" data-aos="fade-up">
+                  <div class="swiper-wrapper">
+                    @foreach ($testimonials as $testimonial)
+                      <div class="swiper-slide">
+                        <div class="slider-item radius-md">
+                          <div class="client gap-20 flex-wrap">
+                            <div class="client-info d-flex align-items-center">
+                              <div class="client-img">
+                                <div class="lazy-container rounded-pill ratio ratio-1-1">
+                                  <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                    data-src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
+                                    alt="Person Image">
+                                </div>
+                              </div>
+                              <div class="content">
+                                <h6 class="name mb-0">{{ $testimonial->name }}</h6>
+                                <span class="designation font-sm">{{ $testimonial->occupation }}</span>
+                              </div>
+                            </div>
+                            <div class="rating-area flex-column align-items-start">
+                              <div class="ratings">
+                                <div class="rate bg-img"
+                                  data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
+                                  <div class="rating-icon bg-img"
+                                    data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}"
+                                    style="width: {{ $testimonial->rating * 20 . '%;' }}">
+                                  </div>
+                                </div>
+                              </div>
+                              <span class="ratings-total">
+                                {{ $testimonial->rating }} {{ __('star of') }}
+                                {{ $total_testimonial }}
+                                @if ($total_testimonial > 1)
+                                  {{ __('reviews') }}
+                                @else
+                                  {{ __('review') }}
+                                @endif
+                              </span>
+                            </div>
+                          </div>
+                          <div class="quote">
+                            <span class="icon"><i class="fas fa-quote-right"></i></span>
+                            <p class="text font-lg mb-0">
+                              {{ $testimonial->comment }}
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                             </p>
                             @if (!empty($about->button_url))
                                 <a href="{{ $about->button_url }}"

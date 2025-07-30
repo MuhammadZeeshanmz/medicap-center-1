@@ -10,192 +10,179 @@
             <aside class="filter-widgets" data-aos="fade-up">
 
                 <!-- Categories Filter -->
-                <div class="filter-widget mb-30 p-20 border radius-md mb-c" style="margin-bottom: 25px;">
-                    <h5 class="widget-title">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#filterCategories">
-                            {{ __('Categories') }}
-                        </button>
-                    </h5>
-                    <div id="filterCategories" class="collapse show">
-                        <div class="accordion-body mt-20 scroll-y">
-                            <ul class="filter-list">
-                                <li class="filter-item">
-                                    <a class="filter-link {{ request()->category ? '' : 'active' }}"
-                                        href="javascript:void(0)">{{ __('All') }}
-                                        <span class="filter-count">({{ $total_services }})</span>
-                                    </a>
-                                </li>
-                                @foreach ($categories as $category)
-                                    <li class="filter-item">
-                                        <a href="javascript:void(0)"
-                                            class="filter-link {{ request()->category == $category->slug ? 'active' : '' }}"
-                                            data-slug="{{ $category->slug }}">
-                                            {{ $category->name }}
-                                            <span class="filter-count">({{ $category->service_count }})</span>
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<div class="filter-widget mb-4 p-3 border rounded">
+    <h5 class="widget-title mb-3 d-flex justify-content-between align-items-center">
+        <button class="accordion-button px-0 py-0 shadow-none bg-transparent d-flex align-items-center w-100" type="button" data-bs-toggle="collapse" data-bs-target="#filterCategories">
+            <span class="fw-bold text-dark">Categories</span>
+            <i class="fas fa-chevron-down ms-auto"></i>
+        </button>
+    </h5>
+
+    <div id="filterCategories" class="collapse show">
+        <div class="accordion-body p-0">
+            <ul class="list-unstyled mb-0">
+                <li class="form-check mb-2 d-flex justify-content-between align-items-center">
+                    <label class="form-check-label d-flex align-items-center" for="catAll">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="category" id="catAll" value="" {{ request()->category ? '' : 'checked' }}>
+                        <span class="text-dark">All</span>
+                    </label>
+                    <span class="text-muted">({{ $total_services }})</span>
+                </li>
+                @foreach ($categories as $category)
+                <li class="form-check mb-2 d-flex justify-content-between align-items-center">
+                    <label class="form-check-label d-flex align-items-center" for="cat{{ $category->id }}">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="category" id="cat{{ $category->id }}" value="{{ $category->slug }}" {{ request()->category == $category->slug ? 'checked' : '' }}>
+                        <span class="text-dark">{{ $category->name }}</span>
+                    </label>
+                    <span class="text-muted">({{ $category->service_count }})</span>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</div>
+
 
                 <!-- Service Details Filter -->
-                <div id="serviceDetailsFilter">
-                    <div class="filter-widget mb-30 p-20 border radius-md">
-                        <h5 class="widget-title">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#filterDetails" aria-expanded="true">
-                                {{ __('Service Details') }}
-                            </button>
-                        </h5>
-                        <div id="filterDetails" class="collapse show">
-                            <div class="accordion-body mt-20 scroll-y">
-                                <div class="row gx-sm-2">
-                                    <div class="col-12">
-                                        <div class="form-group mb-20">
-                                            <label class="form-label">{{ __('Service Title') }}</label>
-                                            <input class="form-control" type="text"
-                                                placeholder="{{ __('Enter Service Title') }}"
-                                                value="{{ request('service_title') }}" id="search_service_title">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label class="form-label">{{ __('Location') }}</label>
-                                            <input class="form-control" type="text"
-                                                placeholder="{{ __('Enter location') }}"
-                                                value="{{ request('location') }}" id="location">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              
+<div id="serviceDetailsFilter">
+    <div class="filter-widget mb-4 p-3 border rounded">
+        <h5 class="widget-title mb-3 d-flex justify-content-between align-items-center">
+            <button class="accordion-button px-0 py-0 shadow-none bg-transparent d-flex align-items-center w-100" type="button" data-bs-toggle="collapse" data-bs-target="#filterDetails" aria-expanded="true">
+                <span class="fw-bold text-dark">Service Details</span>
+                <i class="fas fa-chevron-down ms-auto"></i>
+            </button>
+        </h5>
 
-                <!-- Service Type Filter -->
-                <div id="serviceTypeFilter">
-                    <div class="filter-widget mb-30 p-20 border radius-md">
-                        <h5 class="widget-title">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#filterServiceType">
-                                {{ __('Service Type') }}
-                            </button>
-                        </h5>
-                        <div id="filterServiceType" class="collapse show">
-                            <div class="accordion-body mt-20 scroll-y">
-                                <ul class="filter-options">
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="service_type"
-                                            id="service_type_all" value="all" checked>
-                                        <label for="service_type_all">{{ __('All') }}</label>
-                                    </li>
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="service_type" id="offline"
-                                            value="offline">
-                                        <label for="offline">{{ __('Offline') }}</label>
-                                    </li>
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="service_type" id="online"
-                                            value="online">
-                                        <label for="online">{{ __('Online') }}</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+        <div id="filterDetails" class="collapse show">
+            <div class="accordion-body p-0">
+                <div class="mb-3">
+                    <label class="form-label mb-1">{{ __('Service Title') }}</label>
+                    <input class="form-control" type="text" placeholder="{{ __('Enter Service Title') }}" value="{{ request('service_title') }}" id="search_service_title">
                 </div>
+                <div>
+                    <label class="form-label mb-1">{{ __('Location') }}</label>
+                    <input class="form-control" type="text" placeholder="{{ __('Enter location') }}" value="{{ request('location') }}" id="location">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <!-- Price Range Filter -->
-                <div class="filter-widget mb-30 p-20 border radius-md">
-                    <h5 class="widget-title">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#filterPrice">
-                            {{ __('Pricing') }}
-                        </button>
-                    </h5>
-                    <div id="filterPrice" class="collapse show">
-                        <div class="accordion-body pt-20 scroll-y">
-                            <div class="row gx-sm-3 d-none">
-                                <div class="col-md-6">
-                                    <div class="form-group mb-20">
-                                        <label class="form-label">{{ __('Minimum') }}</label>
-                                        <input class="form-control" type="number" id="min"
-                                            value="{{ $min }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-20">
-                                        <label class="form-label">{{ __('Maximum') }}</label>
-                                        <input class="form-control" type="number" id="max"
-                                            value="{{ $max }}">
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" id="o_min" value="{{ $min }}">
-                            <input type="hidden" id="o_max" value="{{ $max }}">
-                            <input type="hidden" id="currency_symbol"
-                                value="{{ $basicInfo->base_currency_symbol }}">
-                            <div class="price-range">
-                                <div class="range-slider" data-range-slider></div>
-                                <div class="price-display">
-                                    <span>{{ __('Price') }}: <span class="price-values"
-                                            data-range-value></span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Ratings Filter -->
-                <div id="ratingsFilter">
-                    <div class="filter-widget mb-30 p-20 border radius-md">
-                        <h5 class="widget-title">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#filterRatings">
-                                {{ __('Ratings') }}
-                            </button>
-                        </h5>
-                        <div id="filterRatings" class="collapse show">
-                            <div class="accordion-body mt-20 scroll-y">
-                                <ul class="filter-options">
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="rating" id="ratingAll"
-                                            value="" {{ empty(request()->input('rating')) ? 'checked' : '' }}>
-                                        <label for="ratingAll">{{ __('Show All') }}</label>
-                                    </li>
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="rating" id="rating5"
-                                            value="5" {{ request()->input('rating') == 5 ? 'checked' : '' }}>
-                                        <label for="rating5">{{ __('5 stars') }}</label>
-                                    </li>
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="rating" id="rating4"
-                                            value="4" {{ request()->input('rating') == 4 ? 'checked' : '' }}>
-                                        <label for="rating4">{{ __('4 stars and higher') }}</label>
-                                    </li>
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="rating" id="rating3"
-                                            value="3" {{ request()->input('rating') == 3 ? 'checked' : '' }}>
-                                        <label for="rating3">{{ __('3 stars and higher') }}</label>
-                                    </li>
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="rating" id="rating2"
-                                            value="2" {{ request()->input('rating') == 2 ? 'checked' : '' }}>
-                                        <label for="rating2">{{ __('2 stars and higher') }}</label>
-                                    </li>
-                                    <li class="filter-option">
-                                        <input class="form-radio" type="radio" name="rating" id="rating1"
-                                            value="1" {{ request()->input('rating') == 1 ? 'checked' : '' }}>
-                                        <label for="rating1">{{ __('1 star and higher') }}</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+               <!-- Service Type Filter -->
+<div id="serviceTypeFilter">
+    <div class="filter-widget mb-4 p-3 border rounded">
+        <h5 class="widget-title mb-3 d-flex justify-content-between align-items-center">
+            <button class="accordion-button px-0 py-0 shadow-none bg-transparent d-flex align-items-center w-100" type="button" data-bs-toggle="collapse" data-bs-target="#filterServiceType">
+                <span class="fw-bold text-dark">Service Type</span>
+                <i class="fas fa-chevron-down ms-auto"></i>
+            </button>
+        </h5>
+
+        <div id="filterServiceType" class="collapse show">
+            <div class="accordion-body p-0">
+                <ul class="list-unstyled mb-0">
+                    <li class="form-check mb-2">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="service_type" id="service_type_all" value="all" checked>
+                        <label class="form-check-label" for="service_type_all">All</label>
+                    </li>
+                    <li class="form-check mb-2">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="service_type" id="offline" value="offline">
+                        <label class="form-check-label" for="offline">Offline</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="service_type" id="online" value="online">
+                        <label class="form-check-label" for="online">Online</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+              <!-- Price Range Filter -->
+<div class="filter-widget mb-4 p-3 border rounded">
+    <h5 class="widget-title mb-3 d-flex justify-content-between align-items-center">
+        <button class="accordion-button px-0 py-0 shadow-none bg-transparent d-flex align-items-center w-100" type="button" data-bs-toggle="collapse" data-bs-target="#filterPrice">
+            <span class="fw-bold text-dark">Pricing</span>
+            <i class="fas fa-chevron-down ms-auto"></i>
+        </button>
+    </h5>
+
+    <div id="filterPrice" class="collapse show">
+        <div class="accordion-body p-0">
+            <!-- Hidden min/max inputs -->
+            <input type="hidden" id="o_min" value="{{ $min }}">
+            <input type="hidden" id="o_max" value="{{ $max }}">
+            <input type="hidden" id="currency_symbol" value="{{ $basicInfo->base_currency_symbol }}">
+
+            <!-- Range Slider -->
+            <div class="price-range">
+                <div class="range-slider mb-2" data-range-slider></div>
+                <div class="price-display">
+                    <span class="text-muted small">
+                        {{ __('Price') }}:
+                        <span class="price-values fw-semibold" data-range-value></span>
+                    </span>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+              <!-- Ratings Filter -->
+<div id="ratingsFilter">
+    <div class="filter-widget mb-4 p-3 border rounded">
+        <h5 class="widget-title mb-3 d-flex justify-content-between align-items-center">
+            <button class="accordion-button px-0 py-0 shadow-none bg-transparent d-flex align-items-center w-100"
+                type="button" data-bs-toggle="collapse" data-bs-target="#filterRatings">
+                <span class="fw-bold text-dark">Ratings</span>
+                <i class="fas fa-chevron-down ms-auto"></i>
+            </button>
+        </h5>
+
+        <div id="filterRatings" class="collapse show">
+            <div class="accordion-body p-0">
+                <ul class="list-unstyled mb-0">
+                    <li class="form-check mb-2">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="rating" id="ratingAll"
+                            value="" {{ empty(request()->input('rating')) ? 'checked' : '' }}>
+                        <label class="form-check-label" for="ratingAll">Show All</label>
+                    </li>
+                    <li class="form-check mb-2">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="rating" id="rating5"
+                            value="5" {{ request()->input('rating') == 5 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="rating5">5 stars</label>
+                    </li>
+                    <li class="form-check mb-2">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="rating" id="rating4"
+                            value="4" {{ request()->input('rating') == 4 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="rating4">4 stars and higher</label>
+                    </li>
+                    <li class="form-check mb-2">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="rating" id="rating3"
+                            value="3" {{ request()->input('rating') == 3 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="rating3">3 stars and higher</label>
+                    </li>
+                    <li class="form-check mb-2">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="rating" id="rating2"
+                            value="2" {{ request()->input('rating') == 2 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="rating2">2 stars and higher</label>
+                    </li>
+                    <li class="form-check">
+                        <input class="form-check-input me-2 radio-custom" type="radio" name="rating" id="rating1"
+                            value="1" {{ request()->input('rating') == 1 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="rating1">1 star and higher</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 
                 <!-- Reset Button -->
                 <div class="filter-actions pb-40">

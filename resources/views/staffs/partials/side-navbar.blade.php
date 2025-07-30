@@ -123,11 +123,19 @@
            @if (request()->routeIs('staff.appointment.details')) active @endif
            @if (request()->routeIs('staff.rejected_appointment')) active @endif
            @if (request()->routeIs('staff.appointment')) active @endif">
+<<<<<<< HEAD
                     <a data-toggle="collapse" href="#eventBooking">
                         <i class="fas fa-calendar"></i>
                         <p>Appointments </p>
                         <span class="caret"></span>
                     </a>
+=======
+          <a data-toggle="collapse" href="#eventBooking">
+            <i class="fas fa-calendar"></i>
+            <p>Appointments </p>
+            <span class="caret"></span>
+          </a>
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
 
                     <div id="eventBooking"
                         class="collapse
@@ -212,6 +220,7 @@
                 @endif
                 {{-- edit profile --}}
 
+<<<<<<< HEAD
                 <li class="nav-item @if (request()->routeIs('staff.edit.profile')) active @endif">
                     <a href="{{ route('staff.edit.profile') }}">
                         <i class="fas fa-user-edit"></i>
@@ -233,5 +242,27 @@
                 </li>
             </ul>
         </div>
+=======
+        <li class="nav-item @if (request()->routeIs('staff.edit.profile')) active @endif">
+          <a href="{{ route('staff.edit.profile') }}">
+            <i class="fas fa-user-edit"></i>
+            <p>Edit Profile</p>
+          </a>
+        </li>
+        <li class="nav-item @if (request()->routeIs('staff.change_password')) active @endif">
+          <a href="{{ route('staff.change_password') }}">
+            <i class="fas fa-key"></i>
+            <p>Change Password</p>
+          </a>
+        </li>
+
+        <li class="nav-item @if (request()->routeIs('staff.logout')) active @endif">
+          <a href="{{ route('staff.logout') }}">
+            <i class="fas fa-sign-out"></i>
+            <p>Logout</p>
+          </a>
+        </li>
+      </ul>
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
     </div>
 </div>

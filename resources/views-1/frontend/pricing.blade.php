@@ -45,14 +45,88 @@
                                 </ul>
                             </div>
                         </div>
+<<<<<<< HEAD
                     @endif
                     <div class="tab-content" data-aos="fade-up">
                         @foreach ($terms as $term)
+=======
+                        <div class="card_subtitle mt-15 d-flex align-items-center">
+                          <h4 class="mb-0">
+                            @if ($package->price == 0)
+                              {{ __('Free') }}
+                            @else
+                              {{ format_price($package->price) }}
+                            @endif
+                          </h4>
+                          @php
+                            $tremText = str_replace('ly', '', $package->term);
+                          @endphp
+                          <span class="period">/ {{ __("$tremText") }}</span>
+                        </div>
+                        <ul class="card_list toggle-list list-unstyled mt-25">
+                          <li>
+                            <span>
+                              <i class="fas fa-check"></i>{{ __('Services') }}
+                              <span>({{ $package->number_of_service_add === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_service_add }})
+                              </span>
+                            </span>
+
+                          </li>
+                          <li>
+                            <span><i class="fas fa-check"></i>{{ __('Images/Service') }} <span>
+                                ({{ $package->number_of_service_image === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_service_image }})
+                              </span></span>
+
+                          </li>
+                          <li>
+                            <span><i class="fas fa-check"></i>{{ __('Appointments') }} <span>
+                                ({{ $package->number_of_appointment === 999999 ? '(' . __('Unlimited') . ')' : $package->number_of_appointment }})</span></span>
+
+                          </li>
+                          <li>
+                            <span><i class="fas fa-check"></i>{{ __('Staffs') }}
+                              <span>
+                                ({{ $package->staff_limit === 999999 ? '(' . __('Unlimited') . ')' : $package->staff_limit }})</span></span>
+
+                          </li>
+                          @if ($package->support_ticket_status == 1)
+                            <li>
+                              <span><i class="fas fa-check"></i>{{ __('Support Tickets') }}</span>
+                            </li>
+                          @else
+                            <li>
+                              <span><i class="fas fa-times"></i>{{ __('Support Tickets') }}</span>
+                            </li>
+                          @endif
+                          <li>
+                            <span>
+                              @if ($package->zoom_meeting_status == 1)
+                                <i class="fas fa-check"></i>
+                              @else
+                                <i class="fas fa-times"></i>
+                              @endif
+                              {{ __('Zoom Meeting') }}
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              @if ($package->calendar_status == 1)
+                                <i class="fas fa-check"></i>
+                              @else
+                                <i class="fas fa-times"></i>
+                              @endif
+                              {{ __('Google Calendar') }}
+                            </span>
+                          </li>
+
+                          @if (!is_null($package->custom_features))
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                             @php
                                 $packages = \App\Models\Package::where('status', '1')
                                     ->where('term', strtolower($term))
                                     ->get();
                             @endphp
+<<<<<<< HEAD
                             <div class="tab-pane slide {{ $loop->iteration == ceil($loop->count / 2) ? ' show active' : '' }} "
                                 id="{{ $term }}">
                                 <div class="row justify-content-center">
@@ -157,6 +231,18 @@
                                                     @endif
                                                 </ul>
                                                 <div class="card_action
+=======
+                            @if (count($features) > 0)
+                              @foreach ($features as $key => $value)
+                                <li>
+                                  <span><i class="fas fa-check"></i>{{ $value }}</span>
+                                </li>
+                              @endforeach
+                            @endif
+                          @endif
+                        </ul>
+                        <div class="card_action
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                                   mt-25">
                                                     @if (Auth::guard('vendor')->check())
                                                         <a href="{{ route('vendor.plan.extend.checkout', ['package_id' => $package->id]) }}"
