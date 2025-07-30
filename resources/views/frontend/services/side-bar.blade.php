@@ -10,7 +10,7 @@
             <aside class="filter-widgets" data-aos="fade-up">
 
                 <!-- Categories Filter -->
-                <div class="filter-widget mb-30 p-20 border radius-md mb-c" style="margin-bottom: 25px;">
+                <div class="filter-widget mb-30 p-20 border radius-md " style="margin-bottom: 25px;">
                     <h5 class="widget-title">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#filterCategories">

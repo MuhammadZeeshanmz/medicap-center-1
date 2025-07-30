@@ -542,7 +542,11 @@
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                 class="d-block overflow-hidden rounded"
                                                                 style="height: 200px;">
+<<<<<<< HEAD
                                                                 <img class="lazyload  object-fit-cover w-100 h-100"
+=======
+                                                                <img class="lazyload object-fit-cover w-100 h-100"
+>>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                     data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                     alt="Service"
@@ -732,7 +736,11 @@
                                                                     <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                         class="d-block overflow-hidden rounded"
                                                                         style="height: 200px;">
+<<<<<<< HEAD
                                                                         <img class="lazyload by-admin object-fit-cover w-100 h-100"
+=======
+                                                                        <img class="lazyload object-fit-cover w-100 h-100"
+>>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                             alt="Service"
@@ -920,14 +928,22 @@
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         @foreach ($featuredVendors as $vendor)
+<<<<<<< HEAD
                                             <div class="swiper-slide" style="width:306px;">
+=======
+                                            <div class="swiper-slide" style="width:306px; margin-bottom:50px;">
+>>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                 <div class="product-default border radius-md p-15 mb-25">
                                                     <figure class="product-img mb-15">
                                                         <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
                                                             title="Vendor Image" target="_self"
                                                             class="lazy-container radius-sm ratio ratio-2-3">
 
+<<<<<<< HEAD
                                                             <img class="lazyload by-admin"
+=======
+                                                            <img class="lazyload"
+>>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
                                                                 src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                 data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
                                                                 alt="{{ $vendor->username ?? 'Vendor' }}">
@@ -974,6 +990,7 @@
                                                                     {{ __('No Service Available') }}
                                                                 @endif
                                                             </span>
+<<<<<<< HEAD
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1085,6 +1102,185 @@
 @endif
 <!-- Testimonials: End -->
 
+=======
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- If we need pagination -->
+                                    {{-- <div class="swiper-pagination position-static" id="product-slider-2-pagination"></div> --}}
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif
+        <!-- Shop-area end -->
+        @if (count($after_vendor) > 0)
+            @foreach ($after_vendor as $cusVendor)
+                @if (isset($homecusSec[$cusVendor->id]))
+                    @if ($homecusSec[$cusVendor->id] == 1)
+                        @php
+                            $cusVendorContent = App\Models\CustomSectionContent::where(
+                                'custom_section_id',
+                                $cusVendor->id,
+                            )
+                                ->where('language_id', $currentLanguageInfo->id)
+                                ->first();
+                        @endphp
+                        @include('frontend.home.custom-section', ['data' => $cusVendorContent])
+                    @endif
+                @endif
+            @endforeach
+        @endif
+
+
+        <!-- Testimonial-area start -->
+        @if ($secInfo->testimonial_section_status == 1)
+            <section class="testimonial-area testimonial-1 parallax pb-60">
+                <div class="container container-lg-fluid">
+                    <div class="row align-items-center gx-xl-5">
+
+                        <!-- Left Column: Card Design -->
+                        <div class="col-lg-6">
+                            <h2 class="title mb-20">
+                                {{ $sectionContent->testimonial_section_title ?? 'What Customers Say About Our Booking Systems' }}
+                            </h2>
+                            <div class="content-title mb-40">
+
+                                <div class="content-text mb-40">
+                                    <p>
+                                        {{ $sectionContent->testimonial_section_subtitle ?? 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum omnis natus cumque possimus dicta suscipit enim, aperiam, voluptatum quis deleniti.' }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            @if (count($testimonials) > 0)
+                                <div class="card shadow-lg rounded-4 p-4 h-100 bg-white" style="border: 1px solid #eee;"
+                                    data-aos="fade-up">
+                                    <div class="swiper mb-40" id="testimonial-slider-1">
+                                        <div class="swiper-wrapper">
+                                            @foreach ($testimonials as $testimonial)
+                                                <div class="swiper-slide">
+                                                    <div class="slider-item radius-md p-3 border rounded-3">
+                                                        <div
+                                                            class="client gap-20 flex-wrap mb-3 d-flex justify-content-between">
+                                                            <div class="client-info d-flex align-items-center">
+                                                                <div class="client-img me-3">
+                                                                    <div class="lazy-container rounded-pill  ratio-1-1">
+                                                                        <img class="lazyload"
+                                                                            src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                                                            data-src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
+                                                                            alt="{{ $testimonial->name ?? 'Client' }}"
+                                                                            style="object-fit: cover; width: auto; height: 50px; border-radius: 100%;">
+
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <h6 class="name mb-0">{{ $testimonial->name }}</h6>
+                                                                    <span
+                                                                        class="designation font-sm">{{ $testimonial->occupation }}</span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="rating-area flex-column align-items-start mt-2">
+                                                                <div class="ratings mb-1" style="height: 24px;">
+                                                                    <div class="rate"
+                                                                        style="position: relative; width: 120px; height: 24px;">
+                                                                        <!-- Gray stars background -->
+                                                                        <div
+                                                                            style="
+                                                                              background-image: url('{{ asset('assets/frontend/images/rate-star-empty.png') }}');
+                                                                              background-size: contain;
+                                                                              background-repeat: no-repeat;
+                                                                              width: 100%;
+                                                                              height: 100%;
+                                                                              position: absolute;
+                                                                              top: 0;
+                                                                              left: 0;
+                                                                          ">
+                                                                        </div>
+
+                                                                        <!-- Yellow stars overlay (based on rating %) -->
+                                                                        <div
+                                                                            style="
+                                                                              background-image: url('{{ asset('assets/frontend/images/rate-star-filled.png') }}');
+                                                                              background-size: contain;
+                                                                              background-repeat: no-repeat;
+                                                                              width: {{ $testimonial->rating * 20 }}%;
+                                                                              height: 100%;
+                                                                              position: absolute;
+                                                                              top: 0;
+                                                                              left: 0;
+                                                                              overflow: hidden;
+                                                                          ">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <span class="ratings-total">
+                                                                    {{ $testimonial->rating }} {{ __('star of') }}
+                                                                    {{ $total_testimonial }}
+                                                                    {{ $total_testimonial > 1 ? __('reviews') : __('review') }}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="quote">
+                                                            <span class="icon"><i class="fas fa-quote-right"></i></span>
+                                                            <p class="text font-lg mb-0">{{ $testimonial->comment }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+
+                                        <!-- Pagination -->
+                                        <div class="swiper-pagination position-static mt-30"
+                                            id="testimonial-slider-1-pagination"></div>
+                                    </div>
+                                @else
+                                    <h4 class="text-danger">{{ __('NO TESTIMONIAL FOUND!') }}</h4>
+                            @endif
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Image -->
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="image mb-40 parallax-img" data-speed="0.5" data-revert="true">
+                            <img class="lazyload blur-up w-100"
+                                src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                data-src="{{ asset('assets/img/' . $sectionContent->testimonial_section_image) }}"
+                                alt="Testimonial Image">
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        @endif
+
+        <!-- After testimonial custom sections -->
+        @if (count($after_testimonial) > 0)
+            @foreach ($after_testimonial as $cusTest)
+                @if (isset($homecusSec[$cusTest->id]) && $homecusSec[$cusTest->id] == 1)
+                    @php
+                        $cusTestContent = App\Models\CustomSectionContent::where('custom_section_id', $cusTest->id)
+                            ->where('language_id', $currentLanguageInfo->id)
+                            ->first();
+                    @endphp
+                    @include('frontend.home.custom-section', ['data' => $cusTestContent])
+                @endif
+            @endforeach
+        @endif
+        <!-- Testimonial-area end -->
+
+
+>>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
 
 
 
