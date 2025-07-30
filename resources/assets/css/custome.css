@@ -20,7 +20,6 @@
   padding-top: 100px;
   padding-bottom: 100px;
 }
-<<<<<<< HEAD
 .by-admin{
   height: 30px;
   border-radius: 100%;
@@ -28,14 +27,9 @@
 .mb-62{
   margin-bottom: 62px !important;
 }
-.mb-c{
-  margin-bottom: 25 !important;
-
+.radio-custom {
+    accent-color: #ff2c72; /* matches the red circle in the image */
 }
-=======
-
-.pb-60{
-  padding-top: 60px;
-  padding-bottom: 60px;
+.accordion-button::after {
+    display: none !important;
 }
->>>>>>> cb83ba51f0bce476f23b4f473f80e862e941a3e8
