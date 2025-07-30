@@ -20,8 +20,22 @@
   padding-top: 100px;
   padding-bottom: 100px;
 }
+<<<<<<< HEAD
 
 .pb-60{
   padding-top: 60px;
   padding-bottom: 60px;
 }
+=======
+.by-admin{
+  height: 30px;
+  border-radius: 100%;
+}
+.mb-62{
+  margin-bottom: 62px !important;
+}
+.mb-c{
+  margin-bottom: 25 !important;
+
+}
+>>>>>>> 96331ab9fcae489efcb5df91e53184545e82990f
