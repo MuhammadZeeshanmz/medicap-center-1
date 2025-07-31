@@ -1,6 +1,7 @@
 @php
     $version = $basicInfo->theme_version;
 @endphp
+
 @extends('frontend.layout')
 
 @section('pageHeading')
@@ -31,8 +32,6 @@
     <div class="shop-area pt-100 pb-60">
         <div class="container">
             <div class="row gx-xl-5">
-
-<<<<<<< HEAD
                 @includeIf('frontend.shop.side-bar')
 
                 <div class="col-lg-8 col-xl-9">
@@ -75,119 +74,30 @@
                                                     <option {{ request()->input('sort') == 'newest' ? 'selected' : '' }}
                                                         value="newest">
                                                         {{ __('Date : Newest on top') }}
-                                                    </option>
-                                                    <option {{ request()->input('sort') == 'oldest' ? 'selected' : '' }}
+                                                    </option <option
+                                                        {{ request()->input('sort') == 'oldest' ? 'selected' : '' }}
                                                         value="oldest">
-                                                        {{ __('Date : Oldest on top') }}
+                                                    {{ __('Date : Oldest on top') }}
                                                     </option>
                                                     <option
                                                         {{ request()->input('sort') == 'high-to-low' ? 'selected' : '' }}
                                                         value="high-to-low">
-                                                        {{ __('Price : High to Low') }}</option>
+                                                        {{ __('Price : High to Low') }}
+                                                    </option>
                                                     <option
                                                         {{ request()->input('sort') == 'low-to-high' ? 'selected' : '' }}
                                                         value="low-to-high">
-                                                        {{ __('Price : Low to High') }}</option>
+                                                        {{ __('Price : Low to High') }}
+                                                    </option>
                                                 </select>
                                             </form>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-=======
-        <div class="col-lg-8 col-xl-9">
-          <div class="sort-area" data-aos="fade-up">
-            <div class="row align-items-center">
-              <div class="col-lg-6">
-                <h5 class="mb-20">
-                  <span class="color-primary">{{ $total_products }}</span>
-                  {{ $total_products > 1 ? __('Products') : __('Product') }}
-                  {{ __('Found') }}
-                </h5>
-              </div>
-              <div class="col-4 d-lg-none">
-                <button class="btn btn-sm btn-outline icon-end radius-sm mb-20" type="button" data-bs-toggle="offcanvas"
-                  data-bs-target="#widgetOffcanvas" aria-controls="widgetOffcanvas">
-                  {{ __('Filter') }} <i class="fas fa-filter"></i>
-                </button>
-              </div>
-              <div class="col-8 col-lg-6">
-                <ul class="sort-list list-unstyled mb-20">
-                  <li class="item">
-                    <div class="sort-item d-flex align-items-center">
-                      <label class="me-2 font-sm">{{ __('Sort By') }}:</label>
-                      <form action="{{ route('shop.products') }}" method="get" id="SortForm">
-                        @if (!empty(request()->input('category')))
-                          <input type="hidden" name="category" value="{{ request()->input('category') }}">
-                        @endif
-                        @if (!empty(request()->input('min')))
-                          <input type="hidden" name="min" value="{{ request()->input('min') }}">
-                        @endif
-                        @if (!empty(request()->input('max')))
-                          <input type="hidden" name="max" value="{{ request()->input('max') }}">
-                        @endif
-                        <select name="sort" class="sort nice-select right color-dark"
-                          onchange="document.getElementById('SortForm').submit()">
-                          <option {{ request()->input('sort') == 'newest' ? 'selected' : '' }} value="newest">
-                            {{ __('Date : Newest on top') }}
-                          </option>
-                          <option {{ request()->input('sort') == 'oldest' ? 'selected' : '' }} value="oldest">
-                            {{ __('Date : Oldest on top') }}
-                          </option>
-                          <option {{ request()->input('sort') == 'high-to-low' ? 'selected' : '' }} value="high-to-low">
-                            {{ __('Price : High to Low') }}</option>
-                          <option {{ request()->input('sort') == 'low-to-high' ? 'selected' : '' }} value="low-to-high">
-                            {{ __('Price : Low to High') }}</option>
-                        </select>
-                      </form>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            @foreach ($products as $product)
-              <div class="col-xl-4 col-sm-6" data-aos="fade-up">
-                <div class="product-default shadow-none text-center mb-25">
-                  <figure class="product-img mb-15">
-                    <a href="{{ route('shop.product_details', ['slug' => $product->slug]) }}"
-                      class="lazy-container ratio ratio-1-1">
-                      @if ($product->featured_image && file_exists(public_path('assets/img/products/featured-images/' . $product->featured_image)))
-                        <img class="lazyload" 
-                             src="{{ asset('assets/front/images/placeholder.png') }}"
-                             data-src="{{ asset('assets/img/products/featured-images/' . $product->featured_image) }}"
-                             alt="{{ $product->title }}"
-                             loading="lazy"
-                             onerror="this.onerror=null;this.src='{{ asset('assets/front/images/placeholder.png') }}'">
-                      @else
-                        <img class="lazyload" 
-                             src="{{ asset('assets/front/images/placeholder.png') }}"
-                             data-src="{{ asset('assets/front/images/placeholder.png') }}"
-                             alt="{{ $product->title }}"
-                             loading="lazy">
-                      @endif
-                    </a>
-                    <div class="product-overlay">
-                      <a href="{{ route('shop.product_details', ['slug' => $product->slug]) }}" target="_self"
-                        title="{{ __('View Details') }}" class="icon hover-scale">
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <a href="{{ route('shop.product.add_to_cart', ['id' => $product->id, 'quantity' => 1]) }}"
-                        target="_self" title="{{ __('Add to Cart') }}" 
-                        class="icon cart-btn add-to-cart-btn hover-scale">
-                        <i class="fas fa-shopping-cart"></i>
-                      </a>
-                    </div>
-                  </figure>
-                  <div class="product-details">
-                    <div class="ratings d-flex justify-content-center mb-10">
-                      <div class="rate bg-img" style="background-image: url('{{ asset('assets/frontend/images/rate-star.png') }}');">
-                        <div class="rating-icon bg-img" style="width: {{ $product->average_rating * 20 . '%;' }}"
-                          data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                         </div>
                     </div>
+
                     <div class="row">
                         @foreach ($products as $product)
                             <div class="col-xl-4 col-sm-6" data-aos="fade-up">
@@ -245,7 +155,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                </div><!-- product-default -->
+                                </div>
                             </div>
                         @endforeach
                     </div>

@@ -340,7 +340,7 @@
                     </nav>
                 </div>
                 <!-- vendor info -->
-                <div class="col-lg-4 col-xl-3">
+                <div class="col-lg-4">
                     <aside class="widget-area" data-aos="fade-up">
                         <div class="widget widget-author-details border p-25 radius-md mb-30">
                             <div class="author mb-20 text-center">

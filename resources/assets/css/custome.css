@@ -20,12 +20,8 @@
   padding-top: 100px;
   padding-bottom: 100px;
 }
-<<<<<<< HEAD
 
 .by-admin {
-=======
-.by-admin{
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
   height: 30px;
   border-radius: 100%;
 }
@@ -33,46 +29,6 @@
 .mb-62 {
   margin-bottom: 62px !important;
 }
-<<<<<<< HEAD
-
-.mb-c {
-  margin-bottom: 25 !important;
-
-}
-
-.form-group {
-  position: relative;
-}
-
-.form-group.icon-start .icon {
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 50%;
-  width: 18px;
-  font-size: var(--font-sm);
-  margin-inline-end: auto;
-  margin-inline-start: 20px !important;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
-.form-group.icon-start .form-control {
-  padding-inline-start: 44px;
-}
-
-.footer-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.2; /* Optional to give background feel */
-}
-
-=======
 .radio-custom {
     accent-color: #ff2c72; /* matches the red circle in the image */
 }
@@ -127,4 +83,3 @@
 
 
 
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
