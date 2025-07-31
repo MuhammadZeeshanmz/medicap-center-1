@@ -16,6 +16,8 @@
     ])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
     <!-- Wishlist-area Start -->
     <div class="shopping-area user-dashboard pt-100 pb-60">
         <div class="container">
@@ -23,6 +25,7 @@
                 <div class="col-lg-3">
                     @includeIf('frontend.user.side-navbar')
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <!-- Wishlist-area Start -->
   <div class="shopping-area user-dashboard pt-100 pb-60">
     <div class="container">
@@ -126,7 +129,18 @@
                       {{ $wishlists->links() }}
                     </ul>
                   </nav>
+<<<<<<< HEAD
+=======
+    <!-- Wishlist-area Start -->
+    <div class="shopping-area user-dashboard pt-100 pb-60">
+        <div class="container">
+            <div class="row justify-content-center gx-xl-5">
+                <div class="col-lg-3">
+                    @includeIf('frontend.user.side-navbar')
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 </div>
                 <div class="col-lg-9">
                     <div class="account-info radius-md mb-40">

@@ -64,6 +64,8 @@
                                 @endforeach
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
                             </div>
                             <!-- Slider navigation buttons -->
                             <div class="slider-navigation">
@@ -145,6 +147,7 @@
                             <a
                                 href="{{ route('shop.products', ['category' => $details->categorySlug]) }}">{{ $details->categoryName }}</a>
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
               </div>
               <!-- Slider navigation buttons -->
               <div class="slider-navigation">
@@ -278,11 +281,99 @@
                           <div class="rating-icon bg-img" style="width: {{ $review->rating * 20 . '%;' }}"
                             data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
                           </div>
+<<<<<<< HEAD
+=======
+                            </div>
+                            <!-- Slider navigation buttons -->
+                            <div class="slider-navigation">
+                                <button type="button" title="Slide prev" class="slider-btn slider-btn-prev radius-0">
+                                    <i class="fas fa-angle-left"></i>
+                                </button>
+                                <button type="button" title="Slide next" class="slider-btn slider-btn-next radius-0">
+                                    <i class="fas fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="shop-thumb">
+                            <div class="swiper shop-thumbnails">
+                                <div class="swiper-wrapper">
+                                    @foreach ($sliderImages as $sliderImage)
+                                        <div class="swiper-slide">
+                                            <div class="thumbnail-img lazy-container ratio ratio-1-1">
+                                                <img class="lazyload"
+                                                    src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                                    data-src="{{ asset('assets/img/products/slider-images/' . $sliderImage) }}"
+                                                    alt="product image" />
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-single-details mb-40" data-aos="fade-up">
+                        <h3 class="product-title mb-30">{{ $details->title }}</h3>
+                        <div class="ratings mb-10">
+                            <div class="rate bg-img" data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
+                                <div class="rating-icon bg-img" style="width: {{ $details->average_rating * 20 . '%;' }}"
+                                    data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
+                                </div>
+                            </div>
+                            <span class="ratings-total">({{ $details->average_rating }})</span>
+                        </div>
+                        <div class="product-price mb-30">
+                            <h4 class="new-price color-primary">{{ symbolPrice($details->current_price) }}</h4>
+                            @if (!empty($details->previous_price))
+                                <span
+                                    class="old-price h5 color-medium text-decoration-linethrough">{{ symbolPrice($details->previous_price) }}</span>
+                            @endif
+                        </div>
+                        <div class="product-desc">
+                            {!! $details->summary !!}
+                        </div>
+                        <div class="btn-groups mt-30">
+                            <div class="quantity-input">
+                                <div class="quantity-down">
+                                    <i class="fas fa-minus"></i>
+                                </div>
+                                <input type="text" value="1" name="quantity" id="product-quantity"
+                                    spellcheck="false" data-ms-editor="true">
+                                <div class="quantity-up">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                            <a href="{{ route('shop.product.add_to_cart', ['id' => $details->id, 'quantity' => 1]) }}"
+                                class="btn btn-md btn-primary add-to-cart-btn" title="{{ __('Add to Cart') }}"
+                                target="_self">{{ __('Add to Cart') }}</a>
+                        </div>
+                        <div class="social-link style-2 mt-30">
+                            <a href="//www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}"
+                                target="_blank" title="{{ __('Facebook') }}"><i class="fab fa-facebook-f"></i></a>
+
+                            <a href="//twitter.com/intent/tweet?text=my share text&amp;url={{ urlencode(url()->current()) }}"
+                                target="_blank" title="{{ __('Twitter') }}"><i class="fab fa-twitter"></i></a>
+
+                            <a href="//www.linkedin.com/shareArticle?mini=true&amp;url={{ urlencode(url()->current()) }}&amp;title={{ $details->title }}"
+                                target="_blank" title="{{ __('Linkedin') }}"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="product-category mt-30">
+                            {{ __('Category') . ':' }}
+                            <a
+                                href="{{ route('shop.products', ['category' => $details->categorySlug]) }}">{{ $details->categoryName }}</a>
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+                        </div>
+                    </div>
+<<<<<<< HEAD
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                         </div>
                     </div>
 <<<<<<< HEAD
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                   </div>
                 @endforeach
               </div>
@@ -414,7 +505,12 @@
                       <span class="old-price font-sm">{{ symbolPrice($product->previous_price) }}</span>
                     @endif
                   </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 </div>
             </div>
             <div class="description mb-40" data-aos="fade-up">

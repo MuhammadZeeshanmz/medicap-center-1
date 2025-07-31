@@ -2,6 +2,9 @@
 
 @section('content')
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     <div class="page-header">
         <h4 class="page-title">{{ __('Subscribers') }}</h4>
         <ul class="breadcrumbs">
@@ -40,10 +43,9 @@
                                 <i class="flaticon-interface-5"></i> {{ __('Delete') }}
                             </button>
 
-                            <a href="{{ route('admin.user_management.mail_for_subscribers') }}"
-                                class="btn btn-primary btn-sm float-right ml-3 mt-1 mb-1">
-                                <i class="fas fa-paper-plane"></i> {{ __('Send Mail') }}
-                            </a>
+              <a href="{{ route('admin.user_management.mail_for_subscribers') }}" class="btn btn-primary btn-sm float-right ml-3 mt-1 mb-1">
+                <i class="fal fa-paper-plane"></i> {{ __('Send Mail') }}
+              </a>
 
                             <form class="float-right" action="{{ route('admin.user_management.subscribers') }}"
                                 method="GET">
@@ -112,6 +114,8 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
 =======
   <div class="page-header">
     <h4 class="page-title">{{ __('Subscribers') }}</h4>
@@ -215,5 +219,6 @@
         </div>
       </div>
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 @endsection

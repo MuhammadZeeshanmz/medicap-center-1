@@ -21,17 +21,20 @@
 @endsection
 
 @section('content')
-    <style>
-        .pricing-card {
-            transition: all 0.3s ease;
-            border: 1px solid #dee2e6;
-        }
+<style>
+    .pricing-card {
+        transition: all 0.3s ease;
+        border: 1px solid #dee2e6;
+    }
 
-        .pricing-card:hover {
-            border-color: var(--bs-primary);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
+    .pricing-card:hover {
+        border-color: var(--bs-primary);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        background-color: #3f51b5 !important;
+        color: white !important;
+    }
 
+<<<<<<< HEAD
         .recommended-card {
             background-color: #3f51b5;
         }
@@ -53,6 +56,27 @@
             color: #fff !important;
         }
     </style>
+=======
+    .recommended-card {
+        background-color: #3f51b5; /* Deep indigo/blue tone */
+    }
+
+  
+
+    .pricing-btn {
+        transition: all 0.3s ease;
+    }
+
+    .pricing-btn:hover {
+        background-color: var(--bs-primary);
+        color: black !important;
+    }
+
+   
+</style>
+
+
+>>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f
 
     @includeIf('frontend.partials.breadcrumb', [
         'breadcrumb' => $bgImg->breadcrumb,
@@ -206,3 +230,250 @@
     </section>
     <!-- Pricing-area End -->
 @endsection
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f

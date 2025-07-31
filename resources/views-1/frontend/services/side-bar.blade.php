@@ -219,7 +219,10 @@
             </aside>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
         </div>
 
         <div id="service_type_div">
@@ -352,6 +355,11 @@
           </div>
         @endif
       </aside>
+<<<<<<< HEAD
+=======
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 </div>

@@ -36,6 +36,8 @@
                         </div>
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
                     <div class="col-lg-6">
                         <div class="content-title mb-40">
                             <span class="subtitle">{{ @$about->title }}</span>
@@ -45,6 +47,7 @@
                             <p>
                                 {!! @$about->text !!}
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                   @endforeach
                 </div>
                 <div class="swiper-pagination position-static mt-30" id="works-slider-1-pagination"></div>
@@ -177,7 +180,20 @@
                             <span class="icon"><i class="fas fa-quote-right"></i></span>
                             <p class="text font-lg mb-0">
                               {{ $testimonial->comment }}
+<<<<<<< HEAD
+=======
+                    <div class="col-lg-6">
+                        <div class="content-title mb-40">
+                            <span class="subtitle">{{ @$about->title }}</span>
+                            <h2 class="title mb-20 mt-0">
+                                {{ @$about->subtitle }}
+                            </h2>
+                            <p>
+                                {!! @$about->text !!}
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                             </p>
                             @if (!empty($about->button_url))
                                 <a href="{{ $about->button_url }}"

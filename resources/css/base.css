@@ -2075,7 +2075,7 @@ Lazyload CSS
 }
 
 .tabs-navigation .nav .nav-link {
-  color: white;
+  color: var(--text-dark);
   font-weight: var(--font-medium);
   margin: 0;
   z-index: 999;

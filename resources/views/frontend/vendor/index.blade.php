@@ -516,4 +516,8 @@
         });
     </script>
 @endpush
+<<<<<<< HEAD
 <!-- Vendor-area end -->
+=======
+<!-- Vendor-area end -->
+>>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f

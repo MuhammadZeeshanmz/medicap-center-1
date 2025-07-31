@@ -9,9 +9,9 @@
         <div class="content" style="color: white;">
             {{-- Title and Breadcrumb --}}
             <h2>{{ !empty($title) ? $title : '' }}</h2>
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" >
                 <ol class="breadcrumb ">
-                    <li class="breadcrumb-item"><a href="{{ route('index') }}">{{ __('Home') }}</a></li>
+                    <li class="breadcrumb-item" ><a href="{{ route('index') }}">{{ __('Home') }}</a></li>
                     <li class="breadcrumb-item active" style="color: white;" aria-current="page">{{ !empty($title) ? $title : '' }}</li>
                 </ol>
             </nav>

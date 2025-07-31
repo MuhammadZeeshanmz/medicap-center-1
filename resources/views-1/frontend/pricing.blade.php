@@ -46,10 +46,13 @@
                             </div>
                         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
                     @endif
                     <div class="tab-content" data-aos="fade-up">
                         @foreach ($terms as $term)
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                         <div class="card_subtitle mt-15 d-flex align-items-center">
                           <h4 class="mb-0">
                             @if ($package->price == 0)
@@ -120,13 +123,35 @@
                           </li>
 
                           @if (!is_null($package->custom_features))
+<<<<<<< HEAD
+=======
+                    @endif
+                    <div class="tab-content" data-aos="fade-up">
+                        @foreach ($terms as $term)
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                             @php
                                 $packages = \App\Models\Package::where('status', '1')
                                     ->where('term', strtolower($term))
                                     ->get();
                             @endphp
 <<<<<<< HEAD
+<<<<<<< HEAD
+                            @if (count($features) > 0)
+                              @foreach ($features as $key => $value)
+                                <li>
+                                  <span><i class="fas fa-check"></i>{{ $value }}</span>
+                                </li>
+                              @endforeach
+                            @endif
+                          @endif
+                        </ul>
+                        <div class="card_action
+=======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                             <div class="tab-pane slide {{ $loop->iteration == ceil($loop->count / 2) ? ' show active' : '' }} "
                                 id="{{ $term }}">
                                 <div class="row justify-content-center">
@@ -231,6 +256,9 @@
                                                     @endif
                                                 </ul>
                                                 <div class="card_action
+<<<<<<< HEAD
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 =======
                             @if (count($features) > 0)
                               @foreach ($features as $key => $value)
@@ -243,6 +271,7 @@
                         </ul>
                         <div class="card_action
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                                   mt-25">
                                                     @if (Auth::guard('vendor')->check())
                                                         <a href="{{ route('vendor.plan.extend.checkout', ['package_id' => $package->id]) }}"

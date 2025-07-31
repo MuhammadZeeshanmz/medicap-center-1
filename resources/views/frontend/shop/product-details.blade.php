@@ -114,21 +114,20 @@
                         <div class="product-desc">
                             {!! $details->summary !!}
                         </div>
-                        <div class="btn-groups mt-30">
-                            <div class="quantity-input">
-                                <div class="quantity-down">
-                                    <i class="fas fa-minus"></i>
-                                </div>
-                                <input type="text" value="1" name="quantity" id="product-quantity"
-                                    spellcheck="false" data-ms-editor="true">
-                                <div class="quantity-up">
-                                    <i class="fas fa-plus"></i>
-                                </div>
-                            </div>
-                            <a href="{{ route('shop.product.add_to_cart', ['id' => $details->id, 'quantity' => 1]) }}"
-                                class="btn btn-md btn-primary add-to-cart-btn" title="{{ __('Add to Cart') }}"
-                                target="_self">{{ __('Add to Cart') }}</a>
-                        </div>
+                       <div class="btn-groups mt-30">
+    <div class="quantity-input d-flex align-items-center">
+        <button type="button" class="quantity-down btn btn-outline-secondary">
+            <i class="fas fa-minus"></i>
+        </button>
+        <input type="text" value="1" name="quantity" id="product-quantity" class="text-center mx-2" style="width: 50px;">
+        <button type="button" class="quantity-up btn btn-outline-secondary">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    <a href="{{ route('shop.product.add_to_cart', ['id' => $details->id, 'quantity' => 1]) }}"
+        class="btn btn-md btn-primary add-to-cart-btn ms-3" title="{{ __('Add to Cart') }}"
+        target="_self">{{ __('Add to Cart') }}</a>
+</div>
                         <div class="social-link style-2 mt-30">
                             <a href="//www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}"
                                 target="_blank" title="{{ __('Facebook') }}"><i class="fab fa-facebook-f"></i></a>
@@ -363,6 +362,90 @@
     <!-- Related Product-area end -->
 @endsection
 
+@push('styles')
+<style>
+.quantity-input {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    cursor: pointer;
+}
+
+.quantity-input button:hover {
+    background: #e9ecef;
+}
+
+.quantity-input input {
+    width: 50px;
+    height: 36px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    -moz-appearance: textfield;
+}
+
+.quantity-input input::-webkit-outer-spin-button,
+.quantity-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+    </style>
+    @endpush
+
+
 @section('script')
     <script src="{{ asset('assets/frontend/js/shop.js') }}"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Quantity input functionality
+        const input = document.getElementById('product-quantity');
+        const minusBtn = document.querySelector('.quantity-down');
+        const plusBtn = document.querySelector('.quantity-up');
+        const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
+        if (minusBtn && plusBtn && input && addToCartBtn) {
+            // Handle minus button click
+            minusBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let currentValue = parseInt(input.value);
+                if (!isNaN(currentValue) && currentValue > 1) {
+                    input.value = currentValue - 1;
+                    updateAddToCartLink();
+                }
+            });
+
+            // Handle plus button click
+            plusBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let currentValue = parseInt(input.value);
+                if (!isNaN(currentValue)) {
+                    input.value = currentValue + 1;
+                    updateAddToCartLink();
+                }
+            });
+
+            // Update the add to cart link with current quantity
+            function updateAddToCartLink() {
+                const currentHref = addToCartBtn.getAttribute('href');
+                const newHref = currentHref.replace(/(quantity=)\d+/, `$1${input.value}`);
+                addToCartBtn.setAttribute('href', newHref);
+            }
+
+            // Initialize the link on page load
+            updateAddToCartLink();
+        }
+    });
+</script>
 @endsection

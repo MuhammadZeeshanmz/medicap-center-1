@@ -5,6 +5,10 @@
     <div class="mt-2 mb-4">
         <h2 class="pb-2">{{ __('Welcome back,') }} {{ $authAdmin->first_name . ' ' . $authAdmin->last_name . '!' }}</h2>
 =======
+<<<<<<< HEAD
+    <div class="mt-2 mb-4">
+        <h2 class="pb-2">{{ __('Welcome back,') }} {{ $authAdmin->first_name . ' ' . $authAdmin->last_name . '!' }}</h2>
+=======
   <div class="mt-2 mb-4">
     <h2 class="pb-2">{{ __('Welcome back,') }} {{ $authAdmin->first_name . ' ' . $authAdmin->last_name . '!' }}</h2>
   </div>
@@ -258,6 +262,7 @@
         </div>
       </div>
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 
     {{-- dashboard information start --}}
@@ -319,17 +324,17 @@
             </div>
         @endif
 
-        @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Transactions', $rolePermissions)))
-            <div class="col-sm-6 col-md-3">
-                <a href="{{ route('admin.transaction') }}">
-                    <div class="card card-stats card-secondary card-round">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="fas fa-exchange-alt"></i>
-                                    </div>
-                                </div>
+    @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Transactions', $rolePermissions)))
+      <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.transaction') }}">
+          <div class="card card-stats card-secondary card-round">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-5">
+                  <div class="icon-big text-center">
+                    <i class="fal fa-exchange-alt"></i>
+                  </div>
+                </div>
 
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
@@ -344,17 +349,17 @@
             </div>
         @endif
 
-        @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Shop Management', $rolePermissions)))
-            <div class="col-sm-6 col-md-3">
-                <a href="{{ route('admin.shop_management.products', ['language' => $defaultLang->code]) }}">
-                    <div class="card card-stats card-primary card-round">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="fas fa-box-alt"></i>
-                                    </div>
-                                </div>
+    @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Shop Management', $rolePermissions)))
+      <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.shop_management.products', ['language' => $defaultLang->code]) }}">
+          <div class="card card-stats card-primary card-round">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-5">
+                  <div class="icon-big text-center">
+                    <i class="fal fa-box-alt"></i>
+                  </div>
+                </div>
 
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
@@ -369,17 +374,17 @@
             </div>
         @endif
 
-        @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Shop Management', $rolePermissions)))
-            <div class="col-sm-6 col-md-3">
-                <a href="{{ route('admin.shop_management.orders') }}">
-                    <div class="card card-stats card-warning card-round">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </div>
-                                </div>
+    @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Shop Management', $rolePermissions)))
+      <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.shop_management.orders') }}">
+          <div class="card card-stats card-warning card-round">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-5">
+                  <div class="icon-big text-center">
+                    <i class="fal fa-shopping-cart"></i>
+                  </div>
+                </div>
 
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
@@ -394,17 +399,17 @@
             </div>
         @endif
 
-        @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Blog Management', $rolePermissions)))
-            <div class="col-sm-6 col-md-3">
-                <a href="{{ route('admin.blog_management.blogs', ['language' => $defaultLang->code]) }}">
-                    <div class="card card-stats card-info card-round">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="fas fa-blog"></i>
-                                    </div>
-                                </div>
+    @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Blog Management', $rolePermissions)))
+      <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.blog_management.blogs', ['language' => $defaultLang->code]) }}">
+          <div class="card card-stats card-info card-round">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-5">
+                  <div class="icon-big text-center">
+                    <i class="fal fa-blog"></i>
+                  </div>
+                </div>
 
                                 <div class="col-7 col-stats">
                                     <div class="numbers">
@@ -470,17 +475,17 @@
             </div>
         @endif
 
-        @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('User Management', $rolePermissions)))
-            <div class="col-sm-6 col-md-3">
-                <a href="{{ route('admin.user_management.subscribers') }}">
-                    <div class="card card-stats card-dark card-round">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="icon-big text-center">
-                                        <i class="fas fa-bell"></i>
-                                    </div>
-                                </div>
+    @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('User Management', $rolePermissions)))
+      <div class="col-sm-6 col-md-3">
+        <a href="{{ route('admin.user_management.subscribers') }}">
+          <div class="card card-stats card-dark card-round">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-5">
+                  <div class="icon-big text-center">
+                    <i class="fal fa-bell"></i>
+                  </div>
+                </div>
 
                                 <div class="col-7 col-stats">
                                     <div class="numbers">

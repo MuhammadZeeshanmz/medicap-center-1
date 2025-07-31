@@ -9,6 +9,9 @@
                     <i class="flaticon-home"></i>
                 </a>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
             </li>
             <li class="separator">
                 <i class="flaticon-right-arrow"></i>
@@ -223,6 +226,8 @@
                                                             <div class="dropdown-menu"
                                                                 aria-labelledby="dropdownMenuButton">
 
+<<<<<<< HEAD
+=======
                                                                 <a class="dropdown-item btn btn-sm mr-1 editBtn"
                                                                     href="{{ route('admin.staff_managment.edit', ['id' => $staff->id]) }}">
                                                                     <span class="btn-label">
@@ -442,6 +447,7 @@
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                                 <a class="dropdown-item btn btn-sm mr-1 editBtn"
                                   href="{{ route('admin.staff_managment.edit', ['id' => $staff->id]) }}">
                                   <span class="btn-label">
@@ -453,7 +459,7 @@
                                   <a class="dropdown-item btn btn-sm mr-1 editBtn"
                                     href="{{ route('admin.staff.permission', ['id' => $staff->id]) }}">
                                     <span class="btn-label">
-                                      <i class="fas fa-users-cog"></i>
+                                      <i class="fal fa-users-cog"></i>
                                     </span>
                                     {{ __('Permission') }}
                                   </a>
@@ -463,7 +469,7 @@
                                     href="{{ route('admin.staff.change_password', ['id' => $staff->id]) }}"
                                     target="_self">
                                     <span class="btn-label">
-                                      <i class="fas fa-key"></i>
+                                      <i class="fal fa-key"></i>
                                     </span>
                                     {{ __('Change Password') }}
                                   </a>
@@ -501,19 +507,24 @@
           </div>
         </div>
 
-        <div class="card-footer">
-          <div class="mt-3 text-center">
-            <div class="d-inline-block mx-auto">
-              {{ $staffs->appends([
-                      'vendor_id' => request()->input('vendor_id'),
-                      'name' => request()->input('name'),
-                      'language' => request()->input('language'),
-                  ])->links() }}
+                <div class="card-footer">
+                    <div class="mt-3 text-center">
+                        <div class="d-inline-block mx-auto">
+                            {{ $staffs->appends([
+                                    'vendor_id' => request()->input('vendor_id'),
+                                    'name' => request()->input('name'),
+                                    'language' => request()->input('language'),
+                                ])->links() }}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
+<<<<<<< HEAD
+=======
       </div>
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 @endsection
 @section('script')

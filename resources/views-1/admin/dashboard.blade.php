@@ -2,9 +2,12 @@
 
 @section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
     <div class="mt-2 mb-4">
         <h2 class="pb-2">{{ __('Welcome back,') }} {{ $authAdmin->first_name . ' ' . $authAdmin->last_name . '!' }}</h2>
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <div class="mt-2 mb-4">
     <h2 class="pb-2">{{ __('Welcome back,') }} {{ $authAdmin->first_name . ' ' . $authAdmin->last_name . '!' }}</h2>
   </div>
@@ -257,7 +260,14 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+    <div class="mt-2 mb-4">
+        <h2 class="pb-2">{{ __('Welcome back,') }} {{ $authAdmin->first_name . ' ' . $authAdmin->last_name . '!' }}</h2>
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 
     {{-- dashboard information start --}}

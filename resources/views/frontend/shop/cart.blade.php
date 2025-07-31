@@ -8,7 +8,6 @@
     @endif
 @endsection
 
-
 @section('content')
     @includeIf('frontend.partials.breadcrumb', [
         'breadcrumb' => $bgImg->breadcrumb,
@@ -84,7 +83,6 @@
                                             <input type="hidden" class="product-id" id="{{ 'in-product-id' . $key }}"
                                                 value="{{ $key }}">
                                             <tr class="item" id="cart-product-item{{ $key }}">
-
                                                 <td class="product-img">
                                                     <div class="image">
                                                         <a href="{{ route('shop.product_details', ['slug' => @$c_product['slug']]) }}"
@@ -114,19 +112,18 @@
                                                         <span class="ratings-total">({{ $product->average_rating }})</span>
                                                     </div>
                                                 </td>
-                                                <td class="qty">
-                                                    <div class="quantity-input">
-                                                        <div class="quantity-down">
-                                                            <i class="fas fa-minus"></i>
-                                                        </div>
-                                                        <input type="text" name="quantity" spellcheck="false"
-                                                            data-ms-editor="true" value="{{ $c_product['quantity'] }}"
-                                                            class="product-qty">
-                                                        <div class="quantity-up">
-                                                            <i class="fas fa-plus"></i>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                    <td class="qty">
+    <div class="quantity-input d-flex align-items-center">
+        <button type="button" class="quantity-down btn btn-outline-secondary px-3">
+            <i class="fas fa-minus"></i>
+        </button>
+        <input type="text" name="quantity" value="{{ $c_product['quantity'] }}" 
+               class="product-qty text-center mx-2" style="width: 50px;">
+        <button type="button" class="quantity-up btn btn-outline-secondary px-3">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+</td>
                                                 <td class="product-availability">
                                                     @if ($c_product['type'] == 'digital')
                                                         <span class="badge bg-success">{{ __('Available Now') }}</span>
@@ -184,10 +181,135 @@
     <!-- Cart-area end -->
 @endsection
 
+@push('styles')
+<style>
+/* Quantity Input Styling - Horizontal Layout */
+.quantity-input {
+    display: inline-flex;  /* Changed to inline-flex for better alignment */
+    align-items: center;
+    flex-direction: row;  /* Explicitly set to row (horizontal) */
+    border-radius: 4px;   /* Added for container */
+    overflow: hidden;     /* Prevents child elements from breaking border-radius */
+}
+
+.quantity-input button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    cursor: pointer;
+    margin: 0;           /* Remove any default margins */
+    position: relative;   /* Helps with z-index stacking */
+}
+
+/* Remove double borders between elements */
+.quantity-input button:first-child {
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.quantity-input button:last-child {
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.quantity-input input {
+    width: 50px;
+    height: 36px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0;           /* Remove any default margins */
+    padding: 0;          /* Remove any default padding */
+    -moz-appearance: textfield;
+    border-radius: 0;    /* Remove any border radius */
+}
+
+/* Remove number input spinners */
+.quantity-input input::-webkit-outer-spin-button,
+.quantity-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hover and focus states */
+.quantity-input button:hover {
+    background: #e9ecef;
+    z-index: 1;          /* Bring hovered element to front */
+}
+
+.quantity-input input:focus {
+    outline: none;
+    border-color: #aaa;
+    z-index: 1;
+}
+</style>
+@endpush
+
 @section('script')
     <script>
         'use strict';
         let cartEmptyTxt = "{{ __('Cart is Empty') . '!' }}";
     </script>
     <script src="{{ asset('assets/frontend/js/shop.js') }}"></script>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    // Handle quantity changes in cart
+    document.querySelectorAll('.quantity-down').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const input = this.nextElementSibling;
+            let currentValue = parseInt(input.value);
+            if (!isNaN(currentValue) && currentValue > 1) {
+                input.value = currentValue - 1;
+                updateCartTotals();
+            }
+        });
+    });
+
+    document.querySelectorAll('.quantity-up').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const input = this.previousElementSibling;
+            let currentValue = parseInt(input.value);
+            if (!isNaN(currentValue)) {
+                input.value = currentValue + 1;
+                updateCartTotals();
+            }
+        });
+    });
+
+    // Update cart totals when quantities change
+    document.querySelectorAll('.product-qty').forEach(input => {
+        input.addEventListener('change', function() {
+            updateCartTotals();
+        });
+    });
+
+    function updateCartTotals() {
+        let totalQty = 0;
+        let totalPrice = 0;
+        
+        document.querySelectorAll('tr.item').forEach(row => {
+            const qty = parseInt(row.querySelector('.product-qty').value);
+            const price = parseFloat(row.querySelector('.product-unit-price').textContent);
+            
+            if (!isNaN(qty) && !isNaN(price)) {
+                totalQty += qty;
+                totalPrice += qty * price;
+                
+                // Update per-product total
+                row.querySelector('.per-product-total').textContent = (qty * price).toFixed(2);
+            }
+        });
+        
+        // Update cart totals
+        document.getElementById('cart_total_qty').textContent = totalQty;
+        document.getElementById('cart_total_price').textContent = totalPrice.toFixed(2);
+    }
+});
+    </script>
 @endsection

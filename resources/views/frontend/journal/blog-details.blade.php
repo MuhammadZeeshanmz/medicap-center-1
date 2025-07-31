@@ -39,48 +39,19 @@
     </div>
     <!-- Page title end-->
 
-    <div class="blog-details-area pt-100 pb-60">
-        <div class="container">
-            <div class="row justify-content-center gx-xl-5">
-                <div class="col-lg-8">
-                    <div class="blog-description mb-40">
-                        <article class="item-single">
-                            <div class="image radius-md">
-                                <div class="lazy-container ratio ratio-16-9">
-                                    <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                                        data-src="{{ asset('assets/img/blogs/' . $details->image) }}" alt="Blog Image">
-                                </div>
-                                <a href="javaScript:void(0)" class="btn btn-md btn-primary btn-gradient icon-start"
-                                    data-bs-toggle="modal" data-bs-target="#socialMediaModal"><i
-                                        class="fas fa-share-alt"></i>{{ __('Share Now') }}</a>
-                            </div>
-                            <div class="content">
-                                <ul class="info-list">
-                                    <li><i class="fas fa-user"></i>{{ $details->author }}</li>
-                                    <li><i class="fas fa-calendar"></i>
-                                        {{ \Carbon\Carbon::parse($details->created_at)->format('F d, Y') }}
-                                    </li>
-
-                                    <li><i class="fas fa-tag"></i>
-                                        <a href="{{ route('blog', ['category' => $details->categorySlug]) }}">
-                                            {{ $details->categoryName }}
-                                        </a>
-                                    </li>
-                                </ul>
-                                <h4 class="title">
-                                    {{ $title }}
-                                </h4>
-                                <p class="m-0">{!! replaceBaseUrl($details->content, 'summernote') !!}</p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="comments">
-                        <h4 class="mb-20">{{ __('Comments') }}</h4>
-                        @if ($disqusInfo->disqus_status == 1)
-                            <div id="disqus_thread"></div>
-                        @endif
-                    </div>
+  <div class="blog-details-area pt-100 pb-60">
+    <div class="container">
+      <div class="row justify-content-center gx-xl-5">
+        <div class="col-lg-8">
+          <div class="blog-description mb-40">
+            <article class="item-single">
+              <div class="image radius-md">
+                <div class="lazy-container ratio ratio-16-9">
+                  <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                    data-src="{{ asset('assets/img/blogs/' . $details->image) }}" alt="Blog Image">
                 </div>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
                 <div class="col-lg-4">
                     <aside class="widget-area mb-10">
@@ -154,16 +125,17 @@
             </div>
         </div>
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 <a href="javaScript:void(0)" class="btn btn-md btn-primary btn-gradient icon-start" data-bs-toggle="modal"
                   data-bs-target="#socialMediaModal"><i class="fas fa-share-alt"></i>{{ __('Share Now') }}</a>
               </div>
               <div class="content">
                 <ul class="info-list">
-                  <li><i class="fas fa-user"></i>{{ $details->author }}</li>
-                  <li><i class="fas fa-calendar"></i> {{ \Carbon\Carbon::parse($details->created_at)->format('F d, Y') }}
+                  <li><i class="fal fa-user"></i>{{ $details->author }}</li>
+                  <li><i class="fal fa-calendar"></i> {{ \Carbon\Carbon::parse($details->created_at)->format('F d, Y') }}
                   </li>
 
-                  <li><i class="fas fa-tag"></i>
+                  <li><i class="fal fa-tag"></i>
                     <a href="{{ route('blog', ['category' => $details->categorySlug]) }}">
                       {{ $details->categoryName }}
                     </a>
@@ -204,7 +176,7 @@
                 @foreach ($categories as $category)
                   <li class="d-flex align-items-center justify-content-between">
                     <a href="{{ route('blog', ['category' => $category->slug]) }}" target="_self" title="Blogs"><i
-                        class="fas fa-folder"></i>{{ $category->name }}</a>
+                        class="fal fa-folder"></i>{{ $category->name }}</a>
                     <span class="tqy">({{ $category->blogCount }})</span>
                   </li>
                 @endforeach
@@ -226,8 +198,8 @@
                         {{ strlen($blog->title) > 40 ? mb_substr($blog->title, 0, 40, 'UTF-8') . '...' : $blog->title }}</a>
                     </h6>
                     <ul class="info-list">
-                      <li><i class="fas fa-user"></i>{{ __('Admin') }}</li>
-                      <li><i class="fas fa-calendar"></i>{{ date_format($details->created_at, 'M d, Y') }}</li>
+                      <li><i class="fal fa-user"></i>{{ __('Admin') }}</li>
+                      <li><i class="fal fa-calendar"></i>{{ date_format($details->created_at, 'M d, Y') }}</li>
                     </ul>
                   </div>
                 </article>
@@ -246,33 +218,37 @@
           </aside>
         </div>
       </div>
+<<<<<<< HEAD
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
-    @php
-        $display = 'none';
-    @endphp
-    <div class="modal social-media-modal fade" id="socialMediaModal" tabindex="-1" aria-labelledby="socialMediaModalTitle"
-        style="display: {{ $display }}" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">{{ __('Share on') }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="actions">
-                        <div class="action-btn">
-                            <a href="//www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}"
-                                class="facebook" target="_blank">
-                                <i class="fab fa-facebook-f"></i>{{ __('Facebook') }}
-                            </a>
-                        </div>
-                        <div class="action-btn">
-                            <a href="//twitter.com/intent/tweet?text=my share text&amp;url={{ urlencode(url()->current()) }}"
-                                class="twitter" target="_blank">
-                                <i class="fab fa-twitter"></i>{{ __('Tweet') }}
-                            </a>
-                        </div>
+  </div>
+  @php
+      $display = 'none';
+  @endphp
+  <div class="modal social-media-modal fade" id="socialMediaModal" tabindex="-1" aria-labelledby="socialMediaModalTitle"
+    style="display: {{ $display }}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">{{ __('Share on') }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="actions">
+            <div class="action-btn">
+              <a href="//www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" class="facebook"
+                target="_blank">
+                <i class="fab fa-facebook-f"></i>{{ __('Facebook') }}
+              </a>
+            </div>
+            <div class="action-btn">
+              <a href="//twitter.com/intent/tweet?text=my share text&amp;url={{ urlencode(url()->current()) }}"
+                class="twitter" target="_blank">
+                <i class="fab fa-twitter"></i>{{ __('Tweet') }}
+              </a>
+            </div>
 
                         <div class="action-btn">
                             <a href="//www.linkedin.com/shareArticle?mini=true&amp;url={{ urlencode(url()->current()) }}&amp;title={{ $details->title }}"

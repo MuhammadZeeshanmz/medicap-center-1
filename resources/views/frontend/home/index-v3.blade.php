@@ -19,6 +19,8 @@
 @endsection
 @section('content')
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     <!-- Home-area start-->
     <section class="hero-banner hero-banner-3 pb-100">
         <div class="container">
@@ -60,6 +62,7 @@
                 </div>
             </div>
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <!-- Home-area start-->
   <section class="hero-banner hero-banner-3 pb-100">
     <div class="container">
@@ -73,7 +76,7 @@
               <div class="row justify-content-center align-items-center">
                 <div class="col-md-4 col-sm-6">
                   <div class="input-group">
-                    <label for="service_location" class="text-gradient"><i class="fas fa-map-marker-alt"></i></label>
+                    <label for="service_location" class="text-gradient"><i class="fal fa-map-marker-alt"></i></label>
                     <input type="text" id="service_location" name="location" class="form-control"
                       placeholder="{{ __('Search By Location') }}">
                     <div class="vr"></div>
@@ -81,44 +84,84 @@
                 </div>
                 <div class="col-md-4 col-sm-6">
                   <div class="input-group">
-                    <label for="service_title" class="text-gradient"><i class="fas fa-clipboard-list"></i></label>
+                    <label for="service_title" class="text-gradient"><i class="fal fa-clipboard-list"></i></label>
                     <input type="text" id="service_name" name="service_title" class="form-control"
                       placeholder="{{ __('Search Service') }}">
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                   <button type="submit" class="btn btn-lg btn-primary rounded-pill btn-gradient icon-start w-100">
-                    <i class="fas fa-search"></i>
+                    <i class="fal fa-search"></i>
                     {{ __('Find Now') }}
                   </button>
                 </div>
               </div>
             </form>
           </div>
+<<<<<<< HEAD
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
         </div>
-        <!-- Shape -->
-        <div class="shape">
-            <svg class="shape-1" data-src="{{ asset('assets/frontend/images/shape/shape-1.svg') }}"></svg>
-            <svg class="shape-2" data-src="{{ asset('assets/frontend/images/shape/shape-2.svg') }}"></svg>
-            <svg class="shape-3" data-src="{{ asset('assets/frontend/images/shape/shape-4.svg') }}"></svg>
-            <svg class="shape-4" data-src="{{ asset('assets/frontend/images/shape/shape-3.svg') }}"></svg>
-        </div>
-    </section>
-    <!-- Home-area end -->
-    @if (count($after_hero) > 0)
-        @foreach ($after_hero as $cusHero)
-            @if (isset($homecusSec[$cusHero->id]))
-                @if ($homecusSec[$cusHero->id] == 1)
+      </div>
+    </div>
+    <!-- Shape -->
+    <div class="shape">
+      <svg class="shape-1" data-src="{{ asset('assets/frontend/images/shape/shape-1.svg') }}"></svg>
+      <svg class="shape-2" data-src="{{ asset('assets/frontend/images/shape/shape-2.svg') }}"></svg>
+      <svg class="shape-3" data-src="{{ asset('assets/frontend/images/shape/shape-4.svg') }}"></svg>
+      <svg class="shape-4" data-src="{{ asset('assets/frontend/images/shape/shape-3.svg') }}"></svg>
+    </div>
+  </section>
+  <!-- Home-area end -->
+  @if (count($after_hero) > 0)
+    @foreach ($after_hero as $cusHero)
+      @if (isset($homecusSec[$cusHero->id]))
+        @if ($homecusSec[$cusHero->id] == 1)
+          @php
+            $cusHeroContent = App\Models\CustomSectionContent::where('custom_section_id', $cusHero->id)
+                ->where('language_id', $currentLanguageInfo->id)
+                ->first();
+          @endphp
+          @include('frontend.home.custom-section', ['data' => $cusHeroContent])
+        @endif
+      @endif
+    @endforeach
+  @endif
+  <!-- Category-area start -->
+  @if ($secInfo->category_section_status == 1)
+    <section class="category-area category-2">
+      <div class="container">
+        <div class="row">
+          @if (count($categories) == 0)
+            <h4 class="text-center">{{ __('NO CATEGORIES FOUND') }}!</h4>
+          @else
+            <div class="col-12" data-aos="fade-up">
+              <div class="swiper category-slider-2">
+                <div class="swiper-wrapper">
+                  @foreach ($categories as $category)
+                    <style>
+                      .category-area.category-2 .swiper-slide[data-category-id="{{ $category->id }}"] .bg-shape {
+                        background-color: #{{ $category->background_color }};
+                      }
+                    </style>
                     @php
-                        $cusHeroContent = App\Models\CustomSectionContent::where('custom_section_id', $cusHero->id)
-                            ->where('language_id', $currentLanguageInfo->id)
-                            ->first();
+                      $serviceCount = App\Models\Services\Services::join(
+                          'service_contents',
+                          'service_contents.service_id',
+                          '=',
+                          'services.id',
+                      )
+                          ->where([['services.status', '=', 1], ['service_contents.category_id', '=', $category->id]])
+                          ->count();
                     @endphp
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
                     @include('frontend.home.custom-section', ['data' => $cusHeroContent])
                 @endif
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                     <div class="swiper-slide mb-40" data-category-id="{{ $category->id }}">
                       <div class="card text-center shadow-md">
                         <div class="card-img mb-10">
@@ -189,41 +232,43 @@
                           box-shadow: 0 15px 30px -12px rgba({{ hexdec(substr($process->background_color, 0, 2)) }}, {{ hexdec(substr($process->background_color, 2, 2)) }}, {{ hexdec(substr($process->background_color, 4, 2)) }}, 0.7);
                         }
 
-                        .works-area.works-3 .card:hover .card-title.first-title{{ $loop->iteration }} {
-                          color: #{{ $process->background_color }};
-                        }
-                      </style>
-                      <div class="col-lg-12 col-sm-6 item-1" data-aos="fade-up">
-                        <div class="card mb-30">
-                          <div class="card-icon icon-bg{{ $loop->iteration }} mb-20 rounded-circle">
-                            <i class="{{ $process->icon }}"></i>
-                          </div>
-                          <h4 class="card-title first-title{{ $loop->iteration }} lc-1 mb-15">
-                            {{ $process->title }}
-                          </h4>
-                          <p class="card-text">
-                            {{ $process->text }}
-                          </p>
-                        </div>
-                      </div>
-                    @endforeach
-                  </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up">
-                  <div class="image mb-30">
-                    <img class="lazyload blur-up" src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                      data-src="{{ asset('assets/img/' . @$sectionContent->work_process_background_img) }}"
-                      alt="work process Image">
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="row">
-                    @foreach ($secondProcesses as $secondProcesse)
-                      <style>
-                        .works-area.works-3 .card-icon.icon-bg1{{ $loop->iteration }} {
-                          background-color: #{{ $secondProcesse->background_color }};
-                          box-shadow: 0 15px 30px -12px rgba({{ hexdec(substr($secondProcesse->background_color, 0, 2)) }}, {{ hexdec(substr($secondProcesse->background_color, 2, 2)) }}, {{ hexdec(substr($secondProcesse->background_color, 4, 2)) }}, 0.7);
-                        }
+                                                .works-area.works-3 .card:hover .card-title.first-title{{ $loop->iteration }} {
+                                                    color: #{{ $process->background_color }};
+                                                }
+                                            </style>
+                                            <div class="col-lg-12 col-sm-6 item-1" data-aos="fade-up">
+                                                <div class="card mb-30">
+                                                    <div
+                                                        class="card-icon icon-bg{{ $loop->iteration }} mb-20 rounded-circle">
+                                                        <i class="{{ $process->icon }}"></i>
+                                                    </div>
+                                                    <h4 class="card-title first-title{{ $loop->iteration }} lc-1 mb-15">
+                                                        {{ $process->title }}
+                                                    </h4>
+                                                    <p class="card-text">
+                                                        {{ $process->text }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" data-aos="fade-up">
+                                    <div class="image mb-30">
+                                        <img class="lazyload blur-up"
+                                            src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                            data-src="{{ asset('assets/img/' . @$sectionContent->work_process_background_img) }}"
+                                            alt="work process Image">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="row">
+                                        @foreach ($secondProcesses as $secondProcesse)
+                                            <style>
+                                                .works-area.works-3 .card-icon.icon-bg1{{ $loop->iteration }} {
+                                                    background-color: #{{ $secondProcesse->background_color }};
+                                                    box-shadow: 0 15px 30px -12px rgba({{ hexdec(substr($secondProcesse->background_color, 0, 2)) }}, {{ hexdec(substr($secondProcesse->background_color, 2, 2)) }}, {{ hexdec(substr($secondProcesse->background_color, 4, 2)) }}, 0.7);
+                                                }
 
                         .works-area.works-3 .card:hover .card-title.first-title{{ $loop->iteration }} {
                           color: #{{ $secondProcesse->background_color }};
@@ -289,11 +334,11 @@
                 <div class="slider-navigation">
                   <button type="button" title="Slide prev" class="slider-btn rounded-circle"
                     id="product-inline-slider-1-prev">
-                    <i class="fas fa-angle-left"></i>
+                    <i class="fal fa-angle-left"></i>
                   </button>
                   <button type="button" title="Slide next" class="slider-btn rounded-circle"
                     id="product-inline-slider-1-next">
-                    <i class="fas fa-angle-right"></i>
+                    <i class="fal fa-angle-right"></i>
                   </button>
                 </div>
               @endif
@@ -337,7 +382,7 @@
                             <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
                               class="btn btn-icon border rounded-circle {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                               title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                              <i class="fas fa-heart"></i>
+                              <i class="fal fa-heart"></i>
                             </a>
                           </div>
                           <h6 class="product-title mb-0">
@@ -383,10 +428,10 @@
                           </div>
                           @if (!empty($service->address))
                             <span class="font-sm icon-start"><i
-                                class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                           @endif
                           @if ($service->zoom_meeting == 1)
-                            <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
+                            <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
                           @endif
                           <div class="product-bottom justify-content-between mt-10 pt-10 border-top">
                             <div class="product-price mt-10 mb-1">
@@ -531,7 +576,7 @@
                               <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
                                 class="btn btn-icon border rounded-circle {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                                 title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                                <i class="fas fa-heart"></i>
+                                <i class="fal fa-heart"></i>
                               </a>
                             </div>
                             <h6 class="product-title mb-0">
@@ -580,10 +625,10 @@
                             </div>
                             @if (!empty($service->address))
                               <span class="font-sm icon-start"><i
-                                  class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                  class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                             @endif
                             @if ($service->zoom_meeting == 1)
-                              <span class="font-sm icon-start"><i class="fas fa-video"></i>{{ __('Online') }}</span>
+                              <span class="font-sm icon-start"><i class="fal fa-video"></i>{{ __('Online') }}</span>
                             @endif
                             <div class="product-bottom justify-content-between mt-10 pt-10 border-top">
                               <div class="product-price mt-10 mb-1">
@@ -606,7 +651,7 @@
                     <a href="{{ route('frontend.services') }}"
                       class="btn btn-lg btn-primary btn-gradient icon-start rounded-pill"
                       title="{{ __('View More') }}" target="_self"><i
-                        class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
+                        class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
                   </div>
 
                 </div>
@@ -680,7 +725,7 @@
                                   <a href="{{ $checkWishList == false ? route('addto.wishlist', $service->id) : route('remove.wishlist', $service->id) }}"
                                     class="btn btn-icon border rounded-circle {{ $checkWishList == false ? '' : 'wishlist-active' }}"
                                     title="{{ $checkWishList == false ? __('Save to Wishlist') : __('Saved') }}">
-                                    <i class="fas fa-heart"></i>
+                                    <i class="fal fa-heart"></i>
                                   </a>
                                 </div>
                                 <h6 class="product-title mb-0">
@@ -720,11 +765,11 @@
                                 </div>
                                 @if (!empty($service->address))
                                   <span class="font-sm icon-start"><i
-                                      class="fas fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
+                                      class="fal fa-map-marker-alt"></i>{{ truncateString($service->address, 30) }}</span>
                                 @endif
                                 @if ($service->zoom_meeting == 1)
                                   <span class="font-sm icon-start"><i
-                                      class="fas fa-video"></i>{{ __('Online') }}</span>
+                                      class="fal fa-video"></i>{{ __('Online') }}</span>
                                 @endif
                                 <div class="product-bottom justify-content-between mt-10 pt-10 border-top">
                                   <div class="product-price mt-10 mb-1">
@@ -746,7 +791,7 @@
                       <div class="cta-btn text-center mt-15">
                         <a href="{{ route('frontend.services', ['category_id' => $category->id]) }}"
                           class="btn btn-lg btn-primary btn-gradient icon-start rounded-pill" target="_self"><i
-                            class="fas fa-arrow-right"></i>{{ __('View More') }}</a>
+                            class="fal fa-arrow-right"></i>{{ __('View More') }}</a>
                       </div>
 
                     </div>
@@ -830,7 +875,7 @@
               </h2>
               @if ($vendors > 0)
                 <a href="{{ route('frontend.vendors') }}" class="btn btn-lg btn-primary btn-gradient icon-start"
-                  title="View All Vendor" target="_self"><i class="fas fa-arrow-right"></i>
+                  title="View All Vendor" target="_self"><i class="fal fa-arrow-right"></i>
                   @if ($vendors > 1)
                     {{ __('View All Vendors') }}
                   @else
@@ -886,7 +931,7 @@
                           @if ($vendorInfo)
                             @if ($vendorInfo->address != null)
                               <span class="font-sm icon-start"><i
-                                  class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
+                                  class="fal fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
                             @endif
                           @endif
                           <div class="d-flex align-items-center gap-15 mt-10">
@@ -916,6 +961,8 @@
                   @endforeach
                 </div>
 
+<<<<<<< HEAD
+=======
                 <!-- If we need pagination -->
                 <div class="swiper-pagination position-static" id="product-slider-1-pagination"></div>
               </div>
@@ -1859,6 +1906,7 @@
                                     @endforeach
                                 </div>
 
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                                 <!-- If we need pagination -->
                                 <div class="swiper-pagination position-static" id="product-slider-1-pagination"></div>
                             </div>

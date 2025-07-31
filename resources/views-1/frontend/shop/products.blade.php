@@ -35,6 +35,35 @@
                 @includeIf('frontend.shop.side-bar')
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+        <div class="col-lg-8 col-xl-9">
+          <div class="sort-area" data-aos="fade-up">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <h5 class="mb-20">
+                  <span class="color-primary">{{ $total_products }}</span>
+                  {{ $total_products > 1 ? __('Products') : __('Product') }}
+                  {{ __('Found') }}
+                </h5>
+              </div>
+              <div class="col-4 d-lg-none">
+                <button class="btn btn-sm btn-outline icon-end radius-sm mb-20" type="button" data-bs-toggle="offcanvas"
+                  data-bs-target="#widgetOffcanvas" aria-controls="widgetOffcanvas">
+                  {{ __('Filter') }} <i class="fas fa-filter"></i>
+                </button>
+              </div>
+              <div class="col-8 col-lg-6">
+                <ul class="sort-list list-unstyled mb-20">
+                  <li class="item">
+                    <div class="sort-item d-flex align-items-center">
+                      <label class="me-2 font-sm">{{ __('Sort By') }}:</label>
+                      <form action="{{ route('shop.products') }}" method="get" id="SortForm">
+                        @if (!empty(request()->input('category')))
+                          <input type="hidden" name="category" value="{{ request()->input('category') }}">
+                        @endif
+=======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 <div class="col-lg-8 col-xl-9">
                     <div class="sort-area" data-aos="fade-up">
                         <div class="row align-items-center">
@@ -62,6 +91,9 @@
                                                     <input type="hidden" name="category"
                                                         value="{{ request()->input('category') }}">
                                                 @endif
+<<<<<<< HEAD
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 =======
         <div class="col-lg-8 col-xl-9">
           <div class="sort-area" data-aos="fade-up">
@@ -89,6 +121,7 @@
                           <input type="hidden" name="category" value="{{ request()->input('category') }}">
                         @endif
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
 
                                                 @if (!empty(request()->input('min')))
                                                     <input type="hidden" name="min"

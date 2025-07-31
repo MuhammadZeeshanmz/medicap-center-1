@@ -30,6 +30,8 @@
     ])
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     <!-- Blog-area start -->
     <section class="blog-area ptb-100">
         <div class="container">
@@ -122,6 +124,7 @@
                 </div>
             @endif
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <!-- Blog-area start -->
   <section class="blog-area ptb-100">
     <div class="container">
@@ -141,13 +144,13 @@
                   </div>
                   <div class="card-content p-25">
                       <ul class="card-list list-unstyled d-flex justify-content-between">
-                      <li class="mb-10 font-sm icon-start"><i class="fas fa-user-circle"></i>{{ @$blog->author }}
+                      <li class="mb-10 font-sm icon-start"><i class="fal fa-user-circle"></i>{{ @$blog->author }}
                       </li>
                       <li class="mb-10 font-sm icon-start">
                         <a href="{{ route('blog', ['category' => $blog->categorySlug]) }}" target="_self"
-                          title="{{ @$blog->categoryName }}"><i class="fas fa-tag"></i>{{ @$blog->categoryName }}</a>
+                          title="{{ @$blog->categoryName }}"><i class="fal fa-tag"></i>{{ @$blog->categoryName }}</a>
                       </li>
-                      <li class="mb-10 font-sm icon-start"><i class="fas fa-calendar-alt"></i>
+                      <li class="mb-10 font-sm icon-start"><i class="fal fa-calendar-alt"></i>
                         {{ \Carbon\Carbon::parse($blog->created_at)->format('F d, Y') }}
                       </li>
                     </ul>
@@ -160,7 +163,7 @@
                     <a href="{{ route('blog_details', ['slug' => $blog->slug]) }}"
                       class="btn-text icon-end color-primary" target="_self"
                       title="{{ __('Read More') }}">{{ __('CONTINUE READING') }}<i
-                        class="fas fa-long-arrow-right"></i></a>
+                        class="fal fa-long-arrow-right"></i></a>
                   </div>
                 </article>
               </div>
@@ -194,15 +197,25 @@
                 @foreach ($categories as $category)
                   <li class="d-flex align-items-center justify-content-between">
                     <a href="{{ route('blog', ['category' => $category->slug]) }}" target="_self" title="Blogs"><i
-                        class="fas fa-folder"></i>{{ $category->name }}</a>
+                        class="fal fa-folder"></i>{{ $category->name }}</a>
                     <span class="tqy">({{ $category->blogCount }})</span>
                   </li>
                 @endforeach
               </ul>
             </div>
           </aside>
+<<<<<<< HEAD
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
         </div>
-    </section>
-    <!-- Blog-area end -->
+      </div>
+      @if (!empty(showAd(3)))
+        <div class="text-center mt-4">
+          {!! showAd(3) !!}
+        </div>
+      @endif
+    </div>
+  </section>
+  <!-- Blog-area end -->
 @endsection

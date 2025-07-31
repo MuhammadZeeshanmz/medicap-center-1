@@ -21,6 +21,8 @@
 
 @section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
     <!-- Home-area start-->
     <section class="hero-banner hero-banner-2 pb-100 bg-img bg-cover"
         data-bg-image="{{ asset('assets/img/hero/' . @$sectionContent->hero_section_background_img) }}">
@@ -64,6 +66,7 @@
                             </div>
                         </form>
 =======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
   <!-- Home-area start-->
   <section class="hero-banner hero-banner-2 pb-100 bg-img bg-cover"
     data-bg-image="{{ asset('assets/img/hero/' . @$sectionContent->hero_section_background_img) }}">
@@ -882,7 +885,54 @@
                           </div>
                         </div>
                       </div><!-- product-default -->
+<<<<<<< HEAD
+=======
+    <!-- Home-area start-->
+    <section class="hero-banner hero-banner-2 pb-100 bg-img bg-cover"
+        data-bg-image="{{ asset('assets/img/hero/' . @$sectionContent->hero_section_background_img) }}">
+        <div class="overlay opacity-50"></div>
+        <div class="container">
+            <div class="banner-content mx-auto text-center">
+                <h1 class="title color-white mb-30" data-aos="fade-up" data-aos-delay="100">
+                    {{ !empty($sectionContent->hero_section_title) ? $sectionContent->hero_section_title : 'Find Anything From Nearest Location To Make A Booking' }}
+                </h1>
+                <p class="text color-white mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    {{ !empty($sectionContent->hero_section_subtitle) ? $sectionContent->hero_section_subtitle : 'Link Build is an advanced and modern-looking directory script with rich SEO features where you can create your.' }}
+                </p>
+                <div class="banner-filter-form mx-auto mt-40" data-aos="fade-up" data-aos-delay="150">
+                    <div class="form-wrapper shadow-md bg-white p-20 rounded-pill">
+                        <form id="homepage_search" action="{{ route('frontend.services') }}" method="get">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="input-group">
+                                        <label for="service_location" class="text-gradient"><i
+                                                class="fas fa-map-marker-alt"></i></label>
+                                        <input type="text" id="service_location" name="location" class="form-control"
+                                            placeholder="{{ __('Search By Location') }}">
+                                        <div class="vr"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="input-group">
+                                        <label for="service_title" class="text-gradient"><i
+                                                class="fas fa-clipboard-list"></i></label>
+                                        <input type="text" id="service_name" name="service_title" class="form-control"
+                                            placeholder="{{ __('Search Service') }}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6">
+                                    <button type="submit"
+                                        class="btn btn-lg btn-primary rounded-pill btn-gradient icon-start w-100">
+                                        <i class="fas fa-search"></i>
+                                        {{ __('Find Now') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                     </div>
                 </div>
             </div>

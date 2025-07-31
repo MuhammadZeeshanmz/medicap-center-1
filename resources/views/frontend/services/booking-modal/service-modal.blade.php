@@ -1,4 +1,10 @@
 <div class="bs-stepper" id="booking-stepper">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f
     <div class="bs-stepper-header" role="tablist">
         <!-- your steps here -->
         <div class="step" data-target="#staff">
@@ -55,6 +61,129 @@
                             <h3 class="title mb-20">{{ __('Choose Your Staff') }}</h3>
                         @endif
                     </div>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
+  <div class="bs-stepper-header" role="tablist">
+    <!-- your steps here -->
+    <div class="step" data-target="#staff">
+      <button type="button" class="step-trigger" role="tab" aria-controls="staff" id="staff-trigger">
+        <span class="h3 mb-1">01</span>
+        <span class="bs-stepper-circle"><i class="fas fa-user-circle"></i></span>
+        <span class="bs-stepper-label">{{ __('Staff') }}</span>
+      </button>
+    </div>
+    <div class="step" data-target="#time">
+      <button type="button" class="step-trigger" role="tab" aria-controls="time" id="time-trigger">
+        <span class="h3 mb-1">02</span>
+        <span class="bs-stepper-circle"><i class="fas fa-clock"></i></span>
+        <span class="bs-stepper-label">{{ __('Date & Time') }}</span>
+      </button>
+    </div>
+    <div class="step" data-target="#info">
+      <button type="button" class="step-trigger" role="tab" aria-controls="info" id="info-trigger">
+        <span class="h3 mb-1">03</span>
+        <span class="bs-stepper-circle"><i class="fas fa-clipboard-list-check"></i></span>
+        <span class="bs-stepper-label">{{ __('Information') }}</span>
+      </button>
+    </div>
+    <div class="step" data-target="#payment">
+      <button type="button" class="step-trigger" role="tab" aria-controls="payment" id="payment-trigger">
+        <span class="h3 mb-1">04</span>
+        <span class="bs-stepper-circle"><i class="fas fa-credit-card"></i></span>
+        <span class="bs-stepper-label">{{ __('Payment') }}</span>
+      </button>
+    </div>
+    <div class="step" data-target="#confirm">
+      <button type="button" class="step-trigger" role="tab" aria-controls="confirm" id="confirm-trigger">
+        <span class="h3 mb-1">05</span>
+        <span class="bs-stepper-circle"><i class="fas fa-check-circle"></i></span>
+        <span class="bs-stepper-label">{{ __('Confirmation') }}</span>
+      </button>
+    </div>
+  </div>
+  <div class="bs-stepper-content">
+    <div class="container">
+      <div id="staff" class="bs-stepper-pane fade" role="tabpanel" aria-labelledby="staff-trigger">
+        <!-- Staff-area start -->
+        <div class="staff-area pt-4">
+          <div class="section-title title-center mb-40">
+            @if (@$staffCount > 0)
+              <h3 class="title mb-20">{{ __('Find Or Choose Your Staff') }}</h3>
+              <div class="search-inline-form w-75 w-sm-100 mx-auto">
+                <div class="input-inline">
+                  <input type="search" name="staffSearch" id="searchVale" class="form-control"
+                    placeholder="{{ __('Search by name/location') . '...' }}">
+                </div>
+              </div>
+            @else
+              <h3 class="title mb-20">{{ __('Choose Your Staff') }}</h3>
+            @endif
+          </div>
+<<<<<<< HEAD
+=======
+    <div class="bs-stepper-header" role="tablist">
+        <!-- your steps here -->
+        <div class="step" data-target="#staff">
+            <button type="button" class="step-trigger" role="tab" aria-controls="staff" id="staff-trigger">
+                <span class="h3 mb-1">01</span>
+                <span class="bs-stepper-circle"><i class="fas fa-user-circle"></i></span>
+                <span class="bs-stepper-label">{{ __('Staff') }}</span>
+            </button>
+        </div>
+        <div class="step" data-target="#time">
+            <button type="button" class="step-trigger" role="tab" aria-controls="time" id="time-trigger">
+                <span class="h3 mb-1">02</span>
+                <span class="bs-stepper-circle"><i class="fas fa-clock"></i></span>
+                <span class="bs-stepper-label">{{ __('Date & Time') }}</span>
+            </button>
+        </div>
+        <div class="step" data-target="#info">
+            <button type="button" class="step-trigger" role="tab" aria-controls="info" id="info-trigger">
+                <span class="h3 mb-1">03</span>
+                <span class="bs-stepper-circle"><i class="fas fa-clipboard-list-check"></i></span>
+                <span class="bs-stepper-label">{{ __('Information') }}</span>
+            </button>
+        </div>
+        <div class="step" data-target="#payment">
+            <button type="button" class="step-trigger" role="tab" aria-controls="payment" id="payment-trigger">
+                <span class="h3 mb-1">04</span>
+                <span class="bs-stepper-circle"><i class="fas fa-credit-card"></i></span>
+                <span class="bs-stepper-label">{{ __('Payment') }}</span>
+            </button>
+        </div>
+        <div class="step" data-target="#confirm">
+            <button type="button" class="step-trigger" role="tab" aria-controls="confirm" id="confirm-trigger">
+                <span class="h3 mb-1">05</span>
+                <span class="bs-stepper-circle"><i class="fas fa-check-circle"></i></span>
+                <span class="bs-stepper-label">{{ __('Confirmation') }}</span>
+            </button>
+        </div>
+    </div>
+    <div class="bs-stepper-content">
+        <div class="container">
+            <div id="staff" class="bs-stepper-pane fade" role="tabpanel" aria-labelledby="staff-trigger">
+                <!-- Staff-area start -->
+                <div class="staff-area pt-4">
+                    <div class="section-title title-center mb-40">
+                        @if (@$staffCount > 0)
+                            <h3 class="title mb-20">{{ __('Find Or Choose Your Staff') }}</h3>
+                            <div class="search-inline-form w-75 w-sm-100 mx-auto">
+                                <div class="input-inline">
+                                    <input type="search" name="staffSearch" id="searchVale" class="form-control"
+                                        placeholder="{{ __('Search by name/location') . '...' }}">
+                                </div>
+                            </div>
+                        @else
+                            <h3 class="title mb-20">{{ __('Choose Your Staff') }}</h3>
+                        @endif
+                    </div>
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
+>>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
+>>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f
 
                     <div class="swiper staff-slider">
                         @php
@@ -564,7 +693,10 @@
             </div>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
         <!-- Staff-area end -->
       </div>
       <div id="time" class="bs-stepper-pane fade" role="tabpanel" aria-labelledby="time-trigger">
@@ -986,6 +1118,11 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
+=======
 >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+>>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
     </div>
 </div>
