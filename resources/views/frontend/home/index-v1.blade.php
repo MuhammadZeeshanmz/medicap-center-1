@@ -168,29 +168,16 @@
                                     </div>
                                 </div>
                             @endforeach
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
-                        @else
-                            <div class="col-12 text-center mt-4">
-                                <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
-                            </div>
-<<<<<<< HEAD
-=======
-=======
                         </div>
 
                         <!-- Swiper Pagination and Arrows -->
                         <!-- <div class="swiper-pagination" style="margin-top: 100px !important;"></div> -->
-                       
+
                     </div>
                 @else
                     <div class="col-12 text-center mt-4">
                         <h4>{{ __('NO CATEGORIES FOUND') }}!</h4>
                     </div>
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                 @endif
             </div>
         </section>
@@ -486,7 +473,7 @@
                                 <div class="image mb-40" data-aos="fade-left">
                                     <img class="lazyload by-admin blur-up"
                                         src="{{ asset('assets/frontend/images/line-shape-1.png') }}"
-                                        data-src="{{ $imagePath }}" alt="Image" height="auto" width="450px">
+                                        data-src="{{ $imagePath }}" alt="Image" height="450px" width="auto">
                                 </div>
                             </div>
 
@@ -535,8 +522,8 @@
                                             </li>
                                             @foreach ($categories as $category)
                                                 <li class="nav-item">
-                                                    <button class="nav-link hover-effect btn-md radius-sm" style="color: black;"
-                                                        data-bs-toggle="tab"
+                                                    <button class="nav-link hover-effect btn-md radius-sm"
+                                                        style="color: black;" data-bs-toggle="tab"
                                                         data-bs-target="#serviceTab{{ $category->id }}"
                                                         type="button">{{ $category->name }}</button>
                                                 </li>
@@ -560,15 +547,7 @@
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                 class="d-block overflow-hidden rounded"
                                                                 style="height: 200px;">
-<<<<<<< HEAD
                                                                 <img class="lazyload object-fit-cover w-100 h-100"
-=======
-<<<<<<< HEAD
-                                                                <img class="lazyload object-fit-cover w-100 h-100"
-=======
-                                                                <img class="lazyload  object-fit-cover w-100 h-100"
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                                                                     src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                     data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                     alt="Service"
@@ -758,15 +737,7 @@
                                                                     <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                         class="d-block overflow-hidden rounded"
                                                                         style="height: 200px;">
-<<<<<<< HEAD
                                                                         <img class="lazyload object-fit-cover w-100 h-100"
-=======
-<<<<<<< HEAD
-                                                                        <img class="lazyload object-fit-cover w-100 h-100"
-=======
-                                                                        <img class="lazyload by-admin object-fit-cover w-100 h-100"
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/img/services/' . $service->service_image) }}"
                                                                             alt="Service"
@@ -872,7 +843,7 @@
                                                                         </div>
                                                                         <a href="javaScript:void(0)"
                                                                             class="bookNowBtn btn btn-sm btn-outline-2 btn-primary"
-                                                                            data-bs-toggle="modal"
+                                                                           data-bs-toggle="modal"
                                                                             data-bs-target="#makeBooking"
                                                                             data-id="{{ $service->id }}"
                                                                             title="Book Now" target="_self">
@@ -954,80 +925,68 @@
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         @foreach ($featuredVendors as $vendor)
-<<<<<<< HEAD
-                                            <div class="swiper-slide" style="width:306px; margin-bottom:50px;">
-=======
-<<<<<<< HEAD
-                                            <div class="swiper-slide" style="width:306px; margin-bottom:50px;">
-=======
-                                            <div class="swiper-slide" style="width:306px;">
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
-                                                <div class="product-default border radius-md p-15 mb-25">
-                                                    <figure class="product-img mb-15">
-                                                        <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
-                                                            title="Vendor Image" target="_self"
-                                                            class="lazy-container radius-sm ratio ratio-2-3">
-
-<<<<<<< HEAD
-                                                            <img class="lazyload"
-=======
-<<<<<<< HEAD
-                                                            <img class="lazyload"
-=======
-                                                            <img class="lazyload by-admin"
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
-                                                                src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                                                                data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
-                                                                alt="{{ $vendor->username ?? 'Vendor' }}">
-
-                                                        </a>
-                                                    </figure>
-
-                                                    <div class="product-details p-3">
-                                                        @php
-                                                            $vendorInfo = App\Models\VendorInfo::where([
-                                                                ['vendor_id', $vendor->vendorId],
-                                                                ['language_id', $language->id],
-                                                            ])->first();
-                                                        @endphp
-                                                        <h6 class="product-title mb-0">
+                                            <<<<<<< HEAD <div class="swiper-slide"
+                                                style="width:306px; margin-bottom:50px;">
+                                                =======
+                                                <div class="swiper-slide" style="width:306px;">
+                                                    >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
+                                                    <div class="product-default border radius-md p-15 mb-25">
+                                                        <figure class="product-img mb-15">
                                                             <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
-                                                                target="_self" title="{{ $vendor->username }}">
-                                                                @if ($vendorInfo->name != null)
-                                                                    {{ $vendorInfo->name }}
-                                                                @else
-                                                                    {{ $vendor->username }}
-                                                                @endif
+                                                                title="Vendor Image" target="_self"
+                                                                class="lazy-container radius-sm ratio ratio-2-3">
+
+                                                                <img class="lazyload"
+                                                                    src="{{ asset('assets/frontend/images/placeholder.png') }}"
+                                                                    data-src="{{ $vendor->photo ? asset('assets/admin/img/vendor-photo/' . $vendor->photo) : asset('assets/img/user.png') }}"
+                                                                    alt="{{ $vendor->username ?? 'Vendor' }}">
+
                                                             </a>
-                                                        </h6>
-                                                        @if ($vendorInfo)
-                                                            @if ($vendorInfo->address != null)
-                                                                <span class="font-sm icon-start"><i
-                                                                        class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
-                                                            @endif
-                                                        @endif
-                                                        <div class="d-flex align-items-center gap-15 mt-10">
-                                                            <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
-                                                                class="btn btn-sm btn-outline-2"
-                                                                title="{{ __('Visit Store') }}"
-                                                                target="_self">{{ __('Visit Store') }}</a>
-                                                            <span class="font-sm">
-                                                                @if ($vendor->total_service > 1)
-                                                                    {{ $vendor->total_service }}
-                                                                    {{ __('Services Available') }}
-                                                                @elseif($vendor->total_service == 1)
-                                                                    {{ $vendor->total_service }}
-                                                                    {{ __('Services Available') }}
-                                                                @else
-                                                                    {{ __('No Service Available') }}
+                                                        </figure>
+
+                                                        <div class="product-details p-3">
+                                                            @php
+                                                                $vendorInfo = App\Models\VendorInfo::where([
+                                                                    ['vendor_id', $vendor->vendorId],
+                                                                    ['language_id', $language->id],
+                                                                ])->first();
+                                                            @endphp
+                                                            <h6 class="product-title mb-0">
+                                                                <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                                    target="_self" title="{{ $vendor->username }}">
+                                                                    @if ($vendorInfo->name != null)
+                                                                        {{ $vendorInfo->name }}
+                                                                    @else
+                                                                        {{ $vendor->username }}
+                                                                    @endif
+                                                                </a>
+                                                            </h6>
+                                                            @if ($vendorInfo)
+                                                                @if ($vendorInfo->address != null)
+                                                                    <span class="font-sm icon-start"><i
+                                                                            class="fas fa-map-marker-alt"></i>{{ truncateString($vendorInfo->address, 30) }}</span>
                                                                 @endif
-                                                            </span>
+                                                            @endif
+                                                            <div class="d-flex align-items-center gap-15 mt-10">
+                                                                <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"
+                                                                    class="btn btn-sm btn-outline-2"
+                                                                    title="{{ __('Visit Store') }}"
+                                                                    target="_self">{{ __('Visit Store') }}</a>
+                                                                <span class="font-sm">
+                                                                    @if ($vendor->total_service > 1)
+                                                                        {{ $vendor->total_service }}
+                                                                        {{ __('Services Available') }}
+                                                                    @elseif($vendor->total_service == 1)
+                                                                        {{ $vendor->total_service }}
+                                                                        {{ __('Services Available') }}
+                                                                    @else
+                                                                        {{ __('No Service Available') }}
+                                                                    @endif
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                         @endforeach
                                     </div>
 
@@ -1061,271 +1020,231 @@
 
 
         <!-- Testimonials: Start -->
-        @if ($secInfo->testimonial_section_status == 1)
-            <section id="landingReviews" class="section-py landing-reviews pb-0 pb-100">
-                <div class="container">
-                    <div class="row align-items-center gx-5 gy-4">
-                        <!-- Left Column (Text + Slider) -->
-                        <div class="col-lg-6">
-                            <h2 class="fw-bold mb-3">
-                                What Customers Say About <br />
-                                <span class="text-primary">Our Booking Systems</span>
-                            </h2>
-                            <p class="mb-4 text-body">
-                                We have 2000+ positive customer reviews
-                            </p>
+@if ($secInfo->testimonial_section_status == 1)
+<section id="landingReviews" class="section-py landing-reviews pb-0 pb-100">
+  <div class="container">
+    <div class="row align-items-center gx-5 gy-4">
+      <!-- Left Column (Text + Slider) -->
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-3">
+          What Customers Say About <br />
+          <span class="text-primary">Our Booking Systems</span>
+        </h2>
+        <p class="mb-4 text-body">
+          We have 2000+ positive customer reviews
+        </p>
 
-                            <div class="swiper-reviews-carousel overflow-hidden">
-                                <div class="swiper" id="swiper-reviews">
-                                    <div class="swiper-wrapper">
-                                        @if (count($testimonials) > 0)
-                                            @foreach ($testimonials as $testimonial)
-                                                <div class="swiper-slide">
-                                                    <div class="card border-0 shadow-sm p-3 h-100">
-                                                        <div
-                                                            class="card-body d-flex flex-column justify-content-between h-100">
-                                                            <div class="text-body mb-3">
-                                                                "{{ $testimonial->comment }}"
-                                                            </div>
-                                                            <div class="text-warning mb-2">
-                                                                @for ($i = 0; $i < $testimonial->rating; $i++)
-                                                                    <i class="ti ti-star-filled ti-sm"></i>
-                                                                @endfor
-                                                            </div>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="avatar me-3 avatar-sm">
-                                                                    <img src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
-                                                                        class="rounded-circle"
-                                                                        alt="{{ $testimonial->name }}" />
-                                                                </div>
-                                                                <div>
-                                                                    <h6 class="mb-0 text-body">{{ $testimonial->name }}
-                                                                    </h6>
-                                                                    <small
-                                                                        class="text-muted">{{ $testimonial->occupation }}</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        @else
-                                            <div class="col-12 text-center">
-                                                <h4 class="text-muted">{{ __('NO TESTIMONIALS FOUND') }}!</h4>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div class="swiper-pagination" id="testimonial-slider-1-pagination"></div>
-
-
-                                </div>
-                            </div>
+        <div class="swiper-reviews-carousel overflow-hidden">
+          <div class="swiper" id="swiper-reviews">
+            <div class="swiper-wrapper">
+              @if (count($testimonials) > 0)
+                @foreach ($testimonials as $testimonial)
+                  <div class="swiper-slide">
+                    <div class="card border-0 shadow-sm p-3 h-100">
+                      <div class="card-body d-flex flex-column justify-content-between h-100">
+                        <div class="text-body mb-3">
+                          "{{ $testimonial->comment }}"
                         </div>
-
-                        <!-- Right Column (Booking Illustration) -->
-                        <div class="col-lg-6 text-center">
-                            <img src="{{ !empty($sectionContent->hero_section_background_img)
-                                ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img)
-                                : asset('assets/img/front-pages/medical/hero-doctor.png') }}"
-                                alt="Booking Illustration" class="img-fluid hero-illustration"
-                                style="max-width: 90%; height: auto;" />
+                        <div class="text-warning mb-2">
+                          @for ($i = 0; $i < $testimonial->rating; $i++)
+                            <i class="ti ti-star-filled ti-sm"></i>
+                          @endfor
                         </div>
+                        <div class="d-flex align-items-center">
+                          <div class="avatar me-3 avatar-sm">
+                            <img src="{{ asset('assets/img/clients/' . $testimonial->image) }}"
+                                 class="rounded-circle"
+                                 alt="{{ $testimonial->name }}" />
+                          </div>
+                          <div>
+                            <h6 class="mb-0 text-body">{{ $testimonial->name }}</h6>
+                            <small class="text-muted">{{ $testimonial->occupation }}</small>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                @endforeach
+              @else
+                <div class="col-12 text-center">
+                  <h4 class="text-muted">{{ __('NO TESTIMONIALS FOUND') }}!</h4>
                 </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
-                <hr class="m-0" />
-            </section>
-        @endif
-        <!-- Testimonials: End -->
-<<<<<<< HEAD
-=======
-=======
               @endif
             </div>
-            <div class="swiper-pagination" id="testimonial-slider-1-pagination"></div>
-          
 
+           
           </div>
         </div>
       </div>
 
-     <!-- Right Column (Booking Illustration) -->
-<!-- Right Column (Booking Illustration) -->
-<div class="col-lg-6" data-aos="fade-left">
-  <div class="image mb-40 parallax-img"
-       data-speed="0.5"
-       data-revert="true"
-       style="transform: matrix(1, 0, 0, 1, 25.35, 32.35);">
-    <img class="lazyload blur-up"
-         src="{{ asset('assets/frontend/images/placeholder.png') }}"
-         data-src="{{ asset('assets/img/' . @$sectionContent->testimonial_section_image) }}"
-         alt="Image">
-  </div>
-</div>
-
+      <!-- Right Column (Booking Illustration) -->
+      <div class="col-lg-6 text-center">
+        <img src="{{ !empty($sectionContent->hero_section_background_img)
+          ? asset('assets/img/hero/' . $sectionContent->hero_section_background_img)
+          : asset('assets/img/front-pages/medical/hero-doctor.png') }}"
+          alt="Booking Illustration"
+          class="img-fluid hero-illustration"
+          style="max-width: 90%; height: auto;" />
+      </div>
     </div>
   </div>
   <hr class="m-0" />
 </section>
 @endif
 <!-- Testimonials: End -->
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
 
 
 
 
-        <!--/ Success Modal -->
-    @endsection
 
-    <style>
-        .services-slider,
-        .services-slider .swiper-wrapper,
-        .services-slider .swiper-slide {
-            height: auto !important;
-        }
-    </style>
+    <!--/ Success Modal -->
+@endsection
+
+<style>
+    .services-slider,
+    .services-slider .swiper-wrapper,
+    .services-slider .swiper-slide {
+        height: auto !important;
+    }
+</style>
 
 
 
-    @push('scripts')
-        <script>
-            $(document).ready(function() {
-                // Set service ID on modal open
-                $('.bookNowBtn').click(function() {
-                    var serviceId = $(this).data('id');
-                    $('#service_id').val(serviceId);
-                });
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            // Set service ID on modal open
+            $('.bookNowBtn').click(function() {
+                var serviceId = $(this).data('id');
+                $('#service_id').val(serviceId);
+            });
 
-                // Restrict past date selection
-                $('#date').attr('min', new Date().toISOString().split('T')[0]);
+            // Restrict past date selection
+            $('#date').attr('min', new Date().toISOString().split('T')[0]);
 
-                // Handle form submit
-                $('#bookingForm').on('submit', function(e) {
-                    e.preventDefault();
+            // Handle form submit
+            $('#bookingForm').on('submit', function(e) {
+                e.preventDefault();
 
-                    let form = $(this);
-                    let url = form.attr('action');
-                    let formData = form.serialize();
+                let form = $(this);
+                let url = form.attr('action');
+                let formData = form.serialize();
 
-                    $.ajax({
-                        url: url,
-                        type: 'POST',
-                        data: formData,
-                        success: function(response) {
-                            if (response.success) {
-                                if (response.payment_required) {
-                                    $('#makeBooking').modal('hide');
-                                    $('#paymentContainer').html(response.payment_html);
-                                    $('#paymentModal').modal('show');
-                                } else {
-                                    showSuccessModal(response.appointment);
-                                }
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        if (response.success) {
+                            if (response.payment_required) {
+                                $('#makeBooking').modal('hide');
+                                $('#paymentContainer').html(response.payment_html);
+                                $('#paymentModal').modal('show');
                             } else {
-                                toastr.error(response.message);
+                                showSuccessModal(response.appointment);
                             }
-                        },
-                        error: function(xhr) {
-                            let errors = xhr.responseJSON.errors;
-                            $.each(errors, function(key, value) {
-                                toastr.error(value[0]);
-                            });
+                        } else {
+                            toastr.error(response.message);
                         }
-                    });
+                    },
+                    error: function(xhr) {
+                        let errors = xhr.responseJSON.errors;
+                        $.each(errors, function(key, value) {
+                            toastr.error(value[0]);
+                        });
+                    }
                 });
+            });
 
-                function showSuccessModal(appointment) {
-                    let html = `
+            function showSuccessModal(appointment) {
+                let html = `
         <p><strong>Service:</strong> ${appointment.service_name}</p>
         <p><strong>Date:</strong> ${appointment.date}</p>
         <p><strong>Time:</strong> ${appointment.time}</p>
         <p><strong>Reference:</strong> ${appointment.reference}</p>
       `;
 
-                    $('#appointmentDetails').html(html);
-                    $('#paymentModal').modal('hide');
-                    $('#successModal').modal('show');
+                $('#appointmentDetails').html(html);
+                $('#paymentModal').modal('hide');
+                $('#successModal').modal('show');
 
-                    $('#bookingForm')[0].reset();
-                }
+                $('#bookingForm')[0].reset();
+            }
 
-                // Global event for payment success
-                $(document).on('paymentSuccess', function(event, appointment) {
-                    showSuccessModal(appointment);
-                });
+            // Global event for payment success
+            $(document).on('paymentSuccess', function(event, appointment) {
+                showSuccessModal(appointment);
             });
+        });
 
-            @push('scripts')
-                <
-                script >
-                    document.addEventListener('DOMContentLoaded', function() {
-                        // Initialize Swiper
-                        const worksSlider = new Swiper('#works-slider-1', {
-                            loop: true,
-                            slidesPerView: 1,
-                            spaceBetween: 30,
-                            centeredSlides: true,
-                            autoplay: {
-                                delay: 5000,
-                                disableOnInteraction: fasse,
+        @push('scripts')
+            <
+            script >
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Initialize Swiper
+                    const worksSlider = new Swiper('#works-slider-1', {
+                        loop: true,
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: fasse,
+                        },
+                        pagination: {
+                            el: '#works-slider-1-pagination',
+                            clickable: true,
+                            dynamicBullets: true,
+                        },
+
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 20
                             },
-                            pagination: {
-                                el: '#works-slider-1-pagination',
-                                clickable: true,
-                                dynamicBullets: true,
-                            },
-                           
-                            breakpoints: {
-                                768: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 20
-                                },
-                                992: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 30
-                                }
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 30
                             }
-                        });
+                        }
+                    });
 
-                        // Hover effect
-                        const cards = document.querySelectorAll('.works-slider .card');
-                        cards.forEach(card => {
-                            card.addEventListener('mouseenter', function() {
-                                this.style.transform = 'translateY(-10px)';
-                                this.style.transition = 'all 0.3s ease';
-                                this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
-                            });
-                            card.addEventListener('mouseleave', function() {
-                                this.style.transform = 'translateY(0)';
-                                this.style.boxShadow = 'none';
-                            });
+                    // Hover effect
+                    const cards = document.querySelectorAll('.works-slider .card');
+                    cards.forEach(card => {
+                        card.addEventListener('mouseenter', function() {
+                            this.style.transform = 'translateY(-10px)';
+                            this.style.transition = 'all 0.3s ease';
+                            this.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
+                        });
+                        card.addEventListener('mouseleave', function() {
+                            this.style.transform = 'translateY(0)';
+                            this.style.boxShadow = 'none';
                         });
                     });
-        </script>
-    @endpush
+                });
     </script>
+@endpush
+</script>
 @endpush
 
 @section('script')
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{ $authorizeUrl }}"></script>
-    <script>
-        let stripe_key = "{{ $stripe_key }}";
-        let authorize_login_key = "{{ $authorize_login_id }}";
-        let authorize_public_key = "{{ $authorize_public_key }}";
-        var complete = "{{ Session::get('complete') }}";
-        var bookingInfo = {!! json_encode(Session::get('paymentInfo')) !!};
-    </script>
-    @vite(['resources/js/appointment.js'])
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{{ $authorizeUrl }}"></script>
+<script>
+    let stripe_key = "{{ $stripe_key }}";
+    let authorize_login_key = "{{ $authorize_login_id }}";
+    let authorize_public_key = "{{ $authorize_public_key }}";
+    var complete = "{{ Session::get('complete') }}";
+    var bookingInfo = {!! json_encode(Session::get('paymentInfo')) !!};
+</script>
+@vite(['resources/js/appointment.js'])
 
-    <script>
-        @if (old('gateway') == 'stripe')
-            $('#stripe-element').removeClass('d-none');
-        @endif
-    </script>
+<script>
+    @if (old('gateway') == 'stripe')
+        $('#stripe-element').removeClass('d-none');
+    @endif
+</script>
 @endsection
 
 <!-- Swiper Initialization -->
@@ -1339,7 +1258,7 @@
                 el: '#works-slider-1-pagination',
                 clickable: true,
             },
-           
+
             autoplay: {
                 delay: 4000,
                 disableOnInteraction: false,
@@ -1369,7 +1288,7 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
-            
+
             breakpoints: {
                 576: {
                     slidesPerView: 1
@@ -1414,15 +1333,15 @@
     });
 </script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll('.parallax-img img');
-    new simpleParallax(images, {
-      scale: 1.1,
-      delay: 0.1,
-      transition: 'cubic-bezier(0,0,0,1)',
-      overflow: true,
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('.parallax-img img');
+        new simpleParallax(images, {
+            scale: 1.1,
+            delay: 0.1,
+            transition: 'cubic-bezier(0,0,0,1)',
+            overflow: true,
+        });
     });
-  });
 </script>
 
 

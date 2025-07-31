@@ -24,6 +24,8 @@ Route::middleware('change.lang')->group(function () {
   //services route
   Route::prefix('services')->group(function () {
     Route::get('/', 'FrontEnd\Services\ServiceController@index')->name('frontend.services');
+    
+    
 
     Route::get('addto/wishlist/{id}', 'FrontEnd\UserController@add_to_wishlist')->name('addto.wishlist');
     Route::get('remove/wishlist/{id}', 'FrontEnd\UserController@remove_wishlist')->name('remove.wishlist');

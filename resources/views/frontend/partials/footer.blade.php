@@ -41,7 +41,7 @@
                                 <div class="social-link mb-4 text-white">
                                     @foreach ($socialMediaInfos as $socialMediaInfo)
                                         <a href="{{ $socialMediaInfo->url }}" target="_blank" title="social">
-                                            <i class="{{ $socialMediaInfo->icon }}"></i>
+                                            <i class="{{ $socialMediaInfo->icon }}" style="padding: 8px;"></i>
                                         </a>
                                     @endforeach
                                 </div>

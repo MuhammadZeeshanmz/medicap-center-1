@@ -233,7 +233,7 @@
                   <div class="swiper-wrapper">
                     @foreach($related_services as $related_service)
                       <div class="swiper-slide">
-                        @include('frontend.partials.service-card', ['service' => $related_service])
+
                       </div>
                     @endforeach
                   </div>
@@ -360,9 +360,8 @@
         </div>
 
         <!-- Sidebar -->
-        <div class="col-lg-4">
-          @include('frontend.services.details-sidebar')
-        </div>
+           @include('frontend.services.details-sidebar')
+        
       </div>
     </div>
   </section>
