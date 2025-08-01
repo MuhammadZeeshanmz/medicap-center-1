@@ -90,27 +90,28 @@
 
                         <!-- Toolbar: Start -->
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
-                  <!-- Language Selector -->
-<div class="item dropdown">
-  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="fa fa-globe me-2"></i>
-    <span>{{ $currentLanguageInfo->name }}</span>
-  </a>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-    @foreach ($allLanguageInfos as $languageInfo)
-      <li>
-        <a class="dropdown-item d-flex justify-content-between align-items-center" href="{{ route('change_language', ['lang_code' => $languageInfo->code]) }}">
-          {{ $languageInfo->name }}
-          @if ($languageInfo->code == $currentLanguageInfo->code)
-            <i class="fas fa-check text-success"></i>
-          @endif
-        </a>
-      </li>
-    @endforeach
-  </ul>
-</div>
-
-
+                            <!-- Language Selector -->
+                            <div class="item dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
+                                    role="button" id="languageDropdown" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <i class="fa fa-globe me-2"></i>
+                                    <span>{{ $currentLanguageInfo->name }}</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                    @foreach ($allLanguageInfos as $languageInfo)
+                                        <li>
+                                            <a class="dropdown-item d-flex justify-content-between align-items-center"
+                                                href="{{ route('change_language', ['lang_code' => $languageInfo->code]) }}">
+                                                {{ $languageInfo->name }}
+                                                @if ($languageInfo->code == $currentLanguageInfo->code)
+                                                    <i class="fas fa-check text-success"></i>
+                                                @endif
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             <!-- Customer Dropdown -->
                             <div class="item ms-2">
                                 <div class="dropdown">
@@ -176,12 +177,12 @@
     </div>
 </header>
 <!-- Header-area end -->
- <style>
-  #languageDropdown i {
-    font-size: 18px;
-  }
+<style>
+    #languageDropdown i {
+        font-size: 18px;
+    }
 
-  .dropdown-menu {
-    min-width: 160px;
-  }
+    .dropdown-menu {
+        min-width: 160px;
+    }
 </style>

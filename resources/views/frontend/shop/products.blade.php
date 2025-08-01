@@ -46,8 +46,8 @@
                             </div>
                             <div class="col-4 d-lg-none">
                                 <button class="btn btn-sm btn-outline icon-end radius-sm mb-20" type="button"
-                                        data-bs-toggle="offcanvas" data-bs-target="#widgetOffcanvas"
-                                        aria-controls="widgetOffcanvas">
+                                    data-bs-toggle="offcanvas" data-bs-target="#widgetOffcanvas"
+                                    aria-controls="widgetOffcanvas">
                                     {{ __('Filter') }} <i class="fas fa-filter"></i>
                                 </button>
                             </div>
@@ -59,18 +59,19 @@
                                             <form action="{{ route('shop.products') }}" method="get" id="SortForm">
                                                 @foreach (['category', 'min', 'max'] as $param)
                                                     @if (!empty(request()->input($param)))
-                                                        <input type="hidden" name="{{ $param }}" value="{{ request()->input($param) }}">
+                                                        <input type="hidden" name="{{ $param }}"
+                                                            value="{{ request()->input($param) }}">
                                                     @endif
                                                 @endforeach
                                                 <select name="sort" class="sort nice-select right color-dark"
-                                                        onchange="document.getElementById('SortForm').submit()">
-                                                    <option value="newest" {{ request()->input('sort') == 'newest' ? 'selected' : '' }}>
+                                                    onchange="document.getElementById('SortForm').submit()">
+                                                    <option value="newest"
+                                                        {{ request()->input('sort') == 'newest' ? 'selected' : '' }}>
                                                         {{ __('Date : Newest on top') }}
-<<<<<<< HEAD
-                                                    </option <option
-                                                        {{ request()->input('sort') == 'oldest' ? 'selected' : '' }}
+                                                    </option>
+                                                    <option {{ request()->input('sort') == 'oldest' ? 'selected' : '' }}
                                                         value="oldest">
-                                                    {{ __('Date : Oldest on top') }}
+                                                        {{ __('Date : Oldest on top') }}
                                                     </option>
                                                     <option
                                                         {{ request()->input('sort') == 'high-to-low' ? 'selected' : '' }}
@@ -80,16 +81,6 @@
                                                     <option
                                                         {{ request()->input('sort') == 'low-to-high' ? 'selected' : '' }}
                                                         value="low-to-high">
-=======
-                                                    </option>
-                                                    <option value="oldest" {{ request()->input('sort') == 'oldest' ? 'selected' : '' }}>
-                                                        {{ __('Date : Oldest on top') }}
-                                                    </option>
-                                                    <option value="high-to-low" {{ request()->input('sort') == 'high-to-low' ? 'selected' : '' }}>
-                                                        {{ __('Price : High to Low') }}
-                                                    </option>
-                                                    <option value="low-to-high" {{ request()->input('sort') == 'low-to-high' ? 'selected' : '' }}>
->>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f
                                                         {{ __('Price : Low to High') }}
                                                     </option>
                                                 </select>
@@ -107,28 +98,30 @@
                                 <div class="product-default shadow-none text-center mb-25">
                                     <figure class="product-img mb-15">
                                         <a href="{{ route('shop.product_details', ['slug' => $product->slug]) }}"
-                                           class="lazy-container ratio ratio-1-1">
-                                            @if ($product->featured_image && file_exists(public_path('assets/img/products/featured-images/' . $product->featured_image)))
+                                            class="lazy-container ratio ratio-1-1">
+                                            @if (
+                                                $product->featured_image &&
+                                                    file_exists(public_path('assets/img/products/featured-images/' . $product->featured_image)))
                                                 <img class="lazyload"
-                                                     src="{{ asset('assets/front/images/placeholder.png') }}"
-                                                     data-src="{{ asset('assets/img/products/featured-images/' . $product->featured_image) }}"
-                                                     alt="{{ $product->title }}" loading="lazy"
-                                                     onerror="this.onerror=null;this.src='{{ asset('assets/front/images/placeholder.png') }}'">
+                                                    src="{{ asset('assets/front/images/placeholder.png') }}"
+                                                    data-src="{{ asset('assets/img/products/featured-images/' . $product->featured_image) }}"
+                                                    alt="{{ $product->title }}" loading="lazy"
+                                                    onerror="this.onerror=null;this.src='{{ asset('assets/front/images/placeholder.png') }}'">
                                             @else
                                                 <img class="lazyload"
-                                                     src="{{ asset('assets/front/images/placeholder.png') }}"
-                                                     data-src="{{ asset('assets/front/images/placeholder.png') }}"
-                                                     alt="{{ $product->title }}" loading="lazy">
+                                                    src="{{ asset('assets/front/images/placeholder.png') }}"
+                                                    data-src="{{ asset('assets/front/images/placeholder.png') }}"
+                                                    alt="{{ $product->title }}" loading="lazy">
                                             @endif
                                         </a>
                                         <div class="product-overlay">
                                             <a href="{{ route('shop.product_details', ['slug' => $product->slug]) }}"
-                                               target="_self" title="{{ __('View Details') }}" class="icon hover-scale">
+                                                target="_self" title="{{ __('View Details') }}" class="icon hover-scale">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                             <a href="{{ route('shop.product.add_to_cart', ['id' => $product->id, 'quantity' => 1]) }}"
-                                               target="_self" title="{{ __('Add to Cart') }}"
-                                               class="icon cart-btn add-to-cart-btn hover-scale">
+                                                target="_self" title="{{ __('Add to Cart') }}"
+                                                class="icon cart-btn add-to-cart-btn hover-scale">
                                                 <i class="fas fa-shopping-cart"></i>
                                             </a>
                                         </div>
@@ -136,10 +129,10 @@
                                     <div class="product-details">
                                         <div class="ratings d-flex justify-content-center mb-10">
                                             <div class="rate bg-img"
-                                                 data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
+                                                data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
                                                 <div class="rating-icon bg-img"
-                                                     style="width: {{ $product->average_rating * 20 . '%;' }}"
-                                                     data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
+                                                    style="width: {{ $product->average_rating * 20 . '%;' }}"
+                                                    data-bg-image="{{ asset('assets/frontend/images/rate-star.png') }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +144,8 @@
                                         <div class="product-price justify-content-center">
                                             <h6 class="new-price">{{ symbolPrice($product->current_price) }}</h6>
                                             @if (!empty($product->previous_price))
-                                                <span class="old-price font-sm">{{ symbolPrice($product->previous_price) }}</span>
+                                                <span
+                                                    class="old-price font-sm">{{ symbolPrice($product->previous_price) }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -163,13 +157,13 @@
                     <nav class="pagination-nav mt-20 mb-40 justify-content-center" data-aos="fade-up">
                         <ul class="pagination justify-content-center">
                             {{ $products->appends([
-                                'keyword' => request()->input('keyword'),
-                                'category' => request()->input('category'),
-                                'rating' => request()->input('rating'),
-                                'min' => request()->input('min'),
-                                'max' => request()->input('max'),
-                                'sort' => request()->input('sort'),
-                            ])->links() }}
+                                    'keyword' => request()->input('keyword'),
+                                    'category' => request()->input('category'),
+                                    'rating' => request()->input('rating'),
+                                    'min' => request()->input('min'),
+                                    'max' => request()->input('max'),
+                                    'sort' => request()->input('sort'),
+                                ])->links() }}
                         </ul>
                     </nav>
 
@@ -188,7 +182,7 @@
 @section('script')
     <script src="{{ asset('assets/frontend/js/shop.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Lazy Load
             if (typeof LazyLoad !== 'undefined') {
                 new LazyLoad({
@@ -204,16 +198,16 @@
 
             // Add to Cart Handler
             document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-                btn.addEventListener('click', function (e) {
+                btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const url = this.getAttribute('href');
                     fetch(url, {
-                        method: 'GET',
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'Content-Type': 'application/json'
-                        }
-                    })
+                            method: 'GET',
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'Content-Type': 'application/json'
+                            }
+                        })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {

@@ -1,6 +1,5 @@
 <!-- Header-area start -->
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <header class="header-area header-1 bg-white @if(!request()->routeIs('index')) header-static @endif" data-aos="fade-down">
   <!-- Start mobile menu -->
   <div class="mobile-menu">
@@ -65,9 +64,7 @@
               @endif
             @endforeach
           </ul>
-=======
-=======
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
+
 <header class="header-area header-1 bg-white @if (!request()->routeIs('index')) header-static @endif" data-aos="fade-down">
     <!-- Start mobile menu -->
     <div class="mobile-menu">
@@ -202,10 +199,7 @@
                     </div>
                 </div>
             </nav>
-<<<<<<< HEAD
->>>>>>> 40edd79af463ec6c303822e1570ba8bbd1125a00
-=======
-=======
+
 <header class="header-area header-1 bg-white @if(!request()->routeIs('index')) header-static @endif" data-aos="fade-down">
   <!-- Start mobile menu -->
   <div class="mobile-menu">
@@ -270,8 +264,7 @@
               @endif
             @endforeach
           </ul>
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
+ 
         </div>
     </div>
 </header>

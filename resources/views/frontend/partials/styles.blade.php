@@ -25,43 +25,7 @@
 @vite([
     'resources/assets/css/custome.css',
     // 'resources/css/app.css',
-<<<<<<< HEAD
     'resources/css/base.css',
-=======
-
-    // 'resources/css/base.css',
-
-    'resources/css/base.css',
-
-       'resources/css/base.css',
-
->>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f
-    // 'resources/css/font-awesome.css',
-    // 'resources/css/font.css',
-    // 'resources/css/inner-pages.css',
-    // 'resources/css/responsive.css',
-    // 'resources/css/rtl.css',
-    // 'resources/css/style.css',
-    // 'resources/css/tinymce-content.css',
-    // 'resources/css/toastr.min.css',
-    //  foooter css
-    // 'resources/css/footer/footer.css',
-    // header css
-    // 'resources/css/header/header.css',
-    // vendor css
-    // 'resources/css/vendors/bootstrap.min.css',
-    // 'resources/css/vendors/animate.min.css',
-    // 'resources/css/vendors/aos.min.css',
-    // 'resources/css/vendors/bs-stepper.min.css',
-    // 'resources/css/vendors/datatables.min.css',
-    // 'resources/css/vendors/daterangepicker.css',
-    // 'resources/css/vendors/leaflet.css',
-    // 'resources/css/vendors/magnific-popup.min.css',
-    // 'resources/css/vendors/MarkerCluster.css',
-    // 'resources/css/vendors/nice-select.css',
-    // 'resources/css/vendors/nouislider.min.css',
-    // 'resources/css/vendors/pignose.calendar.min.css',
-    // 'resources/css/vendors/swiper-bundle.min.css',
 ])
 <!-- Library Styles -->
 @vite(['resources/assets/vendor/libs/node-waves/node-waves.scss', 'resources/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.scss', 'resources/assets/vendor/libs/typeahead-js/typeahead.scss', 'resources/assets/vendor/scss/pages/front-page.scss'])

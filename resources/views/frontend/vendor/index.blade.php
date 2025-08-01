@@ -67,7 +67,8 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group icon-start">
-                                        <button type="submit" class="btn btn-icon bg-primary radius-sm color-white w-100 p-4">
+                                        <button type="submit"
+                                            class="btn btn-icon bg-primary radius-sm color-white w-100 p-4">
                                             <i class="fas fa-search color-white"></i>
                                             <span class="d-inline-block d-md-none">{{ __('Search') }}</span>
                                         </button>
@@ -516,8 +517,4 @@
         });
     </script>
 @endpush
-<<<<<<< HEAD
 <!-- Vendor-area end -->
-=======
-<!-- Vendor-area end -->
->>>>>>> 2ebf9ab4b4789e38a3c3bcb5f20410256d09918f
