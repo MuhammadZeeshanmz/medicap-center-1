@@ -41,79 +41,63 @@
                             <div class="alert alert-danger">{{ __(Session::get('error')) }}</div>
                         @endif
 
-                        <form id="authForm" action="{{ route('user.login_submit') }}" method="POST">
+
+                        <form action="{{ route('vendor.login_submit') }}" method="POST">
                             @csrf
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email or Username</label>
-                                <input type="text" class="form-control" id="email" name="username"
-                                    value="{{ old('username') }}" placeholder="Enter your email or username" autofocus
-                                    required>
-                                @error('username')
-                                    <p class="text-danger mt-2">{{ $message }}</p>
-                                @enderror
+                            <input type="hidden" name="package_id" value="{{ request()->buy_package }}">
+                            <input type="hidden" name="redirect_path" value="{{ request()->redirectPath }}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group mb-20">
+                                        <label for="userName" class="form-label color-dark">{{ __('Username') }}<span
+                                                class="color-red">*</span></label>
+                                        <input type="text" name="username" id="userName" class="form-control"
+                                            placeholder="{{ __('Username') }}" value="{{ old('username') }}">
+                                        @error('username')
+                                            <p class="text-danger mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group mb-20">
+                                        <label for="password" class="form-label color-dark">{{ __('Password') }}<span
+                                                class="color-red">*</span></label>
+                                        <div class="position-relative">
+                                            <input type="password" name="password" id="password" class="form-control"
+                                                placeholder="{{ __('Password') }}" required>
+                                            <span class="show-password-field">
+                                                <i class="show-icon"></i>
+                                            </span>
+                                        </div>
+                                        @error('password')
+                                            <p class="text-danger mt-2">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                @if ($bs->google_recaptcha_status == 1)
+                                    <div class="form-group mb-20">
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display() !!}
+
+                                        @error('g-recaptcha-response')
+                                            <p class="mt-1 text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                @endif
                             </div>
-
-                            <div class="mb-3 form-password-toggle">
-                                <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Password</label>
-                                    <a href="{{ route('user.forget_password') }}">
-                                        <small>Forgot Password?</small>
-                                    </a>
-                                </div>
-                                <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password"
-                                        placeholder="••••••••••••" aria-describedby="password" required>
-                                    <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
-                                </div>
-                                @error('password')
-                                    <p class="text-danger mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            @if ($bs->google_recaptcha_status == 1)
-                                <div class="form-group mb-3">
-                                    {!! NoCaptcha::renderJs() !!}
-                                    {!! NoCaptcha::display() !!}
-                                    @error('g-recaptcha-response')
-                                        <p class="mt-1 text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            @endif
-
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me">
-                                    <label class="form-check-label" for="remember-me">Remember Me</label>
-                                </div>
-                            </div>
-
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                             </div>
                         </form>
-
-                        <p class="text-center">
-                            <span>New on our platform?</span>
-                            <a href="{{ route('user.signup') }}">
-                                <span>Create an account</span>
-                            </a>
-                        </p>
-
-                        <div class="divider my-4">
-                            <div class="divider-text">or</div>
+                    </div>
+                    <div class="d-flex justify-content-between flex-wrap gap-2 mt-20">
+                        <div class="link font-sm">
+                            <a href="{{ route('vendor.forget.password') }}">{{ __('Forgot password') . '?' }}</a>
                         </div>
-
-                        <div class="d-flex justify-content-center">
-                            @if ($bs->facebook_login_status == 1)
-                                <a class="btn btn-icon btn-label-facebook me-3" href="{{ route('user.login.facebook') }}">
-                                    <i class="tf-icons fa-brands fa-facebook-f fs-5"></i>
-                                </a>
-                            @endif
-                            @if ($bs->google_login_status == 1)
-                                <a class="btn btn-icon btn-label-google-plus me-3" href="{{ route('user.login.google') }}">
-                                    <i class="tf-icons fa-brands fa-google fs-5"></i>
-                                </a>
-                            @endif
+                        <div class="link font-sm">
+                            {{ __("Don't have an account") . '?' }} <a href="{{ route('vendor.signup') }}"
+                                title="Go Signup" target="_self">{{ __('Click Here') }}</a>
+                            {{ __('to Signup') }}
                         </div>
 
                     </div>

@@ -24,8 +24,8 @@ Route::middleware('change.lang')->group(function () {
   //services route
   Route::prefix('services')->group(function () {
     Route::get('/', 'FrontEnd\Services\ServiceController@index')->name('frontend.services');
-    
-    
+
+
 
     Route::get('addto/wishlist/{id}', 'FrontEnd\UserController@add_to_wishlist')->name('addto.wishlist');
     Route::get('remove/wishlist/{id}', 'FrontEnd\UserController@remove_wishlist')->name('remove.wishlist');
@@ -216,7 +216,7 @@ Route::prefix('/user')->middleware(['guest:web', 'change.lang'])->group(function
 
 
 // Customer Routes to check with the middleware
-Route::prefix('/user')->middleware(['auth:web', 'account.status', 'change.lang', 'vendorCheck'])->group(function () {
+Route::prefix('/user')->middleware(['auth:web', 'account.status', 'change.lang'])->group(function () {
   // user redirect to dashboard route
   Route::get('/dashboard', 'FrontEnd\UserController@redirectToDashboard')->name('user.dashboard');
 
@@ -237,6 +237,7 @@ Route::prefix('/user')->middleware(['auth:web', 'account.status', 'change.lang',
 
   Route::get('appointment', 'FrontEnd\AppointmentController@appointment')->name('user.appointment.index');
   Route::get('appointment/details/{id}', 'FrontEnd\AppointmentController@details')->name('user.appointment.details');
+  Route::get('appointments', 'FrontEnd\AppointmentController@index')->name('appointment');
 
   Route::get('order', 'FrontEnd\OrderController@index')->name('user.order.index')->middleware('shop.status');
   Route::get('/order/details/{id}', 'FrontEnd\OrderController@details')->name('user.order.details')->middleware('shop.status');

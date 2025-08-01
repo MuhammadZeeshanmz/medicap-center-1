@@ -129,7 +129,7 @@
       <ul class="contact-info mt-20">
         @if (!empty($service->address))
           <li class="contact-item">
-            <i class="far fa-map-marker-alt"></i>
+            <i class="fas fa-map-marker-alt"></i>
             <span>{{ $service->address }}</span>
           </li>
         @endif
@@ -137,17 +137,17 @@
         @if ($details->vendor_id != 0)
           @if ($details->vendor->phone != null)
             <li class="contact-item">
-              <i class="far fa-headset"></i>
+              <i class="fas fa-headset"></i>
               <a href="tel:{{ $details->vendor->phone }}">{{ $details->vendor->phone }}</a>
             </li>
           @endif
           <li class="contact-item">
-            <i class="far fa-envelope"></i>
+            <i class="fas fa-envelope"></i>
             <a href="mailTo:{{ $details->vendor->email }}">{{ $details->vendor->email }}</a>
           </li>
         @else
           <li class="contact-item">
-            <i class="far fa-envelope"></i>
+            <i class="fas fa-envelope"></i>
             <a href="mailTo:{{ $admin->email }}">{{ $admin->email }}</a>
           </li>
         @endif

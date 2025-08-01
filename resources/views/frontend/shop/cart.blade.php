@@ -112,7 +112,7 @@
                                                         <span class="ratings-total">({{ $product->average_rating }})</span>
                                                     </div>
                                                 </td>
-                    <td class="qty">
+                <td class="qty">
     <div class="quantity-input d-flex align-items-center">
         <button type="button" class="quantity-down btn btn-outline-secondary px-3">
             <i class="fas fa-minus"></i>

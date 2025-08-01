@@ -65,9 +65,7 @@
               @endif
             @endforeach
           </ul>
-=======
-=======
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
+
 <header class="header-area header-1 bg-white @if (!request()->routeIs('index')) header-static @endif" data-aos="fade-down">
     <!-- Start mobile menu -->
     <div class="mobile-menu">

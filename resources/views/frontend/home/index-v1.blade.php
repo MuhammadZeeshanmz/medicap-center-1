@@ -346,7 +346,7 @@
                                                                         <img class="lazyload blur-up"
                                                                             src="{{ asset('assets/frontend/images/placeholder.png') }}"
                                                                             data-src="{{ asset('assets/admin/img/vendor-photo/' . $service->vendor->photo) }}"
-                                                                            alt="Image">
+                                                                            alt="Image" style="height: 50px;border-radius: 100%;">
                                                                     </a>
                                                                 @else
                                                                     <a href="{{ route('frontend.vendor.details', ['username' => $service->vendor->username]) }}"
@@ -925,11 +925,8 @@
                                     <div class="swiper-wrapper">
                                         <!-- Slides -->
                                         @foreach ($featuredVendors as $vendor)
-                                            <<<<<<< HEAD <div class="swiper-slide"
+                                             <div class="swiper-slide"
                                                 style="width:306px; margin-bottom:50px;">
-                                                =======
-                                                <div class="swiper-slide" style="width:306px;">
-                                                    >>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
                                                     <div class="product-default border radius-md p-15 mb-25">
                                                         <figure class="product-img mb-15">
                                                             <a href="{{ route('frontend.vendor.details', ['username' => $vendor->username]) }}"

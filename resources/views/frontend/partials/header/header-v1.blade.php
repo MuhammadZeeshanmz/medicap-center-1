@@ -56,60 +56,63 @@
                             </button>
 
                             @php $menuDatas = json_decode($menuInfos); @endphp
-                            <ul class="navbar-nav me-auto">
-                                @foreach ($menuDatas as $menuData)
-                                    @php $href = get_href($menuData); @endphp
-                                    @if (!property_exists($menuData, 'children'))
-                                        <li class="nav-item">
-                                            <a href="{{ $href }}"
-                                                class="nav-link fw-medium">{{ $menuData->text }}</a>
-                                        </li>
-                                    @else
-                                        <li class="nav-item dropdown">
-                                            <a href="{{ $href }}" class="nav-link fw-medium dropdown-toggle"
-                                                data-bs-toggle="dropdown">
-                                                {{ $menuData->text }}
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                @php $childMenusDatas = $menuData->children; @endphp
-                                                @foreach ($childMenusDatas as $childMenusData)
-                                                    @php $childHref = get_href($childMenusData); @endphp
-                                                    <li>
-                                                        <a class="dropdown-item"
-                                                            href="{{ $childHref }}">{{ $childMenusData->text }}</a>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ul>
+                          <ul class="navbar-nav me-auto">
+    @foreach ($menuDatas as $menuData)
+        @php $href = get_href($menuData); @endphp
+        @if (strtolower($menuData->text) !== 'shop')  <!-- Skip Shop -->
+            @if (!property_exists($menuData, 'children'))
+                <!-- Regular menu item -->
+                <li class="nav-item">
+                    <a href="{{ $href }}" class="nav-link fw-medium">{{ $menuData->text }}</a>
+                </li>
+            @else
+                <!-- Dropdown menu -->
+                <li class="nav-item dropdown">
+                    <a href="{{ $href }}" class="nav-link fw-medium dropdown-toggle" data-bs-toggle="dropdown">
+                        {{ $menuData->text }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach ($menuData->children as $childMenusData)
+                            <li><a class="dropdown-item" href="{{ get_href($childMenusData) }}">{{ $childMenusData->text }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endif
+        @endif
+    @endforeach
+
+    <!-- ===== ADDED APPOINTMENT BUTTON ===== -->
+    <li class="nav-item">
+        <a href="{{ route('appointment') }}" class="nav-link fw-medium">
+            <i class="fas fa-calendar-check me-1"></i> Appointment
+        </a>
+    </li>
+</ul>
                         </div>
                         <div class="landing-menu-overlay d-lg-none"></div>
                         <!-- Menu wrapper: End -->
 
                         <!-- Toolbar: Start -->
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
-                  <!-- Language Selector -->
-<div class="item dropdown">
-  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="fa fa-globe me-2"></i>
-    <span>{{ $currentLanguageInfo->name }}</span>
-  </a>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-    @foreach ($allLanguageInfos as $languageInfo)
-      <li>
-        <a class="dropdown-item d-flex justify-content-between align-items-center" href="{{ route('change_language', ['lang_code' => $languageInfo->code]) }}">
-          {{ $languageInfo->name }}
-          @if ($languageInfo->code == $currentLanguageInfo->code)
-            <i class="fas fa-check text-success"></i>
-          @endif
-        </a>
-      </li>
-    @endforeach
-  </ul>
-</div>
-
+                            <!-- Language Selector -->
+                            <div class="item dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-globe me-2"></i>
+                                    <span>{{ $currentLanguageInfo->name }}</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                    @foreach ($allLanguageInfos as $languageInfo)
+                                        <li>
+                                            <a class="dropdown-item d-flex justify-content-between align-items-center" href="{{ route('change_language', ['lang_code' => $languageInfo->code]) }}">
+                                                {{ $languageInfo->name }}
+                                                @if ($languageInfo->code == $currentLanguageInfo->code)
+                                                    <i class="fas fa-check text-success"></i>
+                                                @endif
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
 
                             <!-- Customer Dropdown -->
                             <div class="item ms-2">
@@ -176,12 +179,12 @@
     </div>
 </header>
 <!-- Header-area end -->
- <style>
-  #languageDropdown i {
-    font-size: 18px;
-  }
+<style>
+    #languageDropdown i {
+        font-size: 18px;
+    }
 
-  .dropdown-menu {
-    min-width: 160px;
-  }
+    .dropdown-menu {
+        min-width: 160px;
+    }
 </style>
