@@ -34,7 +34,7 @@
 
     // 'resources/css/font-awesome.css',
     // 'resources/css/font.css',
-       'resources/css/inner-pages.css',
+    // 'resources/css/inner-pages.css',
     // 'resources/css/responsive.css',
     // 'resources/css/rtl.css',
     // 'resources/css/style.css',

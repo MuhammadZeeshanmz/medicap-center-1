@@ -80,3 +80,14 @@
 .p-r{
   color: white;
 }
+.wishlist-btn{
+  color: red;
+  
+}
+.fas.fa-heart{
+  color: red;
+
+}
+.fas.fa-folder{
+ margin-right: 8px;
+}

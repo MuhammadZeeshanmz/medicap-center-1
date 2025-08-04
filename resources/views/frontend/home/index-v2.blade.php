@@ -65,8 +65,7 @@
                                 </div>
                             </div>
                         </form>
-=======
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
+
   <!-- Home-area start-->
   <section class="hero-banner hero-banner-2 pb-100 bg-img bg-cover"
     data-bg-image="{{ asset('assets/img/hero/' . @$sectionContent->hero_section_background_img) }}">
@@ -885,10 +884,7 @@
                           </div>
                         </div>
                       </div><!-- product-default -->
-<<<<<<< HEAD
-=======
->>>>>>> c0f9421c02b18e7ce0bd8ef04543e319a51d3f25
->>>>>>> 99cdbae7c65aa3db6a5d6c5c45df65ec5649db25
+
                     </div>
                   @endforeach
                 </div>
