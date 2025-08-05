@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <a href="{{ route('user.appointment.index') }}" target="_blank">
                                 <div class="card card-box radius-md mb-30 color-1">
                                     <div class="card-icon mb-15">
@@ -57,33 +57,7 @@
                             </a>
                         </div>
 
-                        @if ($basicInfo->shop_status == 1)
-                            <div class="col-md-4">
-                                <a href="{{ route('user.order.index') }}" target="_blank">
-                                    <div class="card card-box radius-md mb-30 color-2">
-                                        <div class="card-icon mb-15">
-                                            <i class="fas fa-shopping-bag"></i>
-                                        </div>
-                                        <div class="card-info">
-                                            <h3 class="mb-0">
-                                                @if ($orders > 0)
-                                                    {{ $orders }}
-                                                @else
-                                                    00
-                                                @endif
-                                            </h3>
-                                            <p class="mb-0">{{ __('Total Product Orders') }}</p>
-                                        </div>
-                                        <div class="card-line">
-                                            <svg class="mw-100" data-src="assets/images/chart-line.svg"
-                                                data-unique-ids="disabled" data-cache="disabled"></svg>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endif
-
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <a href="{{ route('user.wishlist') }}" target="_blank">
                                 <div class="card card-box radius-md mb-30 color-3">
                                     <div class="card-icon mb-15">
@@ -98,10 +72,6 @@
                                             @endif
                                         </h3>
                                         <p class="mb-0">{{ __('Wishlist Items') }}</p>
-                                    </div>
-                                    <div class="card-line">
-                                        <svg class="mw-100" data-src="assets/images/chart-line.svg"
-                                            data-unique-ids="disabled" data-cache="disabled"></svg>
                                     </div>
                                 </div>
                             </a>

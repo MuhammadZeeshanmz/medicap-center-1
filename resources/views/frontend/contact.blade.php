@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-text">
                             @if (!empty($info->contact_number))
-                                <p><a href="tel:{{ $info->contact_number }}">{{ $info->contact_number }}</a></p>
+                                <p><a href="tel:{{ $info->contact_number }}" style="display: flex;">{{ $info->contact_number }}</a></p>
                             @endif
                         </div>
                     </div>
