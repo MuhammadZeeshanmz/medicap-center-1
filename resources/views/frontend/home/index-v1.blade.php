@@ -334,6 +334,7 @@
                                                             <a href="{{ route('frontend.service.details', ['slug' => $service->slug, 'id' => $service->id]) }}"
                                                                 target="_self" title="{{ $service->name }}">
                                                                 {{ truncateString($service->name, 60) }}
+
                                                             </a>
                                                         </h6>
                                                         <input type="hidden" value="{{ $service->language_id }}">

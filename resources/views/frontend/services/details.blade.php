@@ -64,13 +64,7 @@
         <div class="swiper slider-thumbnails">
             <div class="swiper-wrapper">
                 @foreach ($details->sliderImage as $item)
-                    <div class="swiper-slide">
-                        <div class="thumbnail-img radius-sm lazy-container ratio ratio-1-1">
-                            <img class="lazyload" src="{{ asset('assets/frontend/images/placeholder.png') }}"
-                                data-src="{{ asset('assets/img/services/service-gallery/' . $item->image) }}"
-                                alt="Service image" />
-                        </div>
-                    </div>
+                    
                 @endforeach
             </div>
         </div>

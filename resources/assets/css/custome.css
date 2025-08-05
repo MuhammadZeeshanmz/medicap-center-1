@@ -91,3 +91,7 @@
 .fas.fa-folder{
  margin-right: 8px;
 }
+.btn.btn-outline.btn-sm.dropdown-toggle:hover {
+  border-color: white;
+  color: white;
+}
