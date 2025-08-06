@@ -78,7 +78,7 @@
                                 {{ !empty($sectionContent->hero_section_title) ? $sectionContent->hero_section_title : 'Find Anything From Nearest Location To Make A Booking' }}
                             </h1>
                             <p class="hero-sub-title fs-5 mt-3 mb-4">
-                                {{ !empty($sectionContent->hero_section_subtitle) ? $sectionContent->hero_section_subtitle : 'Link Build is an advanced and modern-looking directory script with rich SEO features where you can create your.' }}
+                                {{ !empty($sectionContent->hero_section_subtitle) ? $sectionContent->hero_section_subtitle : 'Link Build is an advanced and modern-looking directory script with rich SEO  where you can create your.' }}
                             </p>
 
                             <!-- Search Form -->
